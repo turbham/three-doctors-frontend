@@ -1,10 +1,10 @@
 <template>
   <div>
     <Navbar />
-    <div class="container mx-auto my-10">
+    <div class="container mx-auto my-10 md:mb-24">
       <div class="space-y-12 mb-12">
         <p>Homepage / Cart</p>
-        <p class="text-lg md:text-2xl font-medium">Cart</p>
+        <p class="text-lg md:text-2xl font-medium font-windsor-pro-bold text-BrownBramble">Cart</p>
       </div>
       <div class="flex flex-col space-y-4 lg:space-y-0 lg:flex-row items-start">
         <div class="w-full lg:w-8/12 space-y-16">
@@ -12,10 +12,10 @@
             <div class="w-full lg:w-8/12">
               <div class="flex flex-row items-start justify-between">
                 <div class="flex flex-row items-start space-x-5">
-                  <div class="w-40 h-40 bg-GreyCloud rounded-2xl relative">
+                  <div class="w-40 h-40 bg-GreyCloud relative">
                     <img
                       src="https://lawal-akande.netlify.app/images/profilepic.jpeg"
-                      class="h-full object-cover rounded-2xl"
+                      class="h-full object-cover"
                       alt=""
                     />
                     <div class="absolute top-4 right-4">
@@ -23,7 +23,9 @@
                     </div>
                   </div>
                   <div class="space-y-3">
-                    <p>3 Doctors smoking filter</p>
+                    <p class="font-windsor-pro-bold ">
+                      3 Doctors smoking filter
+                    </p>
                     <div class="text-GreyChateau text-xs lg:text-sm space-x-3">
                       <span>Size</span>
                       <span>8mm</span>
@@ -40,58 +42,11 @@
                   </div>
                 </div>
                 <div class="flex flex-col items-end space-y-11">
-                  <p class="text-sm lg:text-base font-semibold">$24.00</p>
-                  <div class="flex flex-row items-center space-x-3">
-                    <div class="">
-                      <img
-                        src="../assets/icons/fi_small_heart.svg"
-                        class="w-5"
-                        alt=""
-                      />
-                    </div>
-                    <div class="">
-                      <img
-                        src="../assets/icons/delete.svg"
-                        class="w-5"
-                        alt=""
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="w-full lg:w-8/12">
-              <div class="flex flex-row items-start justify-between">
-                <div class="flex flex-row items-start space-x-5">
-                  <div class="w-40 h-40 bg-GreyCloud rounded-2xl relative">
-                    <img
-                      src="https://lawal-akande.netlify.app/images/profilepic.jpeg"
-                      class="h-full object-cover rounded-2xl"
-                      alt=""
-                    />
-                    <div class="absolute top-4 right-4">
-                      <img src="../assets/icons/fi_small_heart.svg" alt="" />
-                    </div>
-                  </div>
-                  <div class="space-y-3">
-                    <p>3 Doctors smoking filter</p>
-                    <div class="text-GreyChateau text-xs md:text-sm space-x-3">
-                      <span>Size</span>
-                      <span>8mm</span>
-                    </div>
-                    <div class="flex flex-row items-center space-x-4">
-                      <button class="flex bg-Platinum px-2 rounded-md">
-                        -
-                      </button>
-                      <span class="text-SpunPearl text-[12px]">0</span>
-                      <button class="flex bg-Platinum px-2 rounded-md">
-                        +
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex flex-col items-end space-y-11">
-                  <p class="text-sm md:text-base font-semibold">$24.00</p>
+                  <p
+                    class="text-sm lg:text-base font-semibold font-windsor-pro-bold"
+                  >
+                    $24.00
+                  </p>
                   <div class="flex flex-row items-center space-x-3">
                     <div class="">
                       <img
@@ -128,9 +83,11 @@
                 type="text"
                 name=""
                 id=""
-                class="w-full border-[0.1px] border-GreyChateau p-1.5 h-10 rounded-lg"
+                class="w-full bg-VeryLightPink border-[0.1px] border-GreyChateau p-1.5 h-10"
               />
-              <button class="w-fit p-3 border border-GreyChateau rounded-lg">
+              <button
+                class="font-windsor-pro-bold bg-black text-white w-fit py-2 px-6 border border-GreyChateau"
+              >
                 Apply
               </button>
             </div>
@@ -155,16 +112,17 @@
               <p>$305.00</p>
             </div>
             <div class="space-y-2">
-              <router-link to="/checkout"
-                class="w-full flex justify-center p-3 rounded-xl bg-black text-white"
+              <router-link
+                to="/checkout"
+                class="font-windsor-pro-bold w-full flex justify-center p-3 bg-ShamrockGreen text-white"
               >
                 Checkout
               </router-link>
-              <button
+              <!-- <button
                 class="w-full flex justify-center p-3 rounded-xl bg-AquaHaze text-white"
               >
                 <img src="../assets/icons/payPal-logo.svg" alt="" />
-              </button>
+              </button> -->
             </div>
           </div>
         </div>

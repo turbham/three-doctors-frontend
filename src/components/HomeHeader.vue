@@ -10,15 +10,17 @@
     </div>
     <div class="grow">
       <div class="flex flex-col space-y-10">
-        <h4
-          class="text-center text-3xl md:text-5xl xl:text-7xl font-sf-pro-display-bold"
+        <div
+          class="font-windsor-pro-bold text-BrownBramble text-center text-3xl md:text-5xl xl:text-7xl font-sf-pro-display-bold"
         >
-          Get your smoking filters
-        </h4>
+          <h3>Get your</h3>
+          <h3>smoking filters</h3>
+        </div>
+
         <div class="flex justify-center">
           <router-link
             to="/product"
-            class="w-fit font-lighter text-sm md:text-lg border border-black hover:text-white hover:bg-black rounded-xl px-12 py-3"
+            class="w-fit font-lighter text-sm md:text-lg border border-black hover:text-white hover:bg-black px-12 py-2"
           >
             SHOP NOW
           </router-link>

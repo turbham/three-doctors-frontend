@@ -10,32 +10,43 @@ const routes = [
     path: "/",
     name: "home",
     component: HomeView,
+    meta: { toTop: true, smoothScroll: true },
   },
   {
     path: "/cart",
     name: "cart",
     component: Cart,
+    meta: { toTop: true, smoothScroll: true },
   },
   {
     path: "/checkout",
     name: "checkout",
     component: Checkout,
+    meta: { toTop: true, smoothScroll: true },
   },
   {
     path: "/product",
     name: "product",
     component: Product,
+    meta: { toTop: true, smoothScroll: true },
   },
   {
     path: "/product-details",
     name: "product-details",
     component: ProductDetail,
+    meta: { toTop: true, smoothScroll: true },
   },
 ];
 
 const router = createRouter({
   history: createWebHistory(),
   routes,
+  scrollBehavior(to) {
+    const scroll = {};
+    if (to.meta.toTop) scroll.top = 0;
+    if (to.meta.smoothScroll) scroll.behavior = "smooth";
+    return scroll;
+  },
 });
 
 export default router;

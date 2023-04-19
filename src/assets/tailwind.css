@@ -16,9 +16,29 @@
   font-family: "sf-pro-display-bold";
   src: url(./fonts/SFPRODISPLAYBOLD.OTF);
 }
+@font-face {
+  font-family: "sf-pro-display-bold";
+  src: url(./fonts/SFPRODISPLAYBOLD.OTF);
+}
+
+@font-face {
+  font-family: "windsor-pro-regular";
+  src: url(./fonts/windsor-pro-cdnfonts/WindsorProRg.TTF);
+}
+
+@font-face {
+  font-family: "windsor-pro-bold";
+  src: url(./fonts/windsor-pro-cdnfonts/WindsorProBold.TTF);
+}
+
+@font-face {
+  font-family: "windsor-pro-black";
+  src: url(./fonts/windsor-pro-cdnfonts/WindsorProUltHv.TTF);
+}
 
 body {
   /* font-family: "sf-pro-display"; */
+  background-color: #fff6ee;
 }
 
 .font-sf-pro-display-medium {
@@ -26,4 +46,14 @@ body {
 }
 .font-sf-pro-display-bold {
   font-family: "sf-pro-display-bold";
+}
+
+.font-windsor-pro-regular {
+  font-family: "windsor-pro-regular";
+}
+.font-windsor-pro-bold {
+  font-family: "windsor-pro-bold";
+}
+.font-windsor-pro-black {
+  font-family: "windsor-pro-black";
 }

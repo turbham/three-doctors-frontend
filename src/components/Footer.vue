@@ -1,5 +1,5 @@
 <template>
-  <div class="border-t">
+  <div class="bg-DarkJungleGreen text-white border-t">
     <div class="container mx-auto pt-12 md:pt-24">
       <div class="flex flex-col space-y-6 md:space-y-0 md:flex-row items-start">
         <div class="w-full md:w-5/12">
@@ -38,7 +38,7 @@
     </div>
     <div class="relative">
       <img
-        src="../assets/images/footer-img.png"
+        src="../assets/images/3-Doktors-logo-yellow.png"
         class="absolute -bottom-28"
         alt=""
       />

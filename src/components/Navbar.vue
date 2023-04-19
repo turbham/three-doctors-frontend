@@ -1,17 +1,20 @@
 <template>
-  <div class="container mx-auto py-4 h-[80px]">
-    <div class="flex flex-row items-center justify-between">
-      <router-link to="/">
-        <img src="../assets/icons/logo.svg" alt="" />
-      </router-link>
-      <div class="flex flex-row items-center space-x-5">
+  <div class="py-6 h-[80px] sticky top-0 z-50 bg-VeryLightPink">
+    <div class="container mx-auto">
+      <div class="flex flex-row items-center justify-between">
+        <router-link to="/">
+          <img src="../assets/icons/logo.svg" alt="" />
+        </router-link>
+        <div class="hidden md:flex items-center md:space-x-10 lg:space-x-16">
+          <router-link to="">SMART FILTERS</router-link>
+          <router-link to="">APPAREL</router-link>
+        </div>
         <router-link to="/cart" class="flex items-center space-x-2">
-          <p>Cart</p>
+          <p>CART</p>
           <span class="border-dotted border border-black px-2 rounded-full"
             >0</span
           >
         </router-link>
-        <p>Menu</p>
       </div>
     </div>
   </div>

@@ -68,7 +68,7 @@ function getService(link) {
 
 var httplink = createHttpLink({
   // uri: `https://lifestyle-technology.onrender.com/graphql`,
-  uri: `http://localhost:4000/graphql`,
+  uri: `https://threedoctors.onrender.com/graphql`,
 });
 const serviceHttpLink = errorLink.concat(httplink);
 

@@ -20,19 +20,25 @@
           </div>
           <div
             class="bg-LightGrey w-full h-[550px] border-[3px] border-DarkJungleGreen"
-          ></div>
+          >
+            <img
+              :src="product.product_img"
+              :alt="product.name"
+              class="w-full h-full object-cover"
+            />
+          </div>
         </div>
         <div class="w-full lg:w-6/12 flex flex-row">
           <div class="h-full space-y-8">
             <div class="space-y-2 font-windsor-pro-bold text-BrownBramble">
               <p class="font-medium text-2xl md:text-4xl">
-                3 Doktors Smoking Filter
+                {{ product.name }}
               </p>
-              <p class="font-bold text-xl">$24.00</p>
+              <p class="font-bold text-xl">${{ product.price }}</p>
             </div>
             <div class="space-y-1">
               <p class="text-base font-medium">Retail unit</p>
-              <p class="text-sm font-light">
+              <p class="text-sm font-light font-rebond-grotesque-regular">
                 400 activated charcoal filters, 10 boxes wrapped to a sales
                 unit.
               </p>
@@ -53,6 +59,7 @@
             </div>
             <div class="flex flex-row items-center space-x-5">
               <button
+                @click="addToCart"
                 class="w-full font-windsor-pro-bold bg-ShamrockGreen p-3 text-white"
               >
                 Add to Cart
@@ -73,11 +80,69 @@
 </template>
 
 <script>
+// import { toast } from "vue3-toastify";
+// import "vue3-toastify/dist/index.css";
 import Navbar from "@/components/Navbar.vue";
+
 export default {
   name: "ProductDetail",
+  props: ["products"],
+
   components: {
     Navbar,
+  },
+
+  data() {
+    return {
+      product: {},
+      id: null,
+      quantity: 1,
+    };
+  },
+
+  mounted() {
+    console.log("ooo", this.products);
+    this.id = this.$route.params.id;
+    console.log("my id", this.id);
+    this.product = this.products.find((product) => product.id == this.id);
+    // this.product = this.products.find((product) => product.id == this.id);
+    console.log("my productd", this.product);
+  },
+
+  methods: {
+    addToCart() {
+      if (this.quantity || this.quantity < 1) {
+        this.quantity = 1;
+      }
+
+      const item = {
+        product: this.product,
+        quantity: this.quantity,
+      };
+
+      this.$store.commit("addToCart", item);
+
+      // toast.success("Product added successfully", {
+      //   autoClose: 1000,
+      // });
+    },
+
+    decrementQuantity() {
+      this.quantity -= 1;
+      if (this.quantity === 0) {
+        this.$emit("removeFromCart", product);
+      }
+      this.updateCart();
+    },
+
+    incrementQuantity() {
+      this.quantity += 1;
+      this.updateCart();
+    },
+
+    updateCart() {
+      localStorage.setItem("cart", JSON.stringify(this.$store.state.cart));
+    },
   },
 };
 </script>

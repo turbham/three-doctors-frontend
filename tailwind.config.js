@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./public/**/*.html', './src/**/*.{vue,js,ts,jsx,tsx}'],
+  content: ["./public/**/*.html", "./src/**/*.{vue,js,ts,jsx,tsx}"],
   theme: {
     extend: {
       colors: {
@@ -14,7 +14,11 @@ module.exports = {
         MistBlue: "#6E7079",
         DavyGrey: "#53545C",
         OlsoGrey: "#8B8D97",
+        SilkBlue: "#4E85C5",
+        BalticSea: "#2C2D33",
+        PaleRose: "#FAC4C3",
         Grey: "#909090",
+        PaleOrange: "#FAA551",
         Platinum: "#E4E4E4",
         GreyChateau: "#A6A8B1",
         SpunPearl: "#AEA9B4",
@@ -26,6 +30,5 @@ module.exports = {
       padding: "1rem",
     },
   },
-  plugins: [],
-}
-
+  plugins: [require("tailwind-scrollbar-hide")],
+};

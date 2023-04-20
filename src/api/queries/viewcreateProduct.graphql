@@ -1,0 +1,14 @@
+query ViewcreateProduct($viewcreateProductId: ID) {
+  viewcreateProduct(id: $viewcreateProductId) {
+    _id
+    name
+    price
+    retailunit
+    image
+    description {
+      desone
+      destwo
+      desthree
+    }
+  }
+}

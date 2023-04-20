@@ -1,13 +1,13 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex';
+import auth from './auth';
+import data from "./data";
+import user from './user';
 
 export default createStore({
   state: {
-    cart: {
-      items: [],
-    },
-    isAuthenticated: false,
-    token: "",
-    isLoading: false,
+    isAuthenticated: true
+  },
+  getters: {
   },
   getters: {},
   mutations: {
@@ -32,6 +32,9 @@ export default createStore({
       localStorage.setItem("cart", JSON.stringify(state.cart));
     },
   },
-  actions: {},
-  modules: {},
-});
+  modules: {
+    auth,
+    user,
+    data
+  }
+})

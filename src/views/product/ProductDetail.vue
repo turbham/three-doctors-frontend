@@ -21,7 +21,11 @@
           <div
             class="bg-LightGrey w-full h-[550px] border-[3px] border-DarkJungleGreen"
           >
-            <img class="h-full w-full" :src="product.image" />
+            <img
+              :src="product.product_img"
+              :alt="product.name"
+              class="w-full h-full object-cover"
+            />
           </div>
         </div>
         <div class="w-full lg:w-6/12 flex flex-row">
@@ -34,7 +38,7 @@
             </div>
             <div class="space-y-1">
               <p class="text-base font-medium">Retail unit</p>
-              <p class="text-sm font-light">
+              <p class="text-sm font-light font-rebond-grotesque-regular">
                 {{ product.retailunit }}
               </p>
             </div>
@@ -84,9 +88,14 @@
 </template>
 
 <script>
+// import { toast } from "vue3-toastify";
+// import "vue3-toastify/dist/index.css";
 import Navbar from "@/components/Navbar.vue";
+
 export default {
   name: "ProductDetail",
+  props: ["products"],
+
   components: {
     Navbar,
   },

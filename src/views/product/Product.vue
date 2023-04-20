@@ -16,51 +16,34 @@
           <div
             class="grid grid-col-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8"
           >
-            <div class="rounded-2xl flex flex-col space-y-4">
-              <div class="bg-Platinum w-full h-[300px] rounded-2xl relative">
-                <img src="" alt="" />
-                <div class="absolute top-6 right-6">
-                  <img src="../../assets/icons/fi_heart.svg" alt="" />
+            <!-- <div v-for="product in products" :key="product._id"> -->
+            <router-link
+              :to="{
+                name: 'product-details',
+                params: { id: product._id },
+              }"
+              :key="product.id"
+              v-for="product in products"
+            >
+              <div class="rounded-2xl flex flex-col space-y-4">
+                <div class="bg-Platinum w-full h-[300px] rounded-2xl relative">
+                  <img src="" alt="" />
+                  <div class="absolute top-6 right-6">
+                    <img :src="product.image" alt="" />
+                  </div>
+                </div>
+                <div class="flex flex-row items-center justify-between">
+                  <div class="">
+                    <p class="text-sm md:text-base">{{ product.name }}</p>
+                    <p class="font-sf-pro-display-medium text-xl">
+                      ${{ product.price }}
+                    </p>
+                  </div>
+                  <button class="rounded-2xl px-6 py-4">Add to cart</button>
                 </div>
               </div>
-              <div class="flex flex-row items-center justify-between">
-                <div class="">
-                  <p class="text-sm md:text-base">3 Doctors Smoking Filter</p>
-                  <p class="font-sf-pro-display-medium text-xl">$24.00</p>
-                </div>
-                <button class="rounded-2xl px-6 py-4">Add to cart</button>
-              </div>
-            </div>
-            <div class="rounded-2xl flex flex-col space-y-4">
-              <div class="bg-Platinum w-full h-[300px] rounded-2xl relative">
-                <img src="" alt="" />
-                <div class="absolute top-6 right-6">
-                  <img src="../../assets/icons/fi_heart.svg" alt="" />
-                </div>
-              </div>
-              <div class="flex flex-row items-center justify-between">
-                <div class="">
-                  <p class="text-sm md:text-base">3 Doctors Smoking Filter</p>
-                  <p class="font-sf-pro-display-medium text-xl">$24.00</p>
-                </div>
-                <button class="rounded-2xl px-6 py-4">Add to cart</button>
-              </div>
-            </div>
-            <div class="rounded-2xl flex flex-col space-y-4">
-              <div class="bg-Platinum w-full h-[300px] rounded-2xl relative">
-                <img src="" alt="" />
-                <div class="absolute top-6 right-6">
-                  <img src="../../assets/icons/fi_heart.svg" alt="" />
-                </div>
-              </div>
-              <div class="flex flex-row items-center justify-between">
-                <div class="">
-                  <p class="text-sm md:text-base">3 Doctors Smoking Filter</p>
-                  <p class="font-sf-pro-display-medium text-xl">$24.00</p>
-                </div>
-                <button class="rounded-2xl px-6 py-4">Add to cart</button>
-              </div>
-            </div>
+            </router-link>
+            <!-- </div> -->
           </div>
         </div>
       </div>
@@ -72,11 +55,45 @@
 <script>
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
+// import { mapGetters } from "vuex";
 export default {
   name: "Product",
   components: {
     Navbar,
     Footer,
+  },
+  props: ["productLists"],
+  setup() {
+    const activeGallery = () => {
+      return $route.path === "/product";
+    };
+    return {
+      activeGallery,
+    };
+  },
+  data() {
+    return {
+      products: [],
+      id: null,
+    };
+  },
+
+  // computed: {
+  //   ...mapGetters(["getProduct"]),
+  // },
+
+  methods: {
+    async queryProduct() {
+      await this.$store.dispatch("query", {
+        endpoint: "listcreateProduct",
+        storeKey: "productList",
+      });
+      this.products = this.$store.state.data.productList;
+    },
+  },
+  created() {
+    this.queryProduct();
+    // this.product = this.getProduct;
   },
 };
 </script>

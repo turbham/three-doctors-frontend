@@ -4,63 +4,71 @@
     <div class="container mx-auto my-10 md:mb-24">
       <div class="space-y-12 mb-12">
         <p>Homepage / Cart</p>
-        <p class="text-lg md:text-2xl font-medium font-windsor-pro-bold text-BrownBramble">Cart</p>
+        <p
+          class="text-lg md:text-2xl font-medium font-windsor-pro-bold text-BrownBramble"
+        >
+          Cart
+        </p>
       </div>
       <div class="flex flex-col space-y-4 lg:space-y-0 lg:flex-row items-start">
         <div class="w-full lg:w-8/12 space-y-16">
           <div class="space-y-4">
             <div class="w-full lg:w-8/12">
               <div class="flex flex-row items-start justify-between">
-                <div class="flex flex-row items-start space-x-5">
-                  <div class="w-40 h-40 bg-GreyCloud relative">
-                    <img
-                      src="https://lawal-akande.netlify.app/images/profilepic.jpeg"
-                      class="h-full object-cover"
-                      alt=""
-                    />
-                    <div class="absolute top-4 right-4">
-                      <img src="../assets/icons/fi_small_heart.svg" alt="" />
+                <div class="flex flex-col items-start space-y-5">
+                  <div v-for="cart in carts" :key="cart.id">
+                    <div class="w-40 h-40 bg-GreyCloud relative">
+                      <img
+                        :src="cart.image"
+                        class="h-full object-cover"
+                        alt=""
+                      />
+                      <div class="absolute top-4 right-4">
+                        <img src="../assets/icons/fi_small_heart.svg" alt="" />
+                      </div>
+                    </div>
+                    <div class="space-y-3">
+                      <p class="font-windsor-pro-bold">
+                        {{ cart.name }}
+                      </p>
+                      <div
+                        class="text-GreyChateau text-xs lg:text-sm space-x-3"
+                      >
+                        <span>Size</span>
+                        <span>8mm</span>
+                      </div>
+                      <div class="flex flex-row items-center space-x-4">
+                        <button class="flex bg-Platinum px-2 rounded-lg">
+                          -
+                        </button>
+                        <span class="text-SpunPearl text-[12px]">0</span>
+                        <button class="flex bg-Platinum px-2 rounded-lg">
+                          +
+                        </button>
+                      </div>
                     </div>
                   </div>
-                  <div class="space-y-3">
-                    <p class="font-windsor-pro-bold ">
-                      3 Doctors smoking filter
+                  <div class="flex flex-col items-end space-y-11">
+                    <p
+                      class="text-sm lg:text-base font-semibold font-windsor-pro-bold"
+                    >
+                      $24.00
                     </p>
-                    <div class="text-GreyChateau text-xs lg:text-sm space-x-3">
-                      <span>Size</span>
-                      <span>8mm</span>
-                    </div>
-                    <div class="flex flex-row items-center space-x-4">
-                      <button class="flex bg-Platinum px-2 rounded-lg">
-                        -
-                      </button>
-                      <span class="text-SpunPearl text-[12px]">0</span>
-                      <button class="flex bg-Platinum px-2 rounded-lg">
-                        +
-                      </button>
-                    </div>
-                  </div>
-                </div>
-                <div class="flex flex-col items-end space-y-11">
-                  <p
-                    class="text-sm lg:text-base font-semibold font-windsor-pro-bold"
-                  >
-                    $24.00
-                  </p>
-                  <div class="flex flex-row items-center space-x-3">
-                    <div class="">
-                      <img
-                        src="../assets/icons/fi_small_heart.svg"
-                        class="w-5"
-                        alt=""
-                      />
-                    </div>
-                    <div class="">
-                      <img
-                        src="../assets/icons/delete.svg"
-                        class="w-5"
-                        alt=""
-                      />
+                    <div class="flex flex-row items-center space-x-3">
+                      <div class="">
+                        <img
+                          src="../assets/icons/fi_small_heart.svg"
+                          class="w-5"
+                          alt=""
+                        />
+                      </div>
+                      <div class="">
+                        <img
+                          src="../assets/icons/delete.svg"
+                          class="w-5"
+                          alt=""
+                        />
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -143,6 +151,33 @@ export default {
     Navbar,
     Footer,
     OtherProduct,
+  },
+  data() {
+    return {
+      carts: [],
+    };
+  },
+  methods: {
+    async queryCart() {
+      await this.$store.dispatch("query", {
+        endpoint: "listaddCart",
+        storeKey: "cartList",
+      });
+      this.carts = this.$store.state.data.cartList;
+    },
+  },
+
+  computed: {
+    carts() {
+      // Replace 'cart_id' with the actual property name that represents the cart ID
+      const cartId = "cart_id";
+      // Filter the 'carts' array to get only the items that have the cart ID
+      return this.carts.filter((cart) => cart.cart_id === cartId);
+    },
+  },
+
+  created() {
+    this.queryCart();
   },
 };
 </script>

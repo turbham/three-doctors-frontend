@@ -1,7 +1,11 @@
-import { createStore } from 'vuex'
+import { createStore } from 'vuex';
+import auth from './auth';
+import data from "./data";
+import user from './user';
 
 export default createStore({
   state: {
+    isAuthenticated: true
   },
   getters: {
   },
@@ -10,5 +14,8 @@ export default createStore({
   actions: {
   },
   modules: {
+    auth,
+    user,
+    data
   }
 })

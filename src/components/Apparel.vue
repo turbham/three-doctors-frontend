@@ -1,10 +1,14 @@
 <template>
-  <div class="bg-Grey py-12 md:py-24">
+  <div class="apparelbg py-12 md:py-24">
     <div class="container mx-auto space-y-4">
-      <p class="text-white text-xl md:text-5xl mb-6 font-meduim">Apparel</p>
-      <div class="flex flex-col space-y-4 md:space-y-0 md:flex-row ">
-        <img src="../assets/images/apparel-for-men.png" alt="" />
-        <img src="../assets/images/apparel-for-women.png" alt="" />
+      <p class="text-SilkBlue text-xl md:text-5xl mb-6 font-meduim font-windsor-pro-bold">Apparel</p>
+      <div class="flex flex-col space-y-4 md:space-y-0 md:flex-row">
+        <div class="w-1/2">
+          <img src="../assets/images/apparel-for-men.png" class="w-full" alt="" />
+        </div>
+        <div class="w-1/2">
+          <img src="../assets/images/apparel-for-women.png" alt="" />
+        </div>
       </div>
     </div>
   </div>

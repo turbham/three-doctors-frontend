@@ -11,13 +11,13 @@ export default createStore({
   },
   getters: {},
   mutations: {
-    initializeStore(state) {
-      if (localStorage.getItem("cart")) {
-        state.cart = JSON.parse(localStorage.getItem("cart"));
-      } else {
-        localStorage.setItem("cart", JSON.stringify(state.cart));
-      }
-    },
+    // initializeStore(state) {
+    //   if (localStorage.getItem("cart")) {
+    //     state.cart = JSON.parse(localStorage.getItem("cart"));
+    //   } else {
+    //     localStorage.setItem("cart", JSON.stringify(state.cart));
+    //   }
+    // },
     addToCart(state, item) {
       const exists = state.cart.items.filter(
         (i) => (i.product.id = item.product.id)

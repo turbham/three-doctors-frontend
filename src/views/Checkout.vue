@@ -41,6 +41,7 @@
                   id=""
                   class="w-full border border-black bg-VeryLightPink p-3 placeholder-MistBlue"
                   placeholder="First name*"
+                  v-model="args.firstname"
                 />
 
                 <input
@@ -49,6 +50,7 @@
                   id=""
                   class="w-full border border-black bg-VeryLightPink p-3 placeholder-MistBlue"
                   placeholder="Last name*"
+                  v-model="args.lastname"
                 />
                 <input
                   type="text"
@@ -56,13 +58,15 @@
                   id=""
                   class="col-span-2 w-full border border-black bg-VeryLightPink p-3 placeholder-MistBlue"
                   placeholder="Address"
+                  v-model="args.addcompany"
                 />
                 <input
                   type="text"
                   name=""
                   id=""
                   class="col-span-2 w-full border border-black bg-VeryLightPink p-3 placeholder-MistBlue"
-                  placeholder="Add Company, C/O,Apt, Suit, "
+                  placeholder="email "
+                  v-model="args.email"
                 />
               </div>
               <div class="grid grid-cols-3 gap-6">
@@ -72,6 +76,7 @@
                   id=""
                   class="col-span-1 w-full border border-black bg-VeryLightPink p-3 placeholder-MistBlue"
                   placeholder="City*"
+                  v-model="args.city"
                 />
                 <input
                   type="text"
@@ -79,6 +84,7 @@
                   id=""
                   class="col-span-1 w-full border border-black bg-VeryLightPink p-3 placeholder-MistBlue"
                   placeholder="State"
+                  v-model="args.state"
                 />
                 <input
                   type="text"
@@ -86,6 +92,7 @@
                   id=""
                   class="col-span-1 w-full border border-black bg-VeryLightPink p-3 placeholder-MistBlue"
                   placeholder="Postal Code*"
+                  v-model="args.postalcode"
                 />
               </div>
               <div class="w-full md:w-1/2">
@@ -95,6 +102,7 @@
                   id=""
                   class="col-span-1 w-full border border-black bg-VeryLightPink p-3 placeholder-MistBlue"
                   placeholder="Phone Number*"
+                  v-model="args.number"
                 />
               </div>
             </div>
@@ -103,11 +111,11 @@
                 class="border-2 border-DarkJungleGreen p-6 flex flex-row items-start justify-between"
               >
                 <div class="font-light">
-                  <p>Daniel Eloma</p>
-                  <p>256 Chapman Road STE 105-4</p>
-                  <p>Newark DE 19702</p>
-                  <p>danieleloma@gmail.com</p>
-                  <p>08038260749</p>
+                  <p>{{ detailList.firstname }}{{ detailList.lastname }}</p>
+                  <p>{{ detailList.addcompany }}</p>
+                  <p>{{ detailList.postalcode }}</p>
+                  <p>{{ detailList.email }}</p>
+                  <p>{{ detailList.number }}</p>
                 </div>
                 <div>
                   <button @click="step--" class="text-xs underline font-medium">
@@ -128,11 +136,11 @@
               <div>
                 <p class="text-DarkJungleGreen">Shipping Address</p>
                 <div class="text-OlsoGrey space-y-1">
-                  <p>Daniel Eloma</p>
-                  <p>256 Chapman Road STE 105-4</p>
-                  <p>Newark DE 19702</p>
-                  <p>danieleloma@gmail.com</p>
-                  <p>08038260749</p>
+                  <p>{{ detailList.firstname }}{{ detailList.lastname }}</p>
+                  <p>{{ detailList.addcompany }}</p>
+                  <p>{{ detailList.postalcode }}</p>
+                  <p>{{ detailList.email }}</p>
+                  <p>{{ detailList.number }}</p>
                 </div>
               </div>
               <div>
@@ -152,16 +160,16 @@
                 </div>
                 <p class="text-DarkJungleGreen">Shipping Address</p>
                 <div class="text-OlsoGrey space-y-1">
-                  <p>Daniel Eloma</p>
-                  <p>256 Chapman Road STE 105-4</p>
-                  <p>Newark DE 19702</p>
-                  <p>danieleloma@gmail.com</p>
-                  <p>08038260749</p>
+                  <p>{{ detailList.firstname }}{{ detailList.lastname }}</p>
+                  <p>{{ detailList.addcompany }}</p>
+                  <p>{{ detailList.postalcode }}</p>
+                  <p>{{ detailList.email }}</p>
+                  <p>{{ detailList.number }}</p>
                 </div>
               </div>
               <div class="flex justify-end">
                 <button
-                @click="step++"
+                  @click="step++"
                   class="font-windsor-pro-bold bg-ShamrockGreen text-white px-4 py-3 w-fit"
                 >
                   Continue to Order Review
@@ -172,11 +180,11 @@
               <div>
                 <p class="text-DarkJungleGreen">Shipping Address</p>
                 <div class="text-OlsoGrey space-y-1">
-                  <p>Daniel Eloma</p>
-                  <p>256 Chapman Road STE 105-4</p>
-                  <p>Newark DE 19702</p>
-                  <p>danieleloma@gmail.com</p>
-                  <p>08038260749</p>
+                  <p>{{ detailList.firstname }}{{ detailList.lastname }}</p>
+                  <p>{{ detailList.addcompany }}</p>
+                  <p>{{ detailList.postalcode }}</p>
+                  <p>{{ detailList.email }}</p>
+                  <p>{{ detailList.number }}</p>
                 </div>
               </div>
               <div>
@@ -246,7 +254,7 @@
                 </div>
               </div>
               <div class="space-y-3">
-                <p class="font-windsor-pro-bold">3 Doctors smoking filter</p>
+                <p class="font-windsor-pro-bold">3 Doctors Package</p>
                 <div class="text-GreyChateau text-xs lg:text-sm space-x-3">
                   <span>Size</span>
                   <span>8mm</span>
@@ -264,7 +272,10 @@
       <div class="flex justify-center">
         <button
           v-show="step < 2"
-          @click="step++"
+          @click="
+            step++;
+            createdetails();
+          "
           class="font-windsor-pro-bold bg-Platinum text-DavyGrey px-4 py-3 w-fit"
         >
           Save and continue
@@ -281,14 +292,62 @@ import Footer from "@/components/Footer.vue";
 
 export default {
   name: "Checkout",
-  data() {
-    return {
-      step: 1,
-    };
-  },
+
   components: {
     Navbar,
     Footer,
+  },
+  data() {
+    return {
+      step: 1,
+      detailList: [],
+      args: {
+        ToCart: "",
+        addcompany: "",
+        city: "",
+        email: "",
+        firstname: "",
+        lastname: "",
+        number: "",
+        postalcode: "",
+        state: "",
+      },
+    };
+  },
+
+  methods: {
+    async createdetails() {
+      console.log("yyyyyoooooooooooooo", this.args);
+      let res;
+      res = await this.$store.dispatch("mutate", {
+        endpoint: "createCustomerdetails",
+        data: { input: this.args },
+      });
+      window.localStorage.setItem("detailId", res._id);
+      console.log(res);
+      await this.querydetails();
+    },
+
+    async querydetails() {
+      console.log("yyyyyoooooooooooooo", this.args);
+      let viewcreateCustomerdetailsId = localStorage.getItem("detailId");
+      await this.$store.dispatch("query", {
+        endpoint: "viewcreateCustomerdetails",
+        storeKey: "detailList",
+        payload: {
+          viewcreateCustomerdetailsId: viewcreateCustomerdetailsId,
+        },
+      });
+      console.log("fffgggggg", this.$store.state.data.detailList);
+      this.detailList = this.$store.state.data.detailList;
+    },
+  },
+
+  async created() {
+    this.args.ToCart = localStorage.getItem("cartId");
+    // await this.querydetails();
+    // this.detailList = localStorage.getItem("detailId");
+    console.log("ttttttt", this.args.ToCart);
   },
 };
 </script>

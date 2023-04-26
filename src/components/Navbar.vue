@@ -35,16 +35,16 @@ export default {
     this.$store.commit("initializeStore");
   },
   mounted() {
-    this.cart = this.$store.state.cart;
+    this.cart = this.$store.state.cartList;
   },
-  computed: {
-    cartTotalLenth() {
-      let totalLenth = 0;
-      for (let i = 0; i < this.cart.items.length; i++) {
-        totalLenth += this.cart.items[i].quantity;
-      }
-      return totalLenth;
-    },
-  },
+  // computed: {
+  //   cartTotalLenth() {
+  //     let totalLenth = 0;
+  //     for (let i = 0; i < this.cart.items.length; i++) {
+  //       totalLenth += this.cart.items[i].quantity;
+  //     }
+  //     return totalLenth;
+  //   },
+  // },
 };
 </script>

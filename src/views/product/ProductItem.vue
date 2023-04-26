@@ -1,15 +1,10 @@
 <template>
   <div>
-    <router-link :to="{ name: 'product', params: { id: product.id } }">
+    <router-link :to="{ name: 'product', params: { id: product._id } }">
       <div class="flex flex-col space-y-4">
         <div class="bg-Platinum w-full h-[350px] relative">
-          <img
-            :src="product.product_img"
-            class="w-full h-full object-cover border-[3px] border-black"
-            alt=""
-          />
           <div class="absolute top-6 right-6">
-            <img src="../../assets/icons/fi_heart.svg" alt="" />
+            <img :src="product.image" alt="" />
           </div>
         </div>
         <div class="flex flex-row items-center justify-between">
@@ -37,5 +32,26 @@
 export default {
   name: "ProductItem",
   props: ["product"],
+
+  data() {
+    return {
+      products: [],
+      id: null,
+    };
+  },
+
+  methods: {
+    async queryProduct() {
+      await this.$store.dispatch("query", {
+        endpoint: "listcreateProduct",
+        storeKey: "productList",
+      });
+      this.products = this.$store.state.data.productList;
+    },
+  },
+
+  created() {
+    this.queryProduct();
+  },
 };
 </script>

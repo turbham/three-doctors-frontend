@@ -21,11 +21,7 @@
           <div
             class="bg-LightGrey w-full h-[550px] border-[3px] border-DarkJungleGreen"
           >
-            <img
-              :src="product.product_img"
-              :alt="product.name"
-              class="w-full h-full object-cover"
-            />
+            <img class="h-full w-full" :src="product_image" />
           </div>
         </div>
         <div class="w-full lg:w-6/12 flex flex-row">
@@ -95,22 +91,53 @@ export default {
   data() {
     return {
       product: {},
+      products: [],
       id: null,
       quantity: 1,
     };
   },
 
-  mounted() {
-    console.log("ooo", this.products);
-    this.id = this.$route.params.id;
-    console.log("my id", this.id);
-    this.product = this.products.find((product) => product.id == this.id);
-    // this.product = this.products.find((product) => product.id == this.id);
-    console.log("my productd", this.product);
-  },
+  // mounted() {
+  //   console.log("ooo", this.products);
+  //   this.id = this.$route.params.id;
+  //   console.log("my id", this.id);
+  //   this.product = this.products.find((product) => product.id == this.id);
+  //   // this.product = this.products.find((product) => product.id == this.id);
+  //   console.log("my productd", this.product);
+  // },
 
   methods: {
-    addToCart() {
+    async queryProduct() {
+      await this.$store.dispatch("query", {
+        endpoint: "listcreateProduct",
+        storeKey: "productList",
+      });
+      this.products = this.$store.state.data.productList;
+    },
+    async addToCart() {
+      let cartInput;
+      let checkCartId = window.localStorage.getItem("cartId");
+      if (checkCartId) {
+        cartInput = {
+          quantity: this.quantity,
+          productId: this.product._id,
+          cartId: checkCartId,
+        };
+      } else {
+        cartInput = {
+          quantity: this.quantity,
+          productId: this.product._id,
+        };
+      }
+
+      let response = await this.$store.dispatch("mutate", {
+        endpoint: "addCart",
+        data: { input: cartInput },
+      });
+      window.localStorage.setItem("cartId", response._id);
+      // this.$store.state.cartId =response._id
+      console.log("res", response);
+
       if (this.quantity || this.quantity < 1) {
         this.quantity = 1;
       }
@@ -122,9 +149,9 @@ export default {
 
       this.$store.commit("addToCart", item);
 
-      // toast.success("Product added successfully", {
-      //   autoClose: 1000,
-      // });
+      toast.success("Product added successfully", {
+        autoClose: 1000,
+      });
     },
 
     decrementQuantity() {
@@ -143,6 +170,16 @@ export default {
     updateCart() {
       localStorage.setItem("cart", JSON.stringify(this.$store.state.cart));
     },
+  },
+
+  async created() {
+    await this.queryProduct();
+    console.log(this.products, "first"); // Check if products data is available
+    this.id = this.$route.params.id;
+    console.log(this.id, "second"); // Check if id is correctly assigned
+    this.product = this.products.find((product) => product._id == this.id);
+    console.log(this.product, "happy");
+    console.log(this.products, "okay");
   },
 };
 </script>

@@ -34,7 +34,23 @@ export default {
     ProductItem,
   },
   data() {
-    return {};
+    return {
+      products: [],
+    };
+  },
+
+  methods: {
+    async queryProduct() {
+      await this.$store.dispatch("query", {
+        endpoint: "listcreateProduct",
+        storeKey: "productList",
+      });
+      this.products = this.$store.state.data.productList;
+    },
+  },
+
+  created() {
+    this.queryProduct();
   },
 };
 </script>

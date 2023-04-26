@@ -1,0 +1,37 @@
+mutation CreateUser($input: SignupInput) {
+  createUser(input: $input) {
+  
+    _id
+    customerDetails {
+      ToCart {
+        addedAt
+        _id
+        productId {
+          _id
+          description {
+            desone
+            desthree
+            destwo
+          }
+          image
+          name
+          price
+          retailunit
+        }
+        quantity
+      }
+      _id
+      addcompany
+      city
+      email
+      firstname
+      lastname
+      number
+      state
+      postalcode
+    }
+    email
+    password
+    token
+  }
+}

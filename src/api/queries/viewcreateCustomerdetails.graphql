@@ -1,0 +1,30 @@
+query ViewcreateCustomerdetails($viewcreateCustomerdetailsId: ID) {
+  viewcreateCustomerdetails(id: $viewcreateCustomerdetailsId) {
+    _id
+    firstname
+    lastname
+    addcompany
+    city
+    state
+    postalcode
+    email
+    number
+    ToCart {
+      _id
+      addedAt
+      productId {
+        _id
+        description {
+          desone
+          desthree
+          destwo
+        }
+        image
+        name
+        price
+        retailunit
+      }
+      quantity
+    }
+  }
+}

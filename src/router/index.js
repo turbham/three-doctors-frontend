@@ -31,7 +31,7 @@ const routes = [
     meta: { toTop: true, smoothScroll: true },
   },
   {
-    path: "/product/:id",
+    path: "/product:id",
     name: "product",
     component: ProductDetail,
     meta: { toTop: true, smoothScroll: true },

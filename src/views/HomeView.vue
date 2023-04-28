@@ -4,7 +4,7 @@
     <HomeHeader />
     <SmokeFilter />
     <Apparel />
-    <GuidlineAndRecommendation />
+    <GuidlineAndRecommendationSlide />
     <Footer />
   </div>
 </template>
@@ -14,7 +14,7 @@ import Navbar from "@/components/Navbar.vue";
 import HomeHeader from "@/components/HomeHeader.vue";
 import SmokeFilter from "@/components/SmokeFilter.vue";
 import Apparel from "@/components/Apparel.vue";
-import GuidlineAndRecommendation from "@/components/GuidlineAndRecommendation.vue";
+import GuidlineAndRecommendationSlide from "@/components/GuidlineAndRecommendationSlide.vue";
 import Footer from "@/components/Footer.vue";
 export default {
   name: "HomeView",
@@ -23,7 +23,7 @@ export default {
     HomeHeader,
     SmokeFilter,
     Apparel,
-    GuidlineAndRecommendation,
+    GuidlineAndRecommendationSlide,
     Footer,
   },
 };

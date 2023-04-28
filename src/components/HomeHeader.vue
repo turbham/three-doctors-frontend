@@ -1,16 +1,18 @@
 <template>
   <div>
-    <div class="min-h-[calc(100vh-80px)] flex flex-row items-end space-x-4">
-      <div class="w-[10%]">
+    <div
+      class="min-h-[calc(65vh-80px)] md:min-h-[calc(100vh-80px)] flex flex-row items-end space-x-4"
+    >
+      <div class="w-[35%] md:w-[10%]">
         <div class="w-full grid grid-rows-2 gap-y-4">
-          <div class="bg-GreyCloud row-span-2 h-[55vh]">
+          <div class="bg-GreyCloud row-span-2 h-[25vh] md:h-[55vh]">
             <img
               src="../assets/images/header-img-1.png"
               class="h-full w-full"
               alt=""
             />
           </div>
-          <div class="bg-GreyCloud h-[20vh]">
+          <div class="bg-GreyCloud h-[10vh] md:h-[20vh]">
             <img
               src="../assets/images/header-img-2.png"
               class="h-full w-full"
@@ -31,7 +33,7 @@
           <div class="flex justify-center">
             <router-link
               to="/products"
-              class="font-windsor-pro-bold w-fit font-lighter text-sm md:text-lg border border-black hover:text-white hover:bg-black px-12 py-2.5"
+              class="font-windsor-pro-bold w-fit font-lighter text-sm md:text-lg border border-black hover:text-white hover:bg-black px-8 py-2 md:px-12 md:py-2.5"
             >
               SHOP NOW
             </router-link>
@@ -68,16 +70,16 @@
           </div>
         </div>
       </div>
-      <div class="w-[10%] flex justify-end">
+      <div class="w-[35%] md:w-[10%] flex justify-end">
         <div class="grid grid-rows-2 w-full">
-          <div class="bg-GreyCloud row-span-2 h-[55vh]">
+          <div class="bg-GreyCloud row-span-2 h-[25vh] md:h-[55vh]">
             <img
               src="../assets/images/header-img-6.png"
               class="h-full w-full"
               alt=""
             />
           </div>
-          <div class="bg-GreyCloud h-[20vh]">
+          <div class="bg-GreyCloud h-[10vh] md:h-[20vh]">
             <img
               src="../assets/images/header-img-7.png"
               class="h-full w-full"
@@ -87,10 +89,8 @@
         </div>
       </div>
     </div>
-    <!-- <div
-      class="flex flex-row w-full sm:w-full overflow-auto scrollbar-hide -space-x-4 md:-space-x-10 relative" -->
     <div
-      class="bg-PaleOrange flex flex-row overflow-auto space-x-4 scrollbar-hide py-6 border-y-[3px] border-DarkJungleGreen text-base md:text-xl"
+      class="bg-PaleOrange flex flex-row overflow-auto space-x-4 scrollbar-hide py-3 md:py-6 border-y-[3px] border-DarkJungleGreen text-base md:text-xl"
     >
       <div class="slide">
         <span>SKATEBOARDS</span>

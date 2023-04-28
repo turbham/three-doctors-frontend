@@ -244,14 +244,14 @@
             <p class="font-semibold mb-4">Arrives by Thu,Apr 20</p>
             <div class="flex flex-row items-start space-x-10">
               <div class="w-28 h-28 bg-GreyCloud relative">
-                <img
+                <!-- <img
                   src="https://lawal-akande.netlify.app/images/profilepic.jpeg"
                   class="h-full object-cover"
                   alt=""
-                />
-                <div class="absolute top-4 right-4">
+                /> -->
+                <!-- <div class="absolute top-4 right-4">
                   <img src="../assets/icons/fi_small_heart.svg" alt="" />
-                </div>
+                </div> -->
               </div>
               <div class="space-y-3">
                 <p class="font-windsor-pro-bold">3 Doctors Package</p>

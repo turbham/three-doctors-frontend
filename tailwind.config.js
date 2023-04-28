@@ -17,6 +17,9 @@ module.exports = {
         SilkBlue: "#4E85C5",
         BalticSea: "#2C2D33",
         PaleRose: "#FAC4C3",
+        GreySuit: "#bec0ca",
+        
+
         Grey: "#909090",
         PaleOrange: "#FAA551",
         Platinum: "#E4E4E4",

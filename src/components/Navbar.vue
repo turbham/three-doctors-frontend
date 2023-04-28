@@ -11,9 +11,9 @@
         </div>
         <router-link to="/cart" class="flex items-center space-x-2">
           <p>CART</p>
-          <span class="border-dotted border border-black px-2 rounded-full">{{
-            cartTotalLenth
-          }}</span>
+          <span class="border-dotted border border-black px-2 rounded-full"
+            >0{{ productIdLength }}</span
+          >
         </router-link>
       </div>
     </div>
@@ -21,6 +21,7 @@
 </template>
 
 <script>
+
 export default {
   name: "Navbar",
   components: {},
@@ -35,16 +36,7 @@ export default {
     this.$store.commit("initializeStore");
   },
   mounted() {
-    this.cart = this.$store.state.cartList;
+    console.log(this.productIdLength);
   },
-  // computed: {
-  //   cartTotalLenth() {
-  //     let totalLenth = 0;
-  //     for (let i = 0; i < this.cart.items.length; i++) {
-  //       totalLenth += this.cart.items[i].quantity;
-  //     }
-  //     return totalLenth;
-  //   },
-  // },
 };
 </script>

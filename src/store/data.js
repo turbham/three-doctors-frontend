@@ -6,6 +6,7 @@ export default {
     productList: [],
     cartList: [],
     detailList: [],
+    numberOfProductInCart: "",
   },
 
   getters: {
@@ -43,7 +44,12 @@ export default {
       });
       this.commit("resetDefault", { value, type });
     },
+
+    updateNumberOfProductsInCart(state, numberOfProducts) {
+      state.numberOfProductInCart = numberOfProducts;
+    },
   },
+
   actions: {
     // Service helps to determine what graphql server to point to.
     mutate: ({ commit, dispatch }, { endpoint, data }) =>

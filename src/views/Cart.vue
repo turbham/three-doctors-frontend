@@ -25,9 +25,9 @@
                         class="h-full object-cover"
                         alt=""
                       />
-                      <div class="absolute top-4 right-4">
+                      <!-- <div class="absolute top-4 right-4">
                         <img src="../assets/icons/fi_small_heart.svg" alt="" />
-                      </div>
+                      </div> -->
                     </div>
                     <div class="space-y-3">
                       <p class="font-windsor-pro-bold">
@@ -57,13 +57,13 @@
                       $24.00
                     </p>
                     <div class="flex flex-row items-center space-x-3">
-                      <div class="">
+                      <!-- <div class="">
                         <img
                           src="../assets/icons/fi_small_heart.svg"
                           class="w-5"
                           alt=""
                         />
-                      </div>
+                      </div> -->
                       <div class="">
                         <img
                           src="../assets/icons/delete.svg"
@@ -139,7 +139,6 @@
         </div>
       </div>
     </div>
-    <OtherProduct />
     <Footer />
   </div>
 </template>
@@ -147,13 +146,12 @@
 <script>
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
-import OtherProduct from "@/views/product/OtherProduct.vue";
+
 export default {
   name: "Cart",
   components: {
     Navbar,
     Footer,
-    OtherProduct,
   },
 
   data() {

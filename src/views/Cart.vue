@@ -72,7 +72,7 @@
                       <p
                         class="text-sm lg:text-base font-semibold font-windsor-pro-bold"
                       >
-                        $ {{ product.price }}
+                        ${{ product.price }}
                       </p>
                       <div class="flex flex-row items-center space-x-3">
                         <div class="">

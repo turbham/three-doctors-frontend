@@ -6,7 +6,7 @@ export default {
     productList: [],
     cartList: [],
     detailList: [],
-    numberOfProductInCart: "",
+    numberOfProductInCart: null,
   },
 
   getters: {
@@ -14,6 +14,7 @@ export default {
     getProductList: (state) => state.productList,
     getCartList: (state) => state.cartList,
     getDetailList: (state) => state.detailList,
+    getNumbersOfItemsInCart: (state) => state.numberOfProductInCart,
   },
 
   mutations: {
@@ -22,6 +23,7 @@ export default {
       for (let i = 0; i < keys.length; i++) {
         state[keys[i]] = keys[i] === type ? data : state[keys[i]];
       }
+      console.log("theState", state);
       return state;
     },
     setAuth(state) {
@@ -45,7 +47,8 @@ export default {
       this.commit("resetDefault", { value, type });
     },
 
-    updateNumberOfProductsInCart(state, numberOfProducts) {
+    setCartItemLength(state, numberOfProducts) {
+      console.log("this is numberOfProducts", numberOfProducts);
       state.numberOfProductInCart = numberOfProducts;
     },
   },

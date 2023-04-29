@@ -142,6 +142,9 @@ export default {
       this.products = this.$store.state.data.productList;
       this.loading = false;
     },
+
+    
+
     goToPage(page) {
       this.currentPage = page;
     },

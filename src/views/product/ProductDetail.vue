@@ -34,7 +34,7 @@
               <p class="font-medium text-2xl md:text-4xl">
                 {{ product.name }}
               </p>
-              <p>Number: {{ numberOfProductInCart }}</p>
+              <p>Number: {{ cartLength }}</p>
               <p class="font-bold text-xl">${{ product.price }}</p>
             </div>
             <div class="space-y-1">
@@ -98,7 +98,7 @@ export default {
       products: [],
       id: null,
       quantity: 1,
-      numberOfProductInCart: "",
+      numberOfProductInCart: [],
     };
   },
 
@@ -121,6 +121,7 @@ export default {
     },
 
     async addToCart() {
+      
       let cartInput;
       let checkCartId = window.localStorage.getItem("cartId");
       if (checkCartId) {
@@ -140,15 +141,24 @@ export default {
         endpoint: "addCart",
         data: { input: cartInput },
       });
+      if(response) {
+        const viewaddCartId = localStorage.getItem("cartId");
+      await this.$store.dispatch("query", {
+        endpoint: "viewaddCart",
+        storeKey: "cartList",
+        payload: { viewaddCartId: viewaddCartId },
+      });
+      }
       window.localStorage.setItem("cartId", response._id);
       // this.$store.state.cartId =response._id
       console.log("res", response);
-      this.numberOfProductInCart = response.productId.length;
-      this.$store.commit(
-        "updateNumberOfProductsInCart",
-        response.productId.length
-      );
+      this.numberOfProductInCart = response.productId;
+      // this.$store.commit(
+      //   "updateNumberOfProductsInCart",
+      //   response.productId.length
+      // );
       console.log("number of items", response.productId.length);
+      
 
       if (this.quantity || this.quantity < 1) {
         this.quantity = 1;
@@ -159,7 +169,7 @@ export default {
         quantity: this.quantity,
       };
 
-      this.$store.commit("addToCart", item);
+      this.$store.commit("setCartItemLength", response.productId.length);
 
       toast.success("Product added successfully", {
         autoClose: 1000,
@@ -185,6 +195,21 @@ export default {
         "helloo",
         localStorage.setItem("cart", JSON.stringify(this.$store.state.cart))
       );
+    },
+  },
+
+  watch: {
+    numberOfProductInCart: {
+      handler: function (newVal) {
+        console.log("Cart contains " + newVal.length + " items");
+      },
+      deep: true,
+    },
+  },
+
+  computed: {
+    cartLength: function () {
+      return this.numberOfProductInCart.length;
     },
   },
 

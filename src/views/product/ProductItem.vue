@@ -24,6 +24,7 @@
           </p>
         </div>
         <button
+          @click="addToCart"
           class="bg-ShamrockGreen text-white font-windsor-pro-bold px-4 py-2.5"
         >
           Add to cart
@@ -56,6 +57,34 @@ export default {
       });
       this.products = this.$store.state.data.productList;
       console.log("humm", this.products.length);
+    },
+
+    async addToCart() {
+      let checkCartId = window.localStorage.getItem("cartId");
+
+      const cartInput = {
+        quantity: 1,
+        productId: this.product._id,
+        cartId: checkCartId,
+      };
+
+      const response = await this.$store.dispatch("mutate", {
+        endpoint: "addCart",
+        data: { input: cartInput },
+      });
+
+      if (response) {
+        const viewaddCartId = localStorage.getItem("cartId");
+        await this.$store.dispatch("query", {
+          endpoint: "viewaddCart",
+          storeKey: "cartList",
+          payload: { viewaddCartId: viewaddCartId },
+        });
+
+        toast.success("Product added successfully", {
+          autoClose: 1000,
+        });
+      }
     },
   },
 

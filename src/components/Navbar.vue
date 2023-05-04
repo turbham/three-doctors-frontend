@@ -34,9 +34,9 @@ export default {
   // beforeCreate() {
   //   this.$store.commit("initializeStore");
   // },
-  mounted() {
-    console.log(this.productIdLength);
-  },
+  // mounted() {
+  //   console.log(this.productIdLength);
+  // },
 
   methods: {
     async queryCart() {
@@ -60,7 +60,8 @@ export default {
 
   watch: {
     getCartLength(value) {
-      console.log("the value", value);
+      // console.log("the value", value);
+      return value
     },
   },
 };

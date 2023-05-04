@@ -6,45 +6,46 @@
       >
         Smoke Filters
       </p>
-
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-12"
-      >
-        <div
-          class="flex flex-col space-y-4 mx-2 md:mx-0"
-          v-for="product of products"
-          :key="product.id"
-        >
-          <router-link :to="{ name: 'product', params: { id: product._id } }">
+      <div>
+        <div v-if="loading">
+          <div
+            class="mx-10 sm:mx-0 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-10"
+          >
             <div
-              class="bg-white w-full h-[300px] md:h-[430px] relative overflow-hidden"
+              class="flex flex-col space-y-4 animate-pulse"
+              v-for="data of loadingDiv"
+              :key="data.id"
             >
-              <img
-                :src="product.image"
-                class="w-full h-full object-cover hover:scale-125 transition-all duration-1000 cursor-pointer"
-                alt=""
-              />
-              <!-- <div class="absolute top-10 right-10">
-              <img src="../assets/icons/fi_heart.svg" alt="" />
-            </div> -->
+              <router-link to="">
+                <div
+                  class="bg-slate-400 w-full h-[350px] overflow-hidden"
+                ></div>
+              </router-link>
+              <div class="flex flex-row items-center justify-between">
+                <div class="flex flex-col space-y-3">
+                  <button
+                    class="bg-slate-400 rounded w-44 h-3 text-white font-windsor-pro-bold"
+                  ></button>
+                  <button
+                    class="bg-slate-400 rounded w-10 h-1 text-white font-windsor-pro-bold"
+                  ></button>
+                  <button
+                    class="bg-slate-400 rounded w-8 h-3 text-white font-windsor-pro-bold"
+                  ></button>
+                </div>
+                <button
+                  class="bg-slate-400 rounded w-28 h-10 text-white font-windsor-pro-bold px-4 py-2.5"
+                ></button>
+              </div>
             </div>
-          </router-link>
-          <div class="flex flex-row items-center justify-between">
-            <div class="text-white">
-              <p class="text-sm md:text-lg font-windsor-pro-bold">
-                {{ ReduceText(product.name) }}
-              </p>
-              <p
-                class="font-sf-pro-display-medium text-2xl font-windsor-pro-bold"
-              >
-                ${{ product.price }}
-              </p>
-            </div>
-            <button
-              class="bg-BalticSea text-white font-windsor-pro-bold px-6 py-3"
-            >
-              Add to cart
-            </button>
+          </div>
+        </div>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-4 gap-y-12"
+          v-else
+        >
+          <div v-for="product of products" :key="product.id">
+            <SmokeFilterItem :product="product" />
           </div>
         </div>
       </div>
@@ -53,17 +54,34 @@
 </template>
 
 <script>
+import { toast } from "vue3-toastify";
+import "vue3-toastify/dist/index.css";
 import myMixin from "../utils/myMixin.js";
+import SmokeFilterItem from "@/views/product/SmokeFilterItem.vue";
 
 export default {
   name: "SmokeFilter",
   mixins: [myMixin],
   props: ["product"],
+  components: {
+    SmokeFilterItem,
+  },
 
   data() {
     return {
       products: [],
-      id: null,
+      loading: true,
+      loadingDiv: [
+        {
+          id: 1,
+        },
+        {
+          id: 2,
+        },
+        {
+          id: 3,
+        },
+      ],
     };
   },
 
@@ -74,6 +92,7 @@ export default {
         storeKey: "productList",
       });
       this.products = this.$store.state.data.productList.slice(0, 3);
+      this.loading = false;
     },
   },
 

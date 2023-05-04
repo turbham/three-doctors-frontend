@@ -36,10 +36,10 @@
         </div>
       </div>
     </div>
-    <div class="relative z-20">
+    <div class="relative z-20 flex justify-center bg-DarkJungleGreen">
       <img
         src="../assets/images/3-Doktors-logo-yellow_2.png"
-        class="absolute -bottom-54 bg-DarkJungleGreen"
+        class="bg absolute -bottom-54 bg-DarkJungleGreen"
         alt=""
       />
     </div>

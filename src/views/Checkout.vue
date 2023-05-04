@@ -317,19 +317,19 @@ export default {
 
   methods: {
     async createdetails() {
-      console.log("yyyyyoooooooooooooo", this.args);
+      // console.log("yyyyyoooooooooooooo", this.args);
       let res;
       res = await this.$store.dispatch("mutate", {
         endpoint: "createCustomerdetails",
         data: { input: this.args },
       });
       window.localStorage.setItem("detailId", res._id);
-      console.log(res);
+      // console.log(res);
       await this.querydetails();
     },
 
     async querydetails() {
-      console.log("yyyyyoooooooooooooo", this.args);
+      // console.log("yyyyyoooooooooooooo", this.args);
       let viewcreateCustomerdetailsId = localStorage.getItem("detailId");
       await this.$store.dispatch("query", {
         endpoint: "viewcreateCustomerdetails",
@@ -338,7 +338,7 @@ export default {
           viewcreateCustomerdetailsId: viewcreateCustomerdetailsId,
         },
       });
-      console.log("fffgggggg", this.$store.state.data.detailList);
+      // console.log("fffgggggg", this.$store.state.data.detailList);
       this.detailList = this.$store.state.data.detailList;
     },
   },
@@ -347,7 +347,7 @@ export default {
     this.args.ToCart = localStorage.getItem("cartId");
     // await this.querydetails();
     // this.detailList = localStorage.getItem("detailId");
-    console.log("ttttttt", this.args.ToCart);
+    // console.log("ttttttt", this.args.ToCart);
   },
 };
 </script>

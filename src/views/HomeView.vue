@@ -26,5 +26,25 @@ export default {
     GuidlineAndRecommendationSlide,
     Footer,
   },
+
+  data() {
+    return {
+      products: [],
+    };
+  },
+
+  methods: {
+    async queryProduct() {
+      await this.$store.dispatch("query", {
+        endpoint: "listcreateProduct",
+        storeKey: "productList",
+      });
+      this.products = this.$store.state.data.productList;
+    },
+  },
+
+  created() {
+    this.queryProduct();
+  },
 };
 </script>

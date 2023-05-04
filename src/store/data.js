@@ -23,7 +23,7 @@ export default {
       for (let i = 0; i < keys.length; i++) {
         state[keys[i]] = keys[i] === type ? data : state[keys[i]];
       }
-      console.log("theState", state);
+      // console.log("theState", state);
       return state;
     },
     setAuth(state) {
@@ -48,7 +48,7 @@ export default {
     },
 
     setCartItemLength(state, numberOfProducts) {
-      console.log("this is numberOfProducts", numberOfProducts);
+      // console.log("this is numberOfProducts", numberOfProducts);
       state.numberOfProductInCart = numberOfProducts;
     },
   },
@@ -76,7 +76,7 @@ export default {
             type: storeKey,
             data: res,
           });
-          console.log(res, "store");
+          // console.log(res, "store");
         })
         .catch((err) => {
           console.log(err, " The Error");

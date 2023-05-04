@@ -12,7 +12,7 @@
         <div class="w-1/2">
           <img
             src="../assets/images/apparel-for-men.png"
-            class="w-full"
+            class="w-full rotate-clockwise"
             alt=""
           />
           <p
@@ -24,7 +24,7 @@
         <div class="w-1/2">
           <img
             src="../assets/images/apparel-for-women.png"
-            class="w-full"
+            class="w-full rotate-anti-clockwise"
             alt=""
           />
           <p
@@ -43,3 +43,21 @@ export default {
   name: "Apparel",
 };
 </script>
+
+<style scoped>
+.rotate-clockwise:hover {
+  cursor: pointer;
+  transition: all 1s;
+  -webkit-transform: rotateZ(30deg);
+  -ms-transform: rotateZ(30deg);
+  transform: rotateZ(20deg);
+}
+
+.rotate-anti-clockwise:hover {
+  cursor: pointer;
+  transition: all 1s;
+  -webkit-transform: rotateZ(-30deg);
+  -ms-transform: rotateZ(-30deg);
+  transform: rotateZ(-15deg);
+}
+</style>

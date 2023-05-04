@@ -83,7 +83,22 @@ export default {
 
     async addToCart() {
       let checkCartId = window.localStorage.getItem("cartId");
+      const cartItems = this.$store.getters.getCartList?.productId;
 
+      console.log("lol", cartItems);
+
+      // check if product already exist in cart
+      let doesProductExist = cartItems.find(
+        ({ _id }) => _id === this.product._id
+      );
+      if (doesProductExist) {
+        toast.error("Product already exist in cart", {
+          autoClose: 1000,
+        });
+        return;
+      }
+
+      console.log("this.product._id", this.product._id);
       const cartInput = {
         quantity: 1,
         productId: this.product._id,
@@ -104,6 +119,10 @@ export default {
         });
 
         toast.success("Product added successfully", {
+          autoClose: 1000,
+        });
+      } else {
+        toast.error("Product not added", {
           autoClose: 1000,
         });
       }

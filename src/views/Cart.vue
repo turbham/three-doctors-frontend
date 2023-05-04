@@ -23,7 +23,7 @@
               alt=""
             />
             <p>Your cart is empty.</p>
-            <p>You have not added any item to your cart.</p>
+            <p>You have not added any product to your cart.</p>
             <router-link
               to="products"
               class="font-windsor-pro-bold bg-black text-white w-fit flex items-center justify-center py-2 px-6 border border-GreyChateau"
@@ -35,7 +35,7 @@
               class="flex flex-col space-y-4 items-start lg:space-y-0 lg:flex-row lg:space-x-12"
             >
               <div class="w-full lg:w-7/12">
-                <div v-for="product in cartsProduct" :key="product.id">
+                <div v-for="product in cartsProduct" :key="product._id">
                   <div
                     class="flex flex-row items-start justify-between w-full lg:w-10/12 mb-4"
                   >
@@ -58,11 +58,20 @@
                           <span>8mm</span>
                         </div>
                         <div class="flex flex-row items-center space-x-4">
-                          <button class="flex bg-Platinum px-2 rounded-lg">
+                          <button
+                            :disabled="product.quantity === 1"
+                            @click="updateQuantity(product, -1)"
+                            class="flex bg-Platinum px-2 rounded-lg"
+                          >
                             -
                           </button>
-                          <span class="text-SpunPearl text-[12px]">0</span>
-                          <button class="flex bg-Platinum px-2 rounded-lg">
+                          <span class="text-SpunPearl text-[12px]">{{
+                            product.quantity
+                          }}</span>
+                          <button
+                            @click="updateQuantity(product, 1)"
+                            class="flex bg-Platinum px-2 rounded-lg"
+                          >
                             +
                           </button>
                         </div>
@@ -77,7 +86,6 @@
                       <div class="flex flex-row items-center space-x-3">
                         <div class="">
                           <img
-                            @click="removeProductFromCart(product)"
                             src="../assets/icons/delete.svg"
                             class="w-5 cursor-pointer"
                             alt=""
@@ -187,12 +195,14 @@ export default {
       cartsProduct: [],
       inputValue: "",
       isLoading: false,
-      loading: true,
+      // loading: false,
+      // quantity: 1,
     };
   },
 
   methods: {
     async queryCart() {
+      // this.loading = true;
       const viewaddCartId = localStorage.getItem("cartId");
       await this.$store.dispatch("query", {
         endpoint: "viewaddCart",
@@ -200,9 +210,34 @@ export default {
         payload: { viewaddCartId: viewaddCartId },
       });
       this.carts = this.$store.state.data.cartList;
+      console.log("this.cart", this.carts);
       this.cartsProduct = this.carts.productId;
-      console.log("this.cartsProduct:11", this.cartsProduct);
-      this.loading = false;
+
+      // check each product to set the product quantity
+      this.carts.productId.forEach((product) => {
+        const index = this.cartsProduct.indexOf(product._id);
+        if (index !== -1) {
+          product.quantity = this.carts[index].quantity;
+        } else {
+          product.quantity = 1;
+        }
+      });
+      // this.loading = false;
+    },
+
+    async updateQuantity(product, amount) {
+      product.quantity += amount;
+
+      // Update the quantity of the product in the cart
+      const viewaddCartId = localStorage.getItem("cartId");
+      await this.$store.dispatch("updateCart", {
+        endpoint: "updateCart",
+        payload: {
+          viewaddCartId: viewaddCartId,
+          productId: product._id,
+          quantity: product.quantity,
+        },
+      });
     },
 
     // check if the promo code is valid
@@ -218,14 +253,6 @@ export default {
         }, 2000);
       }
     },
-
-    // Remove product from cart
-    removeProductFromCart(product) {
-      const index = this.cartsProduct.indexOf(product);
-      if (index > -1) {
-        this.cartsProduct.splice(index, 1);
-      }
-    },
   },
 
   computed: {
@@ -235,7 +262,7 @@ export default {
         total += parseFloat(product.price);
       }
       this.subtotal = total;
-      console.log("the subtotal", total);
+      // console.log("the subtotal", total);
       return total;
     },
   },

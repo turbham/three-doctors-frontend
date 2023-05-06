@@ -18,6 +18,7 @@ module.exports = {
         BalticSea: "#2C2D33",
         PaleRose: "#FAC4C3",
         GreySuit: "#bec0ca",
+        ShamrockGreen: "#009F56",
         
 
         Grey: "#909090",

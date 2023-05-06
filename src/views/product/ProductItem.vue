@@ -84,8 +84,7 @@ export default {
     async addToCart() {
       let checkCartId = window.localStorage.getItem("cartId");
       const cartItems = this.$store.getters.getCartList?.productId;
-
-      console.log("lol", cartItems);
+      console.log("lol me", cartItems);
 
       // check if product already exist in cart
       let doesProductExist = cartItems.find(

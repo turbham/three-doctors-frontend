@@ -11,10 +11,77 @@
         </p>
       </div>
       <div>
-        <div v-if="loading">Loading...</div>
+        <div v-if="isCartListLoading">
+          <div class="w-full lg:w-7/12 animate-pulse">
+            <div
+              class="flex flex-row items-start justify-between w-full lg:w-10/12 mb-4"
+            >
+              <div class="flex flex-row items-start space-x-5">
+                <div class="w-40 h-40 bg-slate-400 relative"></div>
+                <div class="space-y-3">
+                  <p class="font-windsor-pro-bold h-4 w-full bg-slate-400"></p>
+                  <div class="text-GreyChateau text-xs lg:text-sm space-x-3">
+                    <span class="w-10 h-3 bg-slate-400"></span>
+                    <span class="w-10 h-3 bg-slate-400"></span>
+                  </div>
+                  <div class="flex flex-row items-center space-x-4">
+                    <button
+                      class="flex px-2 rounded-lg bg-slate-400 h-5 w-5"
+                    ></button>
+                    <span
+                      class="text-SpunPearl text-[12px] h-2 w-2 bg-slate-400"
+                    ></span>
+                    <button
+                      class="flex px-2 rounded-lg bg-slate-400 h-5 w-5"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col items-end space-y-11">
+                <p
+                  class="text-sm lg:text-base font-semibold font-windsor-pro-bold bg-slate-400 h-3 w-4"
+                ></p>
+                <div class="w-3 h-4 bg-slate-400"></div>
+              </div>
+            </div>
+          </div>
+          <div class="w-full lg:w-7/12 animate-pulse">
+            <div
+              class="flex flex-row items-start justify-between w-full lg:w-10/12 mb-4"
+            >
+              <div class="flex flex-row items-start space-x-5">
+                <div class="w-40 h-40 bg-slate-400 relative"></div>
+                <div class="space-y-3">
+                  <p class="font-windsor-pro-bold h-4 w-full bg-slate-400"></p>
+                  <div class="text-GreyChateau text-xs lg:text-sm space-x-3">
+                    <span class="w-10 h-3 bg-slate-400"></span>
+                    <span class="w-10 h-3 bg-slate-400"></span>
+                  </div>
+                  <div class="flex flex-row items-center space-x-4">
+                    <button
+                      class="flex px-2 rounded-lg bg-slate-400 h-5 w-5"
+                    ></button>
+                    <span
+                      class="text-SpunPearl text-[12px] h-2 w-2 bg-slate-400"
+                    ></span>
+                    <button
+                      class="flex px-2 rounded-lg bg-slate-400 h-5 w-5"
+                    ></button>
+                  </div>
+                </div>
+              </div>
+              <div class="flex flex-col items-end space-y-11">
+                <p
+                  class="text-sm lg:text-base font-semibold font-windsor-pro-bold bg-slate-400 h-3 w-4"
+                ></p>
+                <div class="w-3 h-4 bg-slate-400"></div>
+              </div>
+            </div>
+          </div>
+        </div>
         <div v-else>
           <div
-            v-if="cartsProduct.length === 0"
+            v-show="cartsProduct.length === 0"
             class="flex flex-col items-center justify-center space-y-3"
           >
             <img
@@ -30,7 +97,7 @@
               >Start Shopping</router-link
             >
           </div>
-          <div v-if="cartsProduct.length >= 1">
+          <div v-show="cartsProduct.length >= 1">
             <div
               class="flex flex-col space-y-4 items-start lg:space-y-0 lg:flex-row lg:space-x-12"
             >
@@ -169,6 +236,7 @@
               </div>
             </div>
           </div>
+          <!-- <div v-else>lol</div> -->
         </div>
       </div>
     </div>
@@ -195,6 +263,7 @@ export default {
       cartsProduct: [],
       inputValue: "",
       isLoading: false,
+      isCartListLoading: false,
       // loading: false,
       // quantity: 1,
     };
@@ -203,6 +272,7 @@ export default {
   methods: {
     async queryCart() {
       // this.loading = true;
+      this.isCartListLoading = true;
       const viewaddCartId = localStorage.getItem("cartId");
       await this.$store.dispatch("query", {
         endpoint: "viewaddCart",
@@ -212,6 +282,8 @@ export default {
       this.carts = this.$store.state.data.cartList;
       console.log("this.cart", this.carts);
       this.cartsProduct = this.carts.productId;
+      console.log("bb cartsProduct", this.cartsProduct);
+      console.log("this.cart in cart", this.carts);
 
       // check each product to set the product quantity
       this.carts.productId.forEach((product) => {
@@ -223,6 +295,7 @@ export default {
         }
       });
       // this.loading = false;
+      this.isCartListLoading = false;
     },
 
     async updateQuantity(product, amount) {
@@ -256,6 +329,7 @@ export default {
   },
 
   computed: {
+    // get the total priice of products added to cart
     cartTotal() {
       let total = 0;
       for (let product of this.cartsProduct) {

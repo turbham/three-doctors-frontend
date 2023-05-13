@@ -1,0 +1,30 @@
+mutation CreateCustomerdetails($input: CustomerdetailsInput) {
+  createCustomerdetails(input: $input) {
+    _id
+    firstname
+    lastname
+    addcompany
+    city
+    state
+    postalcode
+    email
+    number
+    ToCart {
+      _id
+      addedAt
+      productId {
+        _id
+        description {
+          desone
+          destwo
+          desthree
+        }
+        image
+        name
+        price
+        retailunit
+      }
+      quantity
+    }
+  }
+}

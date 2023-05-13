@@ -1,0 +1,19 @@
+query ViewaddCart($viewaddCartId: ID) {
+  viewaddCart(id: $viewaddCartId) {
+    _id
+    addedAt
+    quantity
+    productId {
+      _id
+      name
+      price
+      retailunit
+      image
+      description {
+        desone
+        destwo
+        desthree
+      }
+    }
+  }
+}

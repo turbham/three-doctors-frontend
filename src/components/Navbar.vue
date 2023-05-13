@@ -3,7 +3,11 @@
     <div class="container mx-auto">
       <div class="flex flex-row items-center justify-between">
         <router-link to="/">
-          <img src="../assets/icons/logo.svg" alt="" />
+          <img
+            src="../assets/images/3Doctors-black-logo.png"
+            class="w-40"
+            alt=""
+          />
         </router-link>
         <div class="hidden md:flex items-center md:space-x-10 lg:space-x-16">
           <router-link to="/products">SMART FILTERS</router-link>
@@ -61,7 +65,7 @@ export default {
   watch: {
     getCartLength(value) {
       // console.log("the value", value);
-      return value
+      return value;
     },
   },
 };

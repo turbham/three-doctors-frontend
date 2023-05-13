@@ -90,112 +90,142 @@
       </div>
     </div>
     <div
-      class="bg-PaleOrange flex flex-row overflow-auto space-x-4 scrollbar-hide py-3 md:py-6 border-y-[3px] border-DarkJungleGreen text-base md:text-xl"
+      class="bg-PaleOrange flex flex-row overflow-auto space-x-4 scrollbar-hide py-3 md:py-6 border-y-[3px] border-DarkJungleGreen text-xs md:text-sm"
     >
       <div class="slide">
-        <span>SKATEBOARDS</span>
+        <span>ROLLING TRAY</span>
       </div>
       <div class="slide">
-        <span>TSHIRTS</span>
+        <span>STASH BOX</span>
       </div>
       <div class="slide">
-        <span>HATS</span>
-      </div>
-      <div class="slide">
-        <span>BAGS</span>
+        <span>SCALES</span>
       </div>
       <div class="slide">
         <span>PIPES</span>
       </div>
       <div class="slide">
-        <span>SKATEBOARDS</span>
+        <span>PRE ROLLS</span>
       </div>
       <div class="slide">
-        <span>TSHIRTS</span>
+        <span>BONGS</span>
       </div>
       <div class="slide">
-        <span>HATS</span>
+        <span>ROLLING PAPERS</span>
       </div>
       <div class="slide">
-        <span>BAGS</span>
+        <span>LIGHTERS</span>
       </div>
       <div class="slide">
-        <span>PIPES</span>
+        <span>GRINDERS</span>
       </div>
       <div class="slide">
-        <span>SKATEBOARDS</span>
+        <span>ROLLING TRAY</span>
       </div>
       <div class="slide">
-        <span>TSHIRTS</span>
+        <span>STASH BOX</span>
       </div>
       <div class="slide">
-        <span>HATS</span>
-      </div>
-      <div class="slide">
-        <span>BAGS</span>
+        <span>SCALES</span>
       </div>
       <div class="slide">
         <span>PIPES</span>
       </div>
       <div class="slide">
-        <span>SKATEBOARDS</span>
+        <span>PRE ROLLS</span>
       </div>
       <div class="slide">
-        <span>TSHIRTS</span>
+        <span>BONGS</span>
       </div>
       <div class="slide">
-        <span>HATS</span>
+        <span>ROLLING PAPERS</span>
       </div>
       <div class="slide">
-        <span>BAGS</span>
+        <span>LIGHTERS</span>
       </div>
       <div class="slide">
-        <span>PIPES</span>
+        <span>GRINDERS</span>
       </div>
       <div class="slide">
-        <span>SKATEBOARDS</span>
+        <span>ROLLING TRAY</span>
       </div>
       <div class="slide">
-        <span>TSHIRTS</span>
+        <span>STASH BOX</span>
       </div>
       <div class="slide">
-        <span>HATS</span>
-      </div>
-      <div class="slide">
-        <span>BAGS</span>
+        <span>SCALES</span>
       </div>
       <div class="slide">
         <span>PIPES</span>
       </div>
       <div class="slide">
-        <span>SKATEBOARDS</span>
+        <span>PRE ROLLS</span>
       </div>
       <div class="slide">
-        <span>TSHIRTS</span>
+        <span>BONGS</span>
       </div>
       <div class="slide">
-        <span>HATS</span>
+        <span>ROLLING PAPERS</span>
       </div>
       <div class="slide">
-        <span>BAGS</span>
+        <span>LIGHTERS</span>
+      </div>
+      <div class="slide">
+        <span>GRINDERS</span>
+      </div>
+      <div class="slide">
+        <span>ROLLING TRAY</span>
+      </div>
+      <div class="slide">
+        <span>STASH BOX</span>
+      </div>
+      <div class="slide">
+        <span>SCALES</span>
+      </div>
+      <div class="slide">
+        <span>PIPES</span>
+      </div>
+      <div class="slide">
+        <span>PRE ROLLS</span>
+      </div>
+      <div class="slide">
+        <span>BONGS</span>
+      </div>
+      <div class="slide">
+        <span>ROLLING PAPERS</span>
+      </div>
+      <div class="slide">
+        <span>LIGHTERS</span>
+      </div>
+      <div class="slide">
+        <span>GRINDERS</span>
+      </div>
+      <div class="slide">
+        <span>ROLLING TRAY</span>
+      </div>
+      <div class="slide">
+        <span>STASH BOX</span>
+      </div>
+      <div class="slide">
+        <span>SCALES</span>
       </div>
       <div class="slide">
         <span>PIPES</span>
       </div>
       <div class="slide">
-        <span>SKATEBOARDS</span>
+        <span>PRE ROLLS</span>
       </div>
       <div class="slide">
-        <span>TSHIRTS</span>
+        <span>BONGS</span>
       </div>
       <div class="slide">
-        <span>HATS</span>
+        <span>ROLLING PAPERS</span>
       </div>
       <div class="slide">
-        <span>BAGS</span>
+        <span>LIGHTERS</span>
       </div>
       <div class="slide">
-        <span>PIPES</span>
+        <span>GRINDERS</span>
       </div>
     </div>
   </div>

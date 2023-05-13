@@ -19,10 +19,11 @@ module.exports = {
         PaleRose: "#FAC4C3",
         GreySuit: "#bec0ca",
         ShamrockGreen: "#009F56",
+        Asphalt: "#120A07",
+        PaleOrange: "#FAA551",
         
 
         Grey: "#909090",
-        PaleOrange: "#FAA551",
         Platinum: "#E4E4E4",
         GreyChateau: "#A6A8B1",
         SpunPearl: "#AEA9B4",

@@ -86,10 +86,6 @@ body {
 .font-rebond-grotesque-bold {
   font-family: "rebond-grotesque-bold";
 }
-.font-windsor-pro-bold {
-  font-family: "windsor-pro-bold";
-}
-
 
 .apparelbg {
   background: url(./images/apparel_bg.svg);
@@ -97,4 +93,48 @@ body {
 
 .smokeFilterBg {
   background: url(./images/Smoking_Filters.svg);
+}
+
+.health-and-style-bg {
+  background-color: var(--first-card-color);
+  background-image: url("./images/health-and-style-bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: auto;
+}
+
+.sport-gear-bg {
+  background-color: var(--first-card-color);
+  background-image: url("./images/sport-gear-bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: auto;
+}
+
+.lyfe-style-bg {
+  background-color: var(--first-card-color);
+  background-image: url("./images/lyfe-style-bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: auto;
+}
+
+.sport-gear {
+  background-color: #5F2301;
+  background-image: url("./images/i-26.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: auto;
+}
+.life-bg {
+  background-color: #009f56;
+  background-image: url("./images/i-26.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: auto;
 }

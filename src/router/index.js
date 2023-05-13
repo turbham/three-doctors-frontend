@@ -1,5 +1,8 @@
 import { createRouter, createWebHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
+import HealthAndStyle from "../views/HealthAndStyle.vue";
+import SportGear from "../views/SportGear.vue";
+import LifeStyle from "../views/LifeStyle.vue";
 import Products from "../views/product/Products.vue";
 import ProductDetail from "../views/product/ProductDetail.vue";
 import Cart from "../views/Cart.vue";
@@ -10,6 +13,24 @@ const routes = [
     path: "/",
     name: "home",
     component: HomeView,
+    meta: { toTop: true, smoothScroll: true },
+  },
+  {
+    path: "/sport-gear",
+    name: "sportGear",
+    component: SportGear,
+    meta: { toTop: true, smoothScroll: true },
+  },
+  {
+    path: "/lifeStyle",
+    name: "LifeStyle",
+    component: LifeStyle,
+    meta: { toTop: true, smoothScroll: true },
+  },
+  {
+    path: "/health-and-style",
+    name: "healthAndStyle",
+    component: HealthAndStyle,
     meta: { toTop: true, smoothScroll: true },
   },
   {

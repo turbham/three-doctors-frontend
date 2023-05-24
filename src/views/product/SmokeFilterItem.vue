@@ -15,7 +15,7 @@
       </div>
     </router-link>
     <div class="flex flex-row items-center justify-between">
-      <div class="text-white">
+      <div class="text-DarkJungleGreen">
         <p class="text-sm md:text-lg font-windsor-pro-bold">
           {{ ReduceText(product.name) }}
         </p>

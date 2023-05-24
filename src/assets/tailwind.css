@@ -54,6 +54,11 @@
   src: url(./fonts/windsor-pro-cdnfonts/WindsorProBold.TTF);
 }
 
+@font-face {
+  font-family: "sf-pro-light";
+  src: url(./fonts/SFProDisplay-Light.ttf);
+}
+
 body {
   background-color: #fff6ee;
 }
@@ -85,6 +90,10 @@ body {
 
 .font-rebond-grotesque-bold {
   font-family: "rebond-grotesque-bold";
+}
+
+.font-sf-pro-light {
+  font-family: "sf-pro-light";
 }
 
 .apparelbg {
@@ -123,7 +132,7 @@ body {
 }
 
 .sport-gear {
-  background-color: #5F2301;
+  background-color: #5f2301;
   background-image: url("./images/i-26.svg");
   background-repeat: no-repeat;
   background-size: cover;

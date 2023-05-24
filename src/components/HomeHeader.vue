@@ -1,239 +1,217 @@
 <template>
-  <div>
-    <div
-      class="min-h-[calc(65vh-80px)] md:min-h-[calc(100vh-80px)] flex flex-row items-end space-x-4"
-    >
-      <div class="w-[35%] md:w-[10%]">
-        <div class="w-full grid grid-rows-2 gap-y-4">
-          <div class="bg-GreyCloud row-span-2 h-[25vh] md:h-[55vh]">
-            <img
-              src="../assets/images/header-img-1.png"
-              class="h-full w-full"
-              alt=""
-            />
-          </div>
-          <div class="bg-GreyCloud h-[10vh] md:h-[20vh]">
-            <img
-              src="../assets/images/header-img-2.png"
-              class="h-full w-full"
-              alt=""
-            />
-          </div>
-        </div>
+  <div
+    class="bg-[url('../assets/images/Are-you_18_bg.png')] bg-no-repeat bg-cover min-h-[calc(65vh-80px)] xl:min-h-[calc(100vh-80px)]"
+  >
+    <Navbar />
+    <div class="space-y-10 md:space-y-20 pt-24 pb-6 md:pt-40 md:pb-24">
+      <div class="flex flex-col justify-center items-center space-y-6">
+        <h2
+          class="px-1 font-windsor-pro-bold text-xl sm:text-4xl lg:text-6xl text-PaleOrange text-center"
+        >
+          Revolutionize Your Lifestyle: <br />
+          Smart Smoking for a healthier You!
+        </h2>
       </div>
-      <div class="grow">
-        <div class="flex flex-col space-y-12">
-          <div
-            class="font-windsor-pro-black text-BrownBramble text-center text-3xl md:text-5xl xl:text-[5rem]"
-          >
-            <h3>Get your</h3>
-            <h3>smoking filters</h3>
-          </div>
-
-          <div class="flex justify-center">
-            <router-link
-              to="/products"
-              class="font-windsor-pro-bold w-fit font-lighter text-sm md:text-lg border border-black hover:text-white hover:bg-black px-8 py-2 md:px-12 md:py-2.5"
-            >
-              SHOP NOW
-            </router-link>
-          </div>
-          <div class="flex flex-row space-x-4">
-            <div class="w-full bg-GreyCloud">
+      <div>
+        <div
+          class="container mx-auto grid grid-cols-2 gap-10 md:gap-16 md:px-24"
+        >
+          <div class="space-y-5">
+            <div class="w-full bg-LightGrey border-4 border-PaleOrange">
               <img
-                src="../assets/images/header-img-3.png"
-                class="h-full w-full"
+                src="../assets/images/filter_smoke_2.png"
+                class="w-full"
                 alt=""
               />
             </div>
-            <div class="w-full mt-16 bg-GreyCloud">
-              <img
-                src="../assets/images/header-img-4.png"
-                class="h-full w-full"
-                alt=""
-              />
-            </div>
-            <div class="w-full mt-16 bg-GreyCloud">
-              <img
-                src="../assets/images/header-img-5.png"
-                class="h-full w-full"
-                alt=""
-              />
-            </div>
-            <div class="w-full bg-GreyCloud">
-              <img
-                src="../assets/images/header-img-3.png"
-                class="h-full w-full"
-                alt=""
-              />
+            <div class="flex flex-col justify-center items-center space-y-4">
+              <h3
+                class="text-base md:text-2xl font-windsor-pro-bold text-PaleOrange"
+              >
+                FILTER PAPERS
+              </h3>
+              <router-link
+                to=""
+                class="text-PaleOrange px-6 py-3 text-xs md:text-base font-windsor-pro-bold border border-PaleOrange hover:bg-PaleOrange hover:text-BrownBramble transition-all duration-500"
+              >
+                Shop Now
+              </router-link>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="w-[35%] md:w-[10%] flex justify-end">
-        <div class="grid grid-rows-2 w-full">
-          <div class="bg-GreyCloud row-span-2 h-[25vh] md:h-[55vh]">
-            <img
-              src="../assets/images/header-img-6.png"
-              class="h-full w-full"
-              alt=""
-            />
-          </div>
-          <div class="bg-GreyCloud h-[10vh] md:h-[20vh]">
-            <img
-              src="../assets/images/header-img-7.png"
-              class="h-full w-full"
-              alt=""
-            />
+          <div class="space-y-5">
+            <div class="w-full bg-LightGrey border-4 border-PaleOrange">
+              <img
+                src="../assets/images/filter_smoke_2.png"
+                class="w-full"
+                alt=""
+              />
+            </div>
+            <div class="flex flex-col justify-center items-center space-y-4">
+              <h3
+                class="text-base md:text-2xl font-windsor-pro-bold text-PaleOrange"
+              >
+                ROLLING PAPERS
+              </h3>
+              <router-link
+                to=""
+                class="text-PaleOrange px-6 py-3 text-xs md:text-base font-windsor-pro-bold border border-PaleOrange hover:bg-PaleOrange hover:text-BrownBramble transition-all duration-500"
+              >
+                Shop Now
+              </router-link>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div
-      class="bg-PaleOrange flex flex-row overflow-auto space-x-4 scrollbar-hide py-3 md:py-6 border-y-[3px] border-DarkJungleGreen text-xs md:text-sm"
-    >
-      <div class="slide">
-        <span>ROLLING TRAY</span>
-      </div>
-      <div class="slide">
-        <span>STASH BOX</span>
-      </div>
-      <div class="slide">
-        <span>SCALES</span>
-      </div>
-      <div class="slide">
-        <span>PIPES</span>
-      </div>
-      <div class="slide">
-        <span>PRE ROLLS</span>
-      </div>
-      <div class="slide">
-        <span>BONGS</span>
-      </div>
-      <div class="slide">
-        <span>ROLLING PAPERS</span>
-      </div>
-      <div class="slide">
-        <span>LIGHTERS</span>
-      </div>
-      <div class="slide">
-        <span>GRINDERS</span>
-      </div>
-      <div class="slide">
-        <span>ROLLING TRAY</span>
-      </div>
-      <div class="slide">
-        <span>STASH BOX</span>
-      </div>
-      <div class="slide">
-        <span>SCALES</span>
-      </div>
-      <div class="slide">
-        <span>PIPES</span>
-      </div>
-      <div class="slide">
-        <span>PRE ROLLS</span>
-      </div>
-      <div class="slide">
-        <span>BONGS</span>
-      </div>
-      <div class="slide">
-        <span>ROLLING PAPERS</span>
-      </div>
-      <div class="slide">
-        <span>LIGHTERS</span>
-      </div>
-      <div class="slide">
-        <span>GRINDERS</span>
-      </div>
-      <div class="slide">
-        <span>ROLLING TRAY</span>
-      </div>
-      <div class="slide">
-        <span>STASH BOX</span>
-      </div>
-      <div class="slide">
-        <span>SCALES</span>
-      </div>
-      <div class="slide">
-        <span>PIPES</span>
-      </div>
-      <div class="slide">
-        <span>PRE ROLLS</span>
-      </div>
-      <div class="slide">
-        <span>BONGS</span>
-      </div>
-      <div class="slide">
-        <span>ROLLING PAPERS</span>
-      </div>
-      <div class="slide">
-        <span>LIGHTERS</span>
-      </div>
-      <div class="slide">
-        <span>GRINDERS</span>
-      </div>
-      <div class="slide">
-        <span>ROLLING TRAY</span>
-      </div>
-      <div class="slide">
-        <span>STASH BOX</span>
-      </div>
-      <div class="slide">
-        <span>SCALES</span>
-      </div>
-      <div class="slide">
-        <span>PIPES</span>
-      </div>
-      <div class="slide">
-        <span>PRE ROLLS</span>
-      </div>
-      <div class="slide">
-        <span>BONGS</span>
-      </div>
-      <div class="slide">
-        <span>ROLLING PAPERS</span>
-      </div>
-      <div class="slide">
-        <span>LIGHTERS</span>
-      </div>
-      <div class="slide">
-        <span>GRINDERS</span>
-      </div>
-      <div class="slide">
-        <span>ROLLING TRAY</span>
-      </div>
-      <div class="slide">
-        <span>STASH BOX</span>
-      </div>
-      <div class="slide">
-        <span>SCALES</span>
-      </div>
-      <div class="slide">
-        <span>PIPES</span>
-      </div>
-      <div class="slide">
-        <span>PRE ROLLS</span>
-      </div>
-      <div class="slide">
-        <span>BONGS</span>
-      </div>
-      <div class="slide">
-        <span>ROLLING PAPERS</span>
-      </div>
-      <div class="slide">
-        <span>LIGHTERS</span>
-      </div>
-      <div class="slide">
-        <span>GRINDERS</span>
-      </div>
+  </div>
+  <div
+    class="bg-PaleOrange flex flex-row overflow-auto space-x-4 scrollbar-hide py-3 md:py-6 border-y-[3px] border-DarkJungleGreen text-xs md:text-sm"
+  >
+    <div class="slide">
+      <span>ROLLING TRAY</span>
+    </div>
+    <div class="slide">
+      <span>STASH BOX</span>
+    </div>
+    <div class="slide">
+      <span>SCALES</span>
+    </div>
+    <div class="slide">
+      <span>PIPES</span>
+    </div>
+    <div class="slide">
+      <span>PRE ROLLS</span>
+    </div>
+    <div class="slide">
+      <span>BONGS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>LIGHTERS</span>
+    </div>
+    <div class="slide">
+      <span>GRINDERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING TRAY</span>
+    </div>
+    <div class="slide">
+      <span>STASH BOX</span>
+    </div>
+    <div class="slide">
+      <span>SCALES</span>
+    </div>
+    <div class="slide">
+      <span>PIPES</span>
+    </div>
+    <div class="slide">
+      <span>PRE ROLLS</span>
+    </div>
+    <div class="slide">
+      <span>BONGS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>LIGHTERS</span>
+    </div>
+    <div class="slide">
+      <span>GRINDERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING TRAY</span>
+    </div>
+    <div class="slide">
+      <span>STASH BOX</span>
+    </div>
+    <div class="slide">
+      <span>SCALES</span>
+    </div>
+    <div class="slide">
+      <span>PIPES</span>
+    </div>
+    <div class="slide">
+      <span>PRE ROLLS</span>
+    </div>
+    <div class="slide">
+      <span>BONGS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>LIGHTERS</span>
+    </div>
+    <div class="slide">
+      <span>GRINDERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING TRAY</span>
+    </div>
+    <div class="slide">
+      <span>STASH BOX</span>
+    </div>
+    <div class="slide">
+      <span>SCALES</span>
+    </div>
+    <div class="slide">
+      <span>PIPES</span>
+    </div>
+    <div class="slide">
+      <span>PRE ROLLS</span>
+    </div>
+    <div class="slide">
+      <span>BONGS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>LIGHTERS</span>
+    </div>
+    <div class="slide">
+      <span>GRINDERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING TRAY</span>
+    </div>
+    <div class="slide">
+      <span>STASH BOX</span>
+    </div>
+    <div class="slide">
+      <span>SCALES</span>
+    </div>
+    <div class="slide">
+      <span>PIPES</span>
+    </div>
+    <div class="slide">
+      <span>PRE ROLLS</span>
+    </div>
+    <div class="slide">
+      <span>BONGS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>LIGHTERS</span>
+    </div>
+    <div class="slide">
+      <span>GRINDERS</span>
     </div>
   </div>
 </template>
 
 <script>
+import Navbar from "@/components/Navbar.vue";
 export default {
   name: "HomeHeader",
+  components: {
+    Navbar,
+  },
 };
 </script>
 

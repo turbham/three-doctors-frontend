@@ -219,7 +219,7 @@
                   </div>
                 </div>
               </div>
-              <!-- <router-link to="/products">ROLLING PAPERS</router-link> -->
+              <router-link to="/products">BLOG</router-link>
             </div>
             <div v-else></div>
           </div>

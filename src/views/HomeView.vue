@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="bg-[url('../assets/images/Are-you_18_bg.png')]">
     <div
-      class="flex items-center justify-center h-[80px] sticky top-0 z-50 bg-BrownBramble"
+      class="flex items-center justify-center h-[80px] sticky top-0 z-50 "
     >
       <router-link to="/">
         <img
@@ -12,7 +12,7 @@
       </router-link>
     </div>
     <div
-      class="bg-BrownBramble min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)]"
+      class=" min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)]"
     >
       <div class="flex justify-center h-full">
         <div

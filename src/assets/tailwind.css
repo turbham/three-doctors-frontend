@@ -59,9 +59,9 @@
   src: url(./fonts/SFProDisplay-Light.ttf);
 }
 
-body {
-  background-color: #fff6ee;
-}
+/* body {
+  background-color: #fff6ee; BalticSea
+} */
 
 .font-sf-pro-display-medium {
   font-family: "sf-pro-display-medium";

@@ -68,139 +68,130 @@
     class="bg-PaleOrange flex flex-row overflow-auto space-x-4 scrollbar-hide py-3 md:py-6 border-y-[3px] border-DarkJungleGreen text-xs md:text-sm"
   >
     <div class="slide">
-      <span>ROLLING TRAY</span>
-    </div>
-    <div class="slide">
-      <span>STASH BOX</span>
-    </div>
-    <div class="slide">
-      <span>SCALES</span>
-    </div>
-    <div class="slide">
-      <span>PIPES</span>
-    </div>
-    <div class="slide">
-      <span>PRE ROLLS</span>
-    </div>
-    <div class="slide">
-      <span>BONGS</span>
+      <span>FILTER PAPERS</span>
     </div>
     <div class="slide">
       <span>ROLLING PAPERS</span>
     </div>
     <div class="slide">
-      <span>LIGHTERS</span>
-    </div>
-    <div class="slide">
-      <span>GRINDERS</span>
-    </div>
-    <div class="slide">
-      <span>ROLLING TRAY</span>
-    </div>
-    <div class="slide">
-      <span>STASH BOX</span>
-    </div>
-    <div class="slide">
-      <span>SCALES</span>
-    </div>
-    <div class="slide">
-      <span>PIPES</span>
-    </div>
-    <div class="slide">
-      <span>PRE ROLLS</span>
-    </div>
-    <div class="slide">
-      <span>BONGS</span>
+      <span>FILTER PAPERS</span>
     </div>
     <div class="slide">
       <span>ROLLING PAPERS</span>
     </div>
     <div class="slide">
-      <span>LIGHTERS</span>
-    </div>
-    <div class="slide">
-      <span>GRINDERS</span>
-    </div>
-    <div class="slide">
-      <span>ROLLING TRAY</span>
-    </div>
-    <div class="slide">
-      <span>STASH BOX</span>
-    </div>
-    <div class="slide">
-      <span>SCALES</span>
-    </div>
-    <div class="slide">
-      <span>PIPES</span>
-    </div>
-    <div class="slide">
-      <span>PRE ROLLS</span>
-    </div>
-    <div class="slide">
-      <span>BONGS</span>
+      <span>FILTER PAPERS</span>
     </div>
     <div class="slide">
       <span>ROLLING PAPERS</span>
     </div>
     <div class="slide">
-      <span>LIGHTERS</span>
-    </div>
-    <div class="slide">
-      <span>GRINDERS</span>
-    </div>
-    <div class="slide">
-      <span>ROLLING TRAY</span>
-    </div>
-    <div class="slide">
-      <span>STASH BOX</span>
-    </div>
-    <div class="slide">
-      <span>SCALES</span>
-    </div>
-    <div class="slide">
-      <span>PIPES</span>
-    </div>
-    <div class="slide">
-      <span>PRE ROLLS</span>
-    </div>
-    <div class="slide">
-      <span>BONGS</span>
+      <span>FILTER PAPERS</span>
     </div>
     <div class="slide">
       <span>ROLLING PAPERS</span>
     </div>
     <div class="slide">
-      <span>LIGHTERS</span>
-    </div>
-    <div class="slide">
-      <span>GRINDERS</span>
-    </div>
-    <div class="slide">
-      <span>ROLLING TRAY</span>
-    </div>
-    <div class="slide">
-      <span>STASH BOX</span>
-    </div>
-    <div class="slide">
-      <span>SCALES</span>
-    </div>
-    <div class="slide">
-      <span>PIPES</span>
-    </div>
-    <div class="slide">
-      <span>PRE ROLLS</span>
-    </div>
-    <div class="slide">
-      <span>BONGS</span>
+      <span>FILTER PAPERS</span>
     </div>
     <div class="slide">
       <span>ROLLING PAPERS</span>
     </div>
     <div class="slide">
-      <span>LIGHTERS</span>
+      <span>FILTER PAPERS</span>
     </div>
     <div class="slide">
-      <span>GRINDERS</span>
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>FILTER PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>FILTER PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>FILTER PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>FILTER PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>FILTER PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>FILTER PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>FILTER PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>FILTER PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>FILTER PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>FILTER PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>FILTER PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>FILTER PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>FILTER PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>FILTER PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>FILTER PAPERS</span>
+    </div>
+    <div class="slide">
+      <span>ROLLING PAPERS</span>
     </div>
   </div>
 </template>

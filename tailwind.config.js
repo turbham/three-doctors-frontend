@@ -24,6 +24,7 @@ module.exports = {
         Sandrift: "#AF9181",
         LightPeach: "#FFD8B5",
         GreyChateau: "#A6A8B1",
+        DebianRed: "#D01344",
         
         Grey: "#909090",
         Platinum: "#E4E4E4",

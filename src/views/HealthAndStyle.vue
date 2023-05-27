@@ -85,16 +85,22 @@ export default {
   mounted() {
     const userIsAnAdult = localStorage.getItem("userIsAnAdult");
     const userIsNotAnAdult = localStorage.getItem("userIsNotAnAdult");
-
-    if (userIsAnAdult) {
-      this.isWebsiteAccessible = true;
-    } else if (userIsNotAnAdult) {
+    if (!userIsAnAdult || !userIsNotAnAdult) {
       this.isModalOpen = true;
-    } else if (!userIsNotAnAdult) {
+    } else if (userIsAnAdult || userIsNotAnAdult) {
       this.isModalOpen = true;
     } else {
       this.isWebsiteAccessible = true;
     }
+    // if (userIsAnAdult) {
+    //   this.isWebsiteAccessible = true;
+    // } else if (userIsNotAnAdult) {
+    //   this.isModalOpen = true;
+    // } else if (!userIsNotAnAdult) {
+    //   this.isModalOpen = true;
+    // } else {
+    //   this.isWebsiteAccessible = true;
+    // }
   },
 
   methods: {

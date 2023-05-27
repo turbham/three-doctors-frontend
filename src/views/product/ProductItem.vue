@@ -2,7 +2,7 @@
   <div>
     <div class="flex flex-col space-y-4">
       <router-link :to="{ name: 'product', params: { id: product._id } }">
-        <div class="bg-Platinum w-full h-[350px] overflow-hidden">
+        <div class="bg-Platinum w-full h-[350px] border-4 border-BalticSea overflow-hidden">
           <img
             :src="product.image"
             alt=""
@@ -25,7 +25,7 @@
         </div>
         <button
           @click="addToCart"
-          class="bg-ShamrockGreen text-white font-windsor-pro-bold px-4 py-2.5"
+          class="bg-BalticSea text-white font-windsor-pro-bold px-4 py-2.5"
         >
           <span v-if="isLoading">
             <svg

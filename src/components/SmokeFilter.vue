@@ -1,10 +1,10 @@
 <template>
-  <div class="smokeFilterBg">
+  <div class="smokeFilterB bg-white">
     <div class="container mx-auto py-12 md:py-28">
       <p
-        class="text-white text-xl md:text-5xl mb-16 font-meduim font-windsor-pro-bold"
+        class="text-DarkJungleGreen text-xl md:text-5xl mb-16 font-meduim font-windsor-pro-bold"
       >
-        Smoke Filters
+        Best Selling Filters
       </p>
       <div>
         <div v-if="loading">
@@ -18,7 +18,9 @@
             >
               <router-link to="">
                 <div
-                  class="bg-slate-400 w-full h-[350px] overflow-hidden"
+
+                  class="bg-slate-400 w-full h-[350px] border-4 border-BalticSea overflow-hidden"
+
                 ></div>
               </router-link>
               <div class="flex flex-row items-center justify-between">

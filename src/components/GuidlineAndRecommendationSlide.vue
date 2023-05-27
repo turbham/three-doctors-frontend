@@ -1,8 +1,8 @@
 <template>
-  <div class="bg-PaleRose py-12 md:py-20">
+  <div class="bg-DarkJungleGreen py-12 md:py-20">
     <div class="container mx-auto space-y-16">
       <p
-        class="text-DarkJungleGreen text-xl md:text-5xl mb-6 font-windsor-pro-bold"
+        class="text-white text-xl md:text-5xl mb-6 font-windsor-pro-bold"
       >
         Filter Guideline and Recommendations
       </p>

@@ -28,7 +28,12 @@
           >
             <h3>SPORT GEAR (COMING SOON)</h3>
           </div>
-          <p class="text-center text-white">We care about your health ....</p>
+
+          <p class="text-center text-white">
+            Breaking Boundaries, Equipping Everyone: <br />
+            Embrace All-Inclusive Sport Gear!
+          </p>
+
           <div class="flex flex-row space-x-4">
             <div class="w-full bg-GreyCloud">
               <img

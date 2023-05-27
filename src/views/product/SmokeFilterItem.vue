@@ -2,12 +2,16 @@
   <div class="flex flex-col space-y-4 mx-2 md:mx-0">
     <router-link :to="{ name: 'product', params: { id: product._id } }">
       <div
-        class="bg-white w-full h-[300px] md:h-[430px] relative overflow-hidden"
+
+        class="bg-white w-full h-[300px] md:h-[430px] relative border-4 border-BalticSea overflow-hidden"
+
       >
         <img
           :src="product.image"
           class="w-full h-full object-cover hover:scale-125 transition-all duration-1000 cursor-pointer"
-          alt=""
+
+          :alt="product.name"
+
         />
         <!-- <div class="absolute top-10 right-10">
               <img src="../assets/icons/fi_heart.svg" alt="" />
@@ -15,7 +19,9 @@
       </div>
     </router-link>
     <div class="flex flex-row items-center justify-between">
-      <div class="text-white">
+
+      <div class="text-DarkJungleGreen">
+
         <p class="text-sm md:text-lg font-windsor-pro-bold">
           {{ ReduceText(product.name) }}
         </p>

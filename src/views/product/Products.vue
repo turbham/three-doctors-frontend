@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar />
-    <div class="container mx-auto my-16">
+    <div class="container mx-auto my-32">
       <p class="mb-10 font-rebond-grotesque-regular">HomePage / Filters</p>
       <p class="mb-16 font-windsor-pro-bold text-2xl text-BrownBramble">
         Filters &amp; Accessories ({{ this.products.length }})
@@ -18,7 +18,7 @@
             >
               <router-link to="">
                 <div
-                  class="bg-slate-400 w-full h-[350px] overflow-hidden"
+                  class="bg-slate-400 w-full h-[350px] border-4 border-BalticSea overflow-hidden"
                 ></div>
               </router-link>
               <div class="flex flex-row items-center justify-between">
@@ -49,32 +49,34 @@
           </div>
         </div>
       </div>
-      <div class="flex items-center justify-center my-20">
-        <button
-          class="mr-4 px-4 py-2 bg-BrownBramble text-white font-bold"
-          :disabled="currentPage === 1"
-          @click="goToPage(currentPage - 1)"
-        >
-          &#171;
-        </button>
-        <div v-for="page in totalPages" :key="page">
+      <div v-if="this.products.lenght > 9">
+        <div class="flex items-center justify-center my-20">
           <button
-            class="text-sm mx-2 px-3.5 py-2 text-BrownBramble font-bold border-[1px]"
-            :class="{
-              'border-BrownBramble text-BrownBramble': page === currentPage,
-            }"
-            @click="goToPage(page)"
+            class="mr-4 px-4 py-2 bg-BalticSea text-white font-bold"
+            :disabled="currentPage === 1"
+            @click="goToPage(currentPage - 1)"
           >
-            {{ page }}
+            &#171;
+          </button>
+          <div v-for="page in totalPages" :key="page">
+            <button
+              class="text-sm mx-2 px-3.5 py-2 text-BalticSea font-bold border-[1px]"
+              :class="{
+                'border-BalticSea text-BalticSea': page === currentPage,
+              }"
+              @click="goToPage(page)"
+            >
+              {{ page }}
+            </button>
+          </div>
+          <button
+            class="ml-4 px-4 py-2 bg-BalticSea text-white font-bold"
+            :disabled="currentPage === totalPages"
+            @click="goToPage(currentPage + 1)"
+          >
+            &#187;
           </button>
         </div>
-        <button
-          class="ml-4 px-4 py-2 bg-BrownBramble text-white font-bold"
-          :disabled="currentPage === totalPages"
-          @click="goToPage(currentPage + 1)"
-        >
-          &#187;
-        </button>
       </div>
     </div>
     <Footer />
@@ -140,10 +142,9 @@ export default {
         storeKey: "productList",
       });
       this.products = this.$store.state.data.productList;
+      console.log("totall pp", this.products.length);
       this.loading = false;
     },
-
-    
 
     goToPage(page) {
       this.currentPage = page;

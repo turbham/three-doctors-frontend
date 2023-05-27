@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <div v-if="isModalOpen">
       <div
         class="h-screen bg-[url('../assets/images/Are-you_18_bg.png')] text-PaleOrange px-1 flex flex-col items-center justify-center"
@@ -54,6 +55,7 @@
       <GuidlineAndRecommendationSlide />
       <Footer />
     </div>
+
   </div>
 </template>
 
@@ -78,6 +80,7 @@ export default {
   data() {
     return {
       products: [],
+
       isModalOpen: false,
       isWebsiteAccessible: false,
     };
@@ -103,6 +106,7 @@ export default {
     // }
   },
 
+
   methods: {
     async queryProduct() {
       await this.$store.dispatch("query", {
@@ -111,6 +115,7 @@ export default {
       });
       this.products = this.$store.state.data.productList;
     },
+
     confirmAge() {
       localStorage.setItem("userIsAnAdult", true);
       this.isModalOpen = false;
@@ -121,6 +126,7 @@ export default {
       this.isModalOpen = false;
       window.location.href = "/";
     },
+
   },
 
   created() {

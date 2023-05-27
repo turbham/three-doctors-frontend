@@ -1,0 +1,14 @@
+query ListcreateProduct {
+  listcreateProduct {
+    _id
+    name
+    price
+    retailunit
+    image
+    description {
+      desone
+      destwo
+      desthree
+    }
+  }
+}

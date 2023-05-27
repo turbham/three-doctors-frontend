@@ -18,7 +18,9 @@
             >
               <router-link to="">
                 <div
+
                   class="bg-slate-400 w-full h-[350px] border-4 border-BalticSea overflow-hidden"
+
                 ></div>
               </router-link>
               <div class="flex flex-row items-center justify-between">

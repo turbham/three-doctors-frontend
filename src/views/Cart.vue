@@ -11,7 +11,9 @@
         </p>
       </div>
       <div>
+
         <!-- <div v-if="isCartListLoading">
+
           <div class="w-full lg:w-7/12 animate-pulse">
             <div
               class="flex flex-row items-start justify-between w-full lg:w-10/12 mb-4"
@@ -78,6 +80,7 @@
               </div>
             </div>
           </div>
+
         </div> -->
         <div>
           <!-- <div class="flex flex-col items-center justify-center space-y-3">
@@ -224,6 +227,7 @@
           </div>
         </div>
         <!-- <div>
+
           <div
             v-show="cartsProduct.length === 0"
             class="flex flex-col items-center justify-center space-y-3"
@@ -380,7 +384,9 @@
               </div>
             </div>
           </div>
+
         </div> -->
+
       </div>
     </div>
     <Footer />
@@ -406,12 +412,15 @@ export default {
       cartsProduct: [],
       inputValue: "",
       isLoading: false,
+
+
     };
   },
 
   methods: {
     async queryCart() {
       // this.loading = true;
+
       const viewaddCartId = localStorage.getItem("cartId");
       await this.$store.dispatch("query", {
         endpoint: "viewaddCart",
@@ -434,6 +443,7 @@ export default {
         }
       });
       // this.loading = false;
+
     },
 
     async updateQuantity(product, amount) {

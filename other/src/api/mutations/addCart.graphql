@@ -1,0 +1,19 @@
+mutation AddCart($input: CartInput) {
+  addCart(input: $input) {
+    _id
+    quantity
+    addedAt
+    productId {
+      _id
+      name
+      price
+      retailunit
+      image
+      description {
+        desone
+        destwo
+        desthree
+      }
+    }
+  }
+}

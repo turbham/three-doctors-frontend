@@ -7,7 +7,9 @@
       <div class="flex flex-row items-center justify-between">
         <router-link to="/">
           <img
+
             src="../assets/images/3-Doktors-logo-yelloww.png"
+
             class="w-40"
             alt=""
           />
@@ -303,6 +305,8 @@ export default {
 
   watch: {
     getCartLength(value) {
+
+
       return value;
     },
   },

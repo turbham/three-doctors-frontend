@@ -192,6 +192,7 @@
     </div>
     <div class="slide">
       <span>ROLLING PAPERS</span>
+
     </div>
   </div>
 </template>

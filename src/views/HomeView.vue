@@ -1,4 +1,5 @@
 <template>
+
   <div class="bg-[url('../assets/images/Are-you_18_bg.png')]">
     <div
       class="flex items-center justify-center h-[80px] sticky top-0 z-50 "
@@ -6,18 +7,21 @@
       <router-link to="/">
         <img
           src="../assets/icons/three-doctors-white-logo.svg"
+
           class="w-40"
           alt=""
         />
       </router-link>
     </div>
     <div
+
       class=" min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)]"
     >
       <div class="flex justify-center h-full">
         <div
           class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 px-2 md:px-8 h-full"
         >
+
           <div
             class="relative w-full min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)]"
           >
@@ -32,23 +36,29 @@
               alt=""
             />
             <div
+
               class="w-[90%] h-44 flex flex-col justify-between items-center text-center absolute -bottom-16 left-[50%] -translate-y-2/4 -translate-x-2/4 bg-PaleOrange px-4 py-6 border border-DarkJungleGreen"
+
             >
               <h1
                 class="text-DarkJungleGreen text-xl font-windsor-pro-bold text-center md:text-left"
               >
                 HEALTH AND STYLE
               </h1>
+
               <p class="text-[10px] md:text-xs mb-6">
                 Revolutionize Your Lifestyle: <br />
                 Smart Smoking for a Healthier You!
+
               </p>
               <div>
                 <router-link
                   to="/health-and-style"
                   class="bg-BrownBramble text-white px-5 py-3.5 text-xs md:text-base font-windsor-pro-bold"
                 >
+
                   Shop Now
+
                 </router-link>
               </div>
             </div>
@@ -58,11 +68,14 @@
             class="relative w-full min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)]"
           >
             <img
+
               src="../assets/images/homepage-img-3.png"
+
               class="absolute h-full w-full py-4 object-cover"
               alt=""
             />
             <img
+
               src="../assets/images/imag-2.jpg"
               class="fadeInClass h-full w-full py-4 object-cover"
               alt=""
@@ -75,10 +88,12 @@
             </p>
             <div
               class="w-[90%] h-44 flex flex-col justify-between items-center text-center absolute -bottom-16 left-[50%] -translate-y-2/4 -translate-x-2/4 bg-PaleOrange px-4 py-6 border border-DarkJungleGreen"
+
             >
               <h1
                 class="text-DarkJungleGreen text-xl font-windsor-pro-bold text-center md:text-left"
               >
+
                 LIFESTYLE
               </h1>
               <p class="text-[10px] md:text-xs mb-6 max-w-xs">
@@ -91,6 +106,7 @@
                   class="bg-BrownBramble text-Sandrift px-5 py-3.5 text-xs md:text-base font-windsor-pro-bold"
                 >
                   Shop Now
+
                 </router-link>
               </div>
             </div>
@@ -99,11 +115,14 @@
             class="relative w-full min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)]"
           >
             <img
+
               src="../assets/images/homepage-img-2.png"
+
               class="absolute h-full w-full py-4 object-cover"
               alt=""
             />
             <img
+
               src="../assets/images/imamm.jpeg"
               class="fadeInClass h-full w-full py-4 object-cover"
               alt=""
@@ -116,10 +135,12 @@
             </p>
             <div
               class="w-[90%] h-44 flex flex-col justify-between items-center text-center absolute -bottom-16 left-[50%] -translate-y-2/4 -translate-x-2/4 bg-PaleOrange px-4 py-6 border border-DarkJungleGreen"
+
             >
               <h1
                 class="text-DarkJungleGreen text-xl font-windsor-pro-bold text-center md:text-left"
               >
+
                 SPORT GEAR
               </h1>
               <p class="text-[10px] md:text-xs mb-6 overlay-dark">
@@ -132,6 +153,7 @@
                   class="bg-BrownBramble text-Sandrift px-5 py-3.5 text-xs md:text-base font-windsor-pro-bold"
                 >
                   Shop Now
+
                 </router-link>
               </div>
             </div>
@@ -139,6 +161,7 @@
         </div>
       </div>
     </div>
+
   </div>
 </template>
 
@@ -207,7 +230,9 @@ export default {
   animation-timing-function: linear;
 }
 
+
 .overlay-dark {
   background-color: rgba(#000000, 0.7);
 }
+
 </style>

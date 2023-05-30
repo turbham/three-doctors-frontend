@@ -6,10 +6,12 @@
       <div>
         <div v-if="loading">
           <div
+
             class="xl:px-40 flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:space-x-16 animate-pulse"
           >
             <div
               class="lg:w-7/12 flex flex-col-reverse lg:flex-row items-start lg:space-x-10"
+
             >
               <div
                 class="hidden lg:block md:w-1/12 w-full md:flex flex-row space-x-2.5 lg:space-x-0 lg:flex-col lg:space-y-4 mt-10 lg:mt-0"
@@ -56,6 +58,7 @@
             </div>
           </div>
         </div>
+
         <div v-else>
           <div
             class="xl:px-40 flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:space-x-16"
@@ -206,6 +209,7 @@
                   </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -220,7 +224,9 @@ import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 import { mapMutations } from "vuex";
 import Navbar from "@/components/Navbar.vue";
+
 import Footer from "@/components/Footer.vue";
+
 export default {
   name: "ProductDetail",
   props: ["products"],
@@ -332,6 +338,7 @@ export default {
       );
     },
 
+
     // toggleAccordion(index) {
     //   if (this.isExpanded(index)) {
     //     // Collapse the accordion item
@@ -356,6 +363,7 @@ export default {
     isExpanded(index) {
       return this.expandedIndex === index;
     },
+
   },
   watch: {
     numberOfProductInCart: {

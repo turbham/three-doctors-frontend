@@ -1,5 +1,6 @@
 <template>
   <div>
+
     <div v-if="isModalOpen">
       <div
         class="h-screen bg-[url('../assets/images/Are-you_18_bg.png')] text-PaleOrange px-1 flex flex-col items-center justify-center"
@@ -48,6 +49,7 @@
       <GuidlineAndRecommendationSlide />
       <Footer />
     </div>
+
   </div>
 </template>
 
@@ -85,6 +87,7 @@ export default {
     }
   },
 
+
   methods: {
     confirmAge() {
       localStorage.setItem("userIsAnAdult", true);
@@ -96,6 +99,7 @@ export default {
       this.isModalOpen = false;
       window.location.href = "/";
     },
+
   },
 };
 </script>

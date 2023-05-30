@@ -21,10 +21,12 @@ module.exports = {
         ShamrockGreen: "#009F56",
         Asphalt: "#120A07",
         PaleOrange: "#FAA551",
+
         Sandrift: "#AF9181",
         LightPeach: "#FFD8B5",
         GreyChateau: "#A6A8B1",
         DebianRed: "#D01344",
+
         
         Grey: "#909090",
         Platinum: "#E4E4E4",

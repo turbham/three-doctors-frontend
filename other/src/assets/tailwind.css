@@ -1,0 +1,140 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+@font-face {
+  font-family: "sf-pro-display";
+  src: url(./fonts/SFPRODISPLAYREGULAR.OTF);
+}
+@font-face {
+  font-family: "sf-pro-display-medium";
+  src: url(./fonts/SFPRODISPLAYMEDIUM.OTF);
+}
+@font-face {
+  font-family: "sf-pro-display-bold";
+  src: url(./fonts/SFPRODISPLAYBOLD.OTF);
+}
+@font-face {
+  font-family: "sf-pro-display-black";
+  src: url(./fonts/SFPRODISPLAYBLACK.ttf);
+}
+@font-face {
+  font-family: "sf-pro-display-bold";
+  src: url(./fonts/SFPRODISPLAYBOLD.OTF);
+}
+
+@font-face {
+  font-family: "windsor-pro-regular";
+  src: url(./fonts/windsor-pro-cdnfonts/WindsorProRg.TTF);
+}
+
+@font-face {
+  font-family: "windsor-pro-bold";
+  src: url(./fonts/windsor-pro-cdnfonts/WindsorProBold.TTF);
+}
+
+@font-face {
+  font-family: "windsor-pro-black";
+  src: url(./fonts/windsor-pro-cdnfonts/WindsorProUltHv.TTF);
+}
+
+@font-face {
+  font-family: "rebond-grotesque-regular";
+  src: url(./fonts/Rebond-Grotesque/Rebond-Grotesque.otf);
+}
+@font-face {
+  font-family: "rebond-grotesque-bold";
+  src: url(./fonts/Rebond-Grotesque/Rebond-Grotesque-bold.otf);
+}
+
+@font-face {
+  font-family: "windsor-pro-bold";
+  src: url(./fonts/windsor-pro-cdnfonts/WindsorProBold.TTF);
+}
+
+body {
+  background-color: #fff6ee;
+}
+
+.font-sf-pro-display-medium {
+  font-family: "sf-pro-display-medium";
+}
+.font-sf-pro-display-bold {
+  font-family: "sf-pro-display-bold";
+}
+
+.font-sf-pro-display-black {
+  font-family: "sf-pro-display-black";
+}
+
+.font-windsor-pro-regular {
+  font-family: "windsor-pro-regular";
+}
+.font-windsor-pro-bold {
+  font-family: "windsor-pro-bold";
+}
+.font-windsor-pro-black {
+  font-family: "windsor-pro-black";
+}
+
+.font-rebond-grotesque-regular {
+  font-family: "rebond-grotesque-regular";
+}
+
+.font-rebond-grotesque-bold {
+  font-family: "rebond-grotesque-bold";
+}
+
+.apparelbg {
+  background: url(./images/apparel_bg.svg);
+}
+
+.smokeFilterBg {
+  background: url(./images/Smoking_Filters.svg);
+}
+
+.health-and-style-bg {
+  background-color: var(--first-card-color);
+  background-image: url("./images/health-and-style-bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: auto;
+}
+
+.sport-gear-bg {
+  background-color: var(--first-card-color);
+  background-image: url("./images/sport-gear-bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: auto;
+}
+
+.lyfe-style-bg {
+  background-color: var(--first-card-color);
+  background-image: url("./images/lyfe-style-bg.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: auto;
+}
+
+.sport-gear {
+  background-color: #5F2301;
+  background-image: url("./images/i-26.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: auto;
+}
+.life-bg {
+  background-color: #009f56;
+  background-image: url("./images/i-26.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: auto;
+}

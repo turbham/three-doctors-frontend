@@ -12,13 +12,13 @@
               class="lg:w-7/12 flex flex-col-reverse lg:flex-row items-start lg:space-x-10"
             >
               <div
-                class="hidden lg:block md:w-1/12 w-full md:flex flex-row space-x-2.5 lg:space-x-0 lg:flex-col lg:space-y-2.5 mt-10 lg:mt-0"
+                class="hidden lg:block md:w-1/12 w-full md:flex flex-row space-x-2.5 lg:space-x-0 lg:flex-col lg:space-y-4 mt-10 lg:mt-0"
               >
-                <div class="w-10 h-10 bg-slate-400"></div>
-                <div class="w-10 h-10 bg-slate-400"></div>
-                <div class="w-10 h-10 bg-slate-400"></div>
-                <div class="w-10 h-10 bg-slate-400"></div>
-                <div class="w-10 h-10 bg-slate-400"></div>
+                <div class="w-14 h-14 bg-slate-400"></div>
+                <div class="w-14 h-14 bg-slate-400"></div>
+                <div class="w-14 h-14 bg-slate-400"></div>
+                <div class="w-14 h-14 bg-slate-400"></div>
+                <div class="w-14 h-14 bg-slate-400"></div>
               </div>
               <div
                 class="w-full lg:w-11/12 bg-slate-400 h-[350px] md:h-[550px] border-[3px] border-DarkJungleGreen"
@@ -64,13 +64,13 @@
               class="lg:w-7/12 flex flex-col-reverse lg:flex-row items-start lg:space-x-10"
             >
               <div
-                class="hidden lg:block md:w-1/12 w-full md:flex flex-row space-x-2.5 lg:space-x-0 lg:flex-col lg:space-y-2.5 mt-10 lg:mt-0"
+                class="hidden lg:block md:w-1/12 w-full md:flex flex-row space-x-2.5 lg:space-x-0 lg:flex-col lg:space-y-4 mt-10 lg:mt-0"
               >
-                <div class="w-10 h-10 bg-BalticSea"></div>
-                <div class="w-10 h-10 bg-BalticSea"></div>
-                <div class="w-10 h-10 bg-BalticSea"></div>
-                <div class="w-10 h-10 bg-BalticSea"></div>
-                <div class="w-10 h-10 bg-BalticSea"></div>
+                <div class="w-14 h-14 bg-BalticSea"></div>
+                <div class="w-14 h-14 bg-BalticSea"></div>
+                <div class="w-14 h-14 bg-BalticSea"></div>
+                <div class="w-14 h-14 bg-BalticSea"></div>
+                <div class="w-14 h-14 bg-BalticSea"></div>
               </div>
               <div
                 class="w-full lg:w-11/12 bg-LightGrey h-[350px] md:h-[550px] border-[3px] border-DarkJungleGreen"
@@ -83,12 +83,12 @@
               </div>
             </div>
             <div class="w-full lg:w-5/12 flex flex-row">
-              <div class="w-full h-full space-y-8">
+              <div class="w-full h-full space-y-14">
                 <div class="space-y-2 font-windsor-pro-bold text-BalticSea">
-                  <p class="font-medium text-lg md:text-xl">
+                  <p class="font-medium text-2xl md:text-5xl">
                     {{ product.name }}
                   </p>
-                  <p class="font-bold text-xl text-DebianRed">
+                  <p class="font-bold text-xl md:text-4xl text-BrownBramble">
                     ${{ product.price }}
                   </p>
                   <div class="space-y-2">
@@ -134,12 +134,12 @@
                     </select>
                   </div>
                 </div>
-                <div class="space-y-1">
+                <!-- <div class="space-y-1">
                   <p class="text-base font-medium">Retail unit</p>
                   <p class="text-sm font-light font-rebond-grotesque-regular">
                     {{ product.retailunit }}
                   </p>
-                </div>
+                </div> -->
                 <div class="max-w-[22rem]">
                   <p class="text-base font-medium mb-2">Description</p>
                   <ul
@@ -178,9 +178,9 @@
                     </span>
                     <span v-else>Add to Cart</span>
                   </button>
-                  <button class="border border-black p-4">
+                  <!-- <button class="border border-black p-4">
                     <img src="../../assets/icons/fi_small_heart.svg" alt="" />
-                  </button>
+                  </button> -->
                 </div>
                 <div>
                   <div
@@ -240,11 +240,11 @@ export default {
       isLoading: false,
 
       items: [
-        { title: "Product details", content: "Product details" },
-        { title: "Brand", content: "Brand" },
-        { title: "Size $ Fit", content: "Size $ Fit" },
-        { title: "Look After Me", content: "Look After Me" },
-        { title: "About Me", content: "About Me" },
+        // { title: "Product details", content: "Product details" },
+        // { title: "Brand", content: "Brand" },
+        // { title: "Size $ Fit", content: "Size $ Fit" },
+        // { title: "Look After Me", content: "Look After Me" },
+        // { title: "About Me", content: "About Me" },
       ],
       expandedIndex: null,
     };

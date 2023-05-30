@@ -1,22 +1,12 @@
 <template>
 
   <div class="bg-[url('../assets/images/Are-you_18_bg.png')]">
-    <div
-      class="flex items-center justify-center h-[80px] sticky top-0 z-50 "
-    >
+    <div class="flex items-center justify-center h-[80px] sticky top-0 z-50">
       <router-link to="/">
-        <img
-          src="../assets/icons/three-doctors-white-logo.svg"
-
-          class="w-40"
-          alt=""
-        />
+        <img src="../assets/images/logg.svg" class="w-64" alt="" />
       </router-link>
     </div>
-    <div
-
-      class=" min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)]"
-    >
+    <div class="min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)]">
       <div class="flex justify-center h-full">
         <div
           class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 px-2 md:px-8 h-full"
@@ -26,12 +16,12 @@
             class="relative w-full min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)]"
           >
             <img
-              src="../assets/images/homepage-img-1.png"
+              src="../assets/images/homepage-img-1.svg"
               class="absolute h-full w-full py-4 object-cover"
               alt=""
             />
             <img
-              src="../assets/images/imag.png"
+              src="../assets/images/filter_smoke_2.svg"
               class="fadeInClass h-full w-full py-4 object-cover"
               alt=""
             />
@@ -122,8 +112,7 @@
               alt=""
             />
             <img
-
-              src="../assets/images/imamm.jpeg"
+              src="../assets/images/imag-2.png"
               class="fadeInClass h-full w-full py-4 object-cover"
               alt=""
             />

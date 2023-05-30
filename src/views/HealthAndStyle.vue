@@ -5,12 +5,8 @@
       <div
         class="h-screen bg-[url('../assets/images/Are-you_18_bg.png')] text-PaleOrange px-1 flex flex-col items-center justify-center"
       >
-        <div class="mb-6 md:mb-16">
-          <img
-            src="../assets/images/3Doctors-black-logo.png"
-            class="w-32 md:w-64"
-            alt=""
-          />
+        <div class="">
+          <img src="../assets/images/logg.svg" alt="" class="w-64" />
         </div>
         <div class="space-y-2 md:space-y-8 mb-8 md:mb-16">
           <h1 class="font-windsor-pro-bold text-3xl md:text-6xl text-center">
@@ -48,10 +44,8 @@
     </div>
 
     <div v-if="isWebsiteAccessible">
-      <!-- <Navbar /> -->
       <HomeHeader />
       <SmokeFilter />
-      <!-- <Apparel /> -->
       <GuidlineAndRecommendationSlide />
       <Footer />
     </div>
@@ -63,7 +57,6 @@
 import Navbar from "@/components/Navbar.vue";
 import HomeHeader from "@/components/HomeHeader.vue";
 import SmokeFilter from "@/components/SmokeFilter.vue";
-// import Apparel from "@/components/Apparel.vue";
 import GuidlineAndRecommendationSlide from "@/components/GuidlineAndRecommendationSlide.vue";
 import Footer from "@/components/Footer.vue";
 export default {
@@ -72,15 +65,12 @@ export default {
     Navbar,
     HomeHeader,
     SmokeFilter,
-    // Apparel,
     GuidlineAndRecommendationSlide,
     Footer,
   },
 
   data() {
     return {
-      products: [],
-
       isModalOpen: false,
       isWebsiteAccessible: false,
     };
@@ -95,27 +85,10 @@ export default {
     } else {
       this.isWebsiteAccessible = true;
     }
-    // if (userIsAnAdult) {
-    //   this.isWebsiteAccessible = true;
-    // } else if (userIsNotAnAdult) {
-    //   this.isModalOpen = true;
-    // } else if (!userIsNotAnAdult) {
-    //   this.isModalOpen = true;
-    // } else {
-    //   this.isWebsiteAccessible = true;
-    // }
   },
 
 
   methods: {
-    async queryProduct() {
-      await this.$store.dispatch("query", {
-        endpoint: "listcreateProduct",
-        storeKey: "productList",
-      });
-      this.products = this.$store.state.data.productList;
-    },
-
     confirmAge() {
       localStorage.setItem("userIsAnAdult", true);
       this.isModalOpen = false;
@@ -127,10 +100,6 @@ export default {
       window.location.href = "/";
     },
 
-  },
-
-  created() {
-    this.queryProduct();
   },
 };
 </script>

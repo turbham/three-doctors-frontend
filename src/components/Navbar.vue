@@ -1,3 +1,4 @@
+z
 <template>
   <div
     :style="navStyle"
@@ -6,13 +7,7 @@
     <div class="container mx-auto">
       <div class="flex flex-row items-center justify-between">
         <router-link to="/">
-          <img
-
-            src="../assets/images/3-Doktors-logo-yelloww.png"
-
-            class="w-40"
-            alt=""
-          />
+          <img src="../assets/images/logg.svg" class="w-52" alt="" />
         </router-link>
         <div>
           <div>
@@ -221,7 +216,7 @@
                   </div>
                 </div>
               </div>
-              <router-link to="/products">BLOG</router-link>
+              <router-link to="">BLOG</router-link>
             </div>
             <div v-else></div>
           </div>
@@ -305,8 +300,6 @@ export default {
 
   watch: {
     getCartLength(value) {
-
-
       return value;
     },
   },

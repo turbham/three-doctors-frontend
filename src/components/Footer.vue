@@ -1,6 +1,6 @@
 <template>
   <VideoBackground
-    src="./smoke_video_2.mp4"
+    src="./smoke_video_4.mp4"
     poster="poster.jpg"
     :sources="[
       { src: '900>.mp4', res: 900, autoplay: true },

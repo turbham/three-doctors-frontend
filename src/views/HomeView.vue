@@ -91,12 +91,12 @@
                   fashion-forward clothing accessories.
                 </p>
                 <div>
-                  <router-link
-                    to="/lifeStyle"
-                    class="bg-BrownBramble text-Sandrift px-5 py-3.5 text-xs md:text-base font-windsor-pro-bold"
+                  <button
+                    disabled
+                    class="cursor-pointer bg-BrownBramble text-Sandrift px-5 py-3.5 text-xs md:text-base font-windsor-pro-bold"
                   >
                     Shop Now
-                  </router-link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -132,12 +132,12 @@
                   Embrace All-Inclusive Sport Gear!
                 </p>
                 <div>
-                  <router-link
-                    to="/sport-gear"
-                    class="bg-BrownBramble text-Sandrift px-5 py-3.5 text-xs md:text-base font-windsor-pro-bold"
+                  <button
+                    disabled
+                    class="cursor-pointer bg-BrownBramble text-Sandrift px-5 py-3.5 text-xs md:text-base font-windsor-pro-bold"
                   >
                     Shop Now
-                  </router-link>
+                  </button>
                 </div>
               </div>
             </div>
@@ -160,7 +160,7 @@ export default {
 
   created() {
     setTimeout(() => {
-    this.isLoading = false;
+      this.isLoading = false;
     }, 2000);
   },
 };

@@ -1,48 +1,70 @@
 <template>
-  <div class="bg-DarkJungleGreen py-12 md:py-20">
-    <div class="container mx-auto space-y-16">
-      <p
-        class="text-white text-xl md:text-5xl mb-6 font-windsor-pro-bold"
-      >
-        Filter Guideline and Recommendations
-      </p>
+  <VideoBackground
+    src="./smoke_video_4.mp4"
+    poster="poster.jpg"
+    :sources="[
+      { src: '900>.mp4', res: 900, autoplay: true },
+      {
+        src: '640.mp4',
+        res: 638,
+        autoplay: true,
+      },
+    ]"
+    class="relative max-h-[50%] h-[60vh] sm:h-[65vh] md:h-[70vh] lg:h-[150vh]"
+    overlay="linear-gradient(0deg,#2a4ae430,#1C1D22)"
+  >
+    <div class=" py-12 md:py-20">
+      <div class="container mx-auto space-y-16">
+        <p class="text-white text-xl md:text-5xl mb-6 font-windsor-pro-bold">
+          Filter Guideline and Recommendations
+        </p>
 
-      <div
-        class="border-[3px] border-DarkJungleGreen slider w-full h-[200px] lg:h-[500px]"
-      >
         <div
-          class="flex slide"
-          v-for="(slide, index) in slides"
-          :key="index"
-          :class="{ active: activeIndex === index }"
+          class="border-[3px] border-DarkJungleGreen slider w-full h-[200px] lg:h-[500px]"
         >
-          <div class="w-full relative">
-            <img :src="slide.imageSrc" class="w-full h-full" alt="" />
-            <div
-              class="absolute bottom-2 md:bottom-4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 dots"
-            >
-              <span
-                class="dot"
-                v-for="(slide, index) in slides"
-                :key="index"
-                :class="{ active: activeIndex === index }"
-                @click="setActiveSlide(index)"
-              ></span>
+          <div
+            class="flex slide"
+            v-for="(slide, index) in slides"
+            :key="index"
+            :class="{ active: activeIndex === index }"
+          >
+            <div class="w-full relative">
+              <img :src="slide.imageSrc" class="w-full h-full" alt="" />
+              <div
+                class="absolute bottom-2 md:bottom-4 left-1/4 transform -translate-x-1/2 -translate-y-1/2 dots"
+              >
+                <span
+                  class="dot"
+                  v-for="(slide, index) in slides"
+                  :key="index"
+                  :class="{ active: activeIndex === index }"
+                  @click="setActiveSlide(index)"
+                ></span>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+    <div class="">
+      <img
+        src="../assets/images/3Doctors-yellow-footer-logo.svg"
+        class="w-full absolute bottom-0"
+        alt=""
+      />
+    </div>
+  </VideoBackground>
 </template>
 
 <script>
 import slider from "./Slider.vue";
+import VideoBackground from "vue-responsive-video-background-player";
 
 export default {
   name: "GuidlineAndRecommendationSlide",
   components: {
     slider,
+    VideoBackground,
   },
   data() {
     return {

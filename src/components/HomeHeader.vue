@@ -3,7 +3,7 @@
     class="bg-[url('../assets/images/Are-you_18_bg.png')] bg-no-repeat bg-cover"
   >
     <Navbar />
-    <div class="pt-32 pb-12 flex flex-col h-screen">
+    <div class="pt-32 pb-12 flex flex-col h-[65vh] md:h-screen">
       <div class="flex flex-col justify-center items-center">
         <h2
           class="px-1 font-windsor-pro-bold text-xl sm:text-4xl lg:text-5xl text-PaleOrange text-center"
@@ -13,9 +13,9 @@
         </h2>
       </div>
       <div class="h-[10vh]"></div>
-      <div class="container flex flex-row space-x-20 xl:px-60">
+      <div class="container flex flex-row space-x-10 md:space-x-20 xl:px-60">
         <div class="w-1/2">
-          <div class="w-full h-[40vh] border-4 border-PaleOrange">
+          <div class="w-full h-fit md:h-[40vh] border-4 border-PaleOrange">
             <img
               src="../assets/images/filter_smoke_2.svg"
               class="w-full h-full object-cover"
@@ -26,13 +26,13 @@
           <div class="">
             <div class="flex flex-col justify-center items-center space-y-4">
               <h3
-                class="text-base md:text-2xl font-windsor-pro-bold text-PaleOrange"
+                class="text-xs sm:text-base md:text-2xl font-windsor-pro-bold text-PaleOrange"
               >
                 FILTER PAPERS
               </h3>
               <router-link
                 to="/products"
-                class="text-PaleOrange px-6 py-3 text-xs md:text-base font-windsor-pro-bold border border-PaleOrange hover:bg-PaleOrange hover:text-BrownBramble transition-all duration-500"
+                class="text-PaleOrange px-4 md:px-6 py-2 md:py-3 text-xs md:text-base font-windsor-pro-bold border border-PaleOrange hover:bg-PaleOrange hover:text-BrownBramble transition-all duration-500"
               >
                 Shop Now
               </router-link>
@@ -40,7 +40,7 @@
           </div>
         </div>
         <div class="w-1/2">
-          <div class="w-full h-[40vh] border-4 border-PaleOrange">
+          <div class="w-full h-fit md:h-[40vh] border-4 border-PaleOrange">
             <img
               src="../assets/images/filter_smoke_2.svg"
               class="w-full h-full object-cover"
@@ -51,13 +51,13 @@
           <div class="">
             <div class="flex flex-col justify-center items-center space-y-4">
               <h3
-                class="text-base md:text-2xl font-windsor-pro-bold text-PaleOrange"
+                class="text-xs sm:text-base md:text-2xl font-windsor-pro-bold text-PaleOrange"
               >
                 ROLLING PAPPERS
               </h3>
               <router-link
                 to="/products"
-                class="text-PaleOrange px-6 py-3 text-xs md:text-base font-windsor-pro-bold border border-PaleOrange hover:bg-PaleOrange hover:text-BrownBramble transition-all duration-500"
+                class="text-PaleOrange px-4 md:px-6 py-2 md:py-3 text-xs md:text-base font-windsor-pro-bold border border-PaleOrange hover:bg-PaleOrange hover:text-BrownBramble transition-all duration-500"
               >
                 Shop Now
               </router-link>

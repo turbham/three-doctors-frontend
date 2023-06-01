@@ -26,12 +26,12 @@
               class="relative w-full min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)]"
             >
               <img
-                src="../assets/images/homepage-img-1.svg"
+                src="../assets/images/homepage-img-1.png"
                 class="absolute h-full w-full py-4 object-cover"
                 alt=""
               />
               <img
-                src="../assets/images/filter_smoke_2.svg"
+                src="../assets/images/homepage-img-2.png"
                 class="fadeInClass h-full w-full py-4 object-cover"
                 alt=""
               />
@@ -63,12 +63,12 @@
               class="relative w-full min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)]"
             >
               <img
-                src="../assets/images/homepage-img-3.png"
+                src="../assets/images/lifestyle-img-2.jpg"
                 class="absolute h-full w-full py-4 object-cover"
                 alt=""
               />
               <img
-                src="../assets/images/imag-2.jpg"
+                src="../assets/images/lifestyle-img-1.jpg"
                 class="fadeInClass h-full w-full py-4 object-cover"
                 alt=""
               />
@@ -104,12 +104,12 @@
               class="relative w-full min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)]"
             >
               <img
-                src="../assets/images/homepage-img-2.png"
+                src="../assets/images/sport-gear-img1.jpg"
                 class="absolute h-full w-full py-4 object-cover"
                 alt=""
               />
               <img
-                src="../assets/images/imag-2.png"
+                src="../assets/images/sport-gear-img2.jpg"
                 class="fadeInClass h-full w-full py-4 object-cover"
                 alt=""
               />
@@ -165,3 +165,43 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.rotate-img-1 {
+  cursor: pointer;
+  transition: all 1s;
+  -webkit-transform: rotateZ(-30deg);
+  -ms-transform: rotateZ(-30deg);
+  transform: rotateZ(-10deg);
+}
+.rotate-img-2 {
+  cursor: pointer;
+  transition: all 1s;
+  -webkit-transform: rotateZ(30deg);
+  -ms-transform: rotateZ(30deg);
+  transform: rotateZ(10deg);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  20% {
+    opacity: 0;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeInClass {
+  animation-name: fadeIn;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+  animation-timing-function: linear;
+}
+</style>

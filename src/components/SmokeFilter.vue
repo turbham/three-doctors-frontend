@@ -1,6 +1,6 @@
 <template>
   <div class="smokeFilterB bg-white">
-    <div class="container mx-auto py-12 md:py-28">
+    <div class="container mx-auto py-8 sm:py-12 md:py-28">
       <p
         class="text-DarkJungleGreen text-xl md:text-5xl mb-16 font-meduim font-windsor-pro-bold"
       >

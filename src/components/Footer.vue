@@ -10,7 +10,7 @@
         autoplay: true,
       },
     ]"
-    class="relative max-h-[50%] h-[40vh] md:h-[80vh]"
+    class="relative max-h-[50%] h-[40vh] md:h-[50vh]"
     overlay="linear-gradient(0deg,#2a4ae430,#1C1D22)"
   >
     <div class="">

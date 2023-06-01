@@ -47,7 +47,7 @@
       <HomeHeader />
       <SmokeFilter />
       <GuidlineAndRecommendationSlide />
-      <Footer />
+      <!-- <Footer /> -->
     </div>
 
   </div>
@@ -58,7 +58,7 @@ import Navbar from "@/components/Navbar.vue";
 import HomeHeader from "@/components/HomeHeader.vue";
 import SmokeFilter from "@/components/SmokeFilter.vue";
 import GuidlineAndRecommendationSlide from "@/components/GuidlineAndRecommendationSlide.vue";
-import Footer from "@/components/Footer.vue";
+// import Footer from "@/components/Footer.vue";
 export default {
   name: "HealthAndStyle",
   components: {
@@ -66,7 +66,7 @@ export default {
     HomeHeader,
     SmokeFilter,
     GuidlineAndRecommendationSlide,
-    Footer,
+    // Footer,
   },
 
   data() {

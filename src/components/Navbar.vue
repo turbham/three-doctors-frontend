@@ -7,12 +7,12 @@ z
     <div class="container mx-auto">
       <div class="flex flex-row items-center justify-between">
         <router-link to="/">
-          <img src="../assets/images/logg.svg" class="w-52" alt="" />
+          <img src="../assets/images/logg.svg" class="w-32 md:w-52" alt="" />
         </router-link>
         <div>
           <div>
             <div
-              class="hidden md:flex items-center md:space-x-10 lg:space-x-16"
+              class="hidden md:flex items-center md:space-x-6 lg:space-x-16"
               v-if="activeProductsRoute"
             >
               <div class="navbar-right relative">
@@ -111,10 +111,11 @@ z
                   </div>
                 </div>
               </div>
+
               <div class="navbar-right relative">
-                <button @click="openRollingPaper = !openRollingPaper">
+                <span @click="openRollingPaper = !openRollingPaper">
                   <span>ROLLING PAPERS</span>
-                </button>
+                </span>
                 <button
                   v-if="openRollingPaper"
                   @click="openRollingPaper = false"

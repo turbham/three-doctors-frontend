@@ -41,7 +41,7 @@
                 <h1
                   class="text-DarkJungleGreen text-xl font-windsor-pro-bold text-center md:text-left"
                 >
-                  HEALTH AND STYLE
+                 HEALTH AND STYLE
                 </h1>
 
                 <p class="text-[10px] md:text-xs mb-6">

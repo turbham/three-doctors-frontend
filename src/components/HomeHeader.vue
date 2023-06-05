@@ -17,7 +17,7 @@
         <div class="w-1/2">
           <div class="w-full h-fit md:h-[40vh] border-4 border-PaleOrange">
             <img
-              src="../assets/images/filter_smoke_2.svg"
+              src="../assets/images/homepage-img-1.png"
               class="w-full h-full object-cover"
               alt=""
             />
@@ -42,7 +42,7 @@
         <div class="w-1/2">
           <div class="w-full h-fit md:h-[40vh] border-4 border-PaleOrange">
             <img
-              src="../assets/images/filter_smoke_2.svg"
+              src="../assets/images/homepage-img-2.png"
               class="w-full h-full object-cover"
               alt=""
             />
@@ -230,3 +230,4 @@ export default {
   }
 }
 </style>
+

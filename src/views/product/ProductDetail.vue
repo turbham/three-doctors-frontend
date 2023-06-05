@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar />
-    <div class="container mx-auto my-12 md:my-32">
+    <div class="container mx-auto my-24 md:my-32">
       <p class="mb-8 md:mb-12">Homepage / Filter / Product Page</p>
       <div>
         <div v-if="loading">
@@ -12,7 +12,7 @@
               class="lg:w-7/12 flex flex-col-reverse lg:flex-row items-start lg:space-x-10"
             >
               <div
-                class="hidden lg:block md:w-1/12 w-full md:flex flex-row space-x-2.5 lg:space-x-0 lg:flex-col lg:space-y-4 mt-10 lg:mt-0"
+                class="hidden lg:block md:w-1/12 w-full md:flex flex-row space-x-2.5 lg:space-x-0 lg:flex-col lg:space-y-2.5 mt-10 lg:mt-0"
               >
                 <div class="w-14 h-14 bg-slate-400"></div>
                 <div class="w-14 h-14 bg-slate-400"></div>
@@ -56,7 +56,6 @@
             </div>
           </div>
         </div>
-
         <div v-else>
           <div
             class="xl:px-40 flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:space-x-16"
@@ -64,98 +63,100 @@
             <div
               class="lg:w-7/12 flex flex-col-reverse lg:flex-row items-start lg:space-x-10"
             >
-              <!-- 
-                class="hidden lg:block md:w-1/12 w-full md:flex flex-row space-x-2.5 lg:space-x-0 lg:flex-col lg:space-y-4 mt-10 lg:mt-0"
-
-             -->
-              <div class="flex items-center justify-center">
-                <div class="flex flex-row space-x-4 mt-10 lg:mt-0">
-                  <div class="w-14 h-14 bg-red-400"></div>
-                  <div class="w-14 h-14 bg-BalticSea"></div>
-                  <div class="w-14 h-14 bg-BalticSea"></div>
-                  <div class="w-14 h-14 bg-BalticSea"></div>
-                  <div class="w-14 h-14 bg-BalticSea"></div>
+              <div
+                class="hidden lg:block md:w-1/12 w-full md:flex flex-row space-x-2.5 lg:space-x-0 lg:flex-col lg:space-y-2.5 mt-10 lg:mt-0"
+              >
+                <div
+                  v-for="(image, index) in product.images.slice(0, 6)"
+                  :key="index"
+                  class="w-14 h-14 bg-BalticSea cursor-pointer"
+                  @click="showClickedImage(index)"
+                >
+                  <img
+                    class="h-full w-full object-cover"
+                    :src="image"
+                    :alt="product.name"
+                  />
                 </div>
               </div>
               <div
                 class="w-full lg:w-11/12 bg-LightGrey h-[350px] md:h-[550px] border-[3px] border-DarkJungleGreen"
               >
                 <img
-                  class="h-full w-full object-fill"
-                  :src="product.image"
+                  class="h-full w-full object-cover"
+                  :src="clickedImage || product.images[0]"
                   :alt="product.name"
                 />
               </div>
             </div>
             <div class="w-full lg:w-5/12 flex flex-row">
-              <div class="w-full h-full space-y-14">
+              <div class="w-full h-full space-y-8">
                 <div class="space-y-2 font-windsor-pro-bold text-BalticSea">
                   <p class="font-medium text-2xl md:text-5xl">
                     {{ product.name }}
                   </p>
-                  <p class="font-bold text-xl md:text-4xl text-BrownBramble">
-                    ${{ product.price }}
+                  <p class="font-bold text-xl text-DebianRed">
+                    {{ product.price }}
                   </p>
-                  <div class="space-y-2">
-                    <p>Color: Black</p>
-                    <div class="flex items-center space-x-4">
-                      <div
-                        class="cursor-pointer flex items-center justify-center rounded-full border p-[2px]"
-                      >
-                        <span
-                          class="bg-DarkJungleGreen rounded-full w-7 h-7"
-                        ></span>
-                      </div>
-                      <div
-                        class="cursor-pointer flex items-center justify-center rounded-full border p-[2px]"
-                      >
-                        <span
-                          class="bg-ShamrockGreen rounded-full w-7 h-7"
-                        ></span>
-                      </div>
-                      <div
-                        class="cursor-pointer flex items-center justify-center rounded-full border p-[2px]"
-                      >
-                        <span
-                          class="bg-GreyChateau rounded-full w-7 h-7"
-                        ></span>
-                      </div>
-                    </div>
+
+                  <!-- <div class="space-y-2">
+                    <p>Colors:</p>
+                    <VueMultiselect
+                      v-model="product.colors"
+                      :options="colors"
+                      :close-on-select="true"
+                    ></VueMultiselect>
                   </div>
                   <div class="space-y-2">
                     <p>Size:</p>
+
+                    <VueMultiselect
+                      v-model="product.sizes"
+                      :options="sizes"
+                      :close-on-select="true"
+                    ></VueMultiselect>
+                  </div> -->
+                  <div v-if="sizes.length > 0">
+                    <h4>Available Sizes:</h4>
                     <select
-                      name=""
-                      id=""
-                      class="w-1/2 border-2 border-BalticSea p-2"
+                      class="w-1/2 border px-3 py-2"
+                      v-model="selectedSize"
                     >
-                      <option value="select size" selected>
-                        Please select
+                      <option v-for="size in sizes" :key="size" :value="size">
+                        {{ size }}
                       </option>
-                      <option value=" 5.3mm">5.3mm</option>
-                      <option value="6mm">6mm</option>
-                      <option value="7mm">7mm</option>
-                      <option value=" 8mm">8mm</option>
+                    </select>
+                  </div>
+
+                  <div v-if="colors.length > 0">
+                    <h4>Available Colors:</h4>
+                    <select
+                      class="w-1/2 border px-3 py-2"
+                      v-model="selectedColor"
+                    >
+                      <option
+                        v-for="color in colors"
+                        :key="color"
+                        :value="color"
+                      >
+                        {{ color }}
+                      </option>
                     </select>
                   </div>
                 </div>
-                <!-- <div class="space-y-1">
-                  <p class="text-base font-medium">Retail unit</p>
-                  <p class="text-sm font-light font-rebond-grotesque-regular">
-                    {{ product.retailunit }}
-                  </p>
-                </div> -->
+                <div class="space-y-1">
+                  <p class="text-base font-medium">Quantity</p>
+                  <input
+                    class="w-1/2 border px-3 py-2"
+                    type="text"
+                    name=""
+                    id=""
+                    :placeholder="product.quantity"
+                  />
+                </div>
                 <div class="max-w-[22rem]">
                   <p class="text-base font-medium mb-2">Description</p>
-                  <ul
-                    class="text-sm font-light list-disc space-y-1 pl-4"
-                    v-for="(description, index) in product.description"
-                    :key="index"
-                  >
-                    <li class="">
-                      {{ description }}
-                    </li>
-                  </ul>
+                  {{ product.description }}
                 </div>
                 <div class="flex flex-row items-center space-x-5">
                   <button
@@ -221,105 +222,421 @@
 </template>
 
 <script>
+import VueMultiselect from "vue-multiselect";
 import { toast } from "vue3-toastify";
 import "vue3-toastify/dist/index.css";
 import { mapMutations } from "vuex";
 import Navbar from "@/components/Navbar.vue";
-
 import Footer from "@/components/Footer.vue";
-
 export default {
   name: "ProductDetail",
   props: ["products"],
   components: {
     Navbar,
     Footer,
+    VueMultiselect,
   },
   data() {
     return {
       loading: true,
-
-      product: {},
+      // cartItems: [],
+      // product: {},
+      product: {
+        _id: "",
+        price: null,
+        quantity: null,
+        inventory: {
+          quantity: null,
+        },
+        name: "",
+        images: [],
+        colors: [],
+        sizes: [],
+      },
       products: [],
       id: null,
       quantity: 1,
       numberOfProductInCart: [],
       isLoading: false,
+      sizes: [],
+      colors: [],
+      selectedSize: "",
+      selectedColor: "",
 
-      items: [
-        // { title: "Product details", content: "Product details" },
-        // { title: "Brand", content: "Brand" },
-        // { title: "Size $ Fit", content: "Size $ Fit" },
-        // { title: "Look After Me", content: "Look After Me" },
-        // { title: "About Me", content: "About Me" },
-      ],
-      expandedIndex: null,
+      // click on image index
+      clickedImage: null,
     };
   },
-  // mounted() {
-  //   console.log("ooo", this.products);
-  //   this.id = this.$route.params.id;
-  //   console.log("my id", this.id);
-  //   this.product = this.products.find((product) => product.id == this.id);
-  //   // this.product = this.products.find((product) => product.id == this.id);
-  //   console.log("my productd", this.product);
-  // },
+
   methods: {
+    // clicked function to show image
+    showClickedImage(index) {
+      this.clickedImage = this.product.images[index];
+    },
+
     async queryProduct() {
       await this.$store.dispatch("query", {
-        endpoint: "listcreateProduct",
+        endpoint: "getAllProducts",
         storeKey: "productList",
       });
       this.products = this.$store.state.data.productList;
       this.loading = false;
+
+      const sizesSet = new Set();
+      const colorsSet = new Set();
+      this.products.forEach((product) => {
+        product.sizes.forEach((size) => {
+          sizesSet.add(size);
+        });
+        product.colors.forEach((color) => {
+          colorsSet.add(color);
+        });
+      });
+      this.sizes = Array.from(sizesSet);
+      this.colors = Array.from(colorsSet);
+    },
+    async updateProduct() {
+      // Update the product with the selected colors and sizes
+      this.product.colors = this.selectedColor;
+      this.product.sizes = this.selectedSize;
+
+      try {
+        // Make the API call to update the product
+        console.log(this.product._id);
+        const response = await this.$store.dispatch("mutate", {
+          endpoint: "updateProduct",
+          data: {
+            input: {
+              productId: this.product._id,
+              colors: this.product.colors,
+              sizes: this.product.sizes,
+            },
+          },
+        });
+        console.log("response", response);
+        console.log("responseData", response._id);
+
+        // Handle the response and perform any necessary actions
+        if (response) {
+          const updateProductId = response._id;
+          console.log(
+            "Product updated successfully. Update Product ID:",
+            updateProductId
+          );
+
+          // Show a success message or perform any other necessary actions
+          toast.success("Product updated successfully");
+
+          // Update localStorage with the updateProductId
+          localStorage.setItem("updateProductId", updateProductId);
+
+          // Reset the selected color and size
+          this.selectedColor = "";
+          this.selectedSize = "";
+        } else {
+          // Handle the case where the response is not as expected
+          console.error("Failed to update product: Invalid response");
+          toast.error("Failed to update product");
+        }
+      } catch (error) {
+        // Handle any errors that occurred during the API call
+        console.error("Failed to update product:", error);
+        toast.error("Failed to update product");
+      }
+    },
+    // async addToCart(items) {
+    //   try {
+    //     // Call the updateProduct function before creating the cart
+    //     await this.updateProduct();
+    //     const updatedProduct = localStorage.getItem("updateProductId");
+    //     // Prepare the input data for the mutation
+    //     const input = {
+    //       items: [
+    //         {
+    //           product: updatedProduct,
+    //           quantity: this.quantity,
+    //         },
+    //       ],
+    //     };
+
+    //     // Make the GraphQL mutation request to create the cart
+    //     const createCartResponse = await this.$store.dispatch("mutate", {
+    //       endpoint: "createCart",
+    //       data: { input },
+    //     });
+
+    //     // Handle the createCart response and perform any necessary actions
+    //     if (createCartResponse) {
+    //       // Show a success message or perform any other necessary actions
+    //       console.log("Cart created successfully:", createCartResponse);
+
+    //       // Save the created cart ID to localStorage
+    //       localStorage.setItem("cartId", createCartResponse._id);
+
+    //       // Reset the cart items or perform any other necessary actions
+    //       // ...
+
+    //       return createCartResponse;
+    //     } else {
+    //       // Handle the case where the createCart response is not as expected
+    //       console.error("Failed to create cart: Invalid response");
+    //       // Show an error message or perform any other necessary actions
+    //       // ...
+    //       return null;
+    //     }
+    //   } catch (error) {
+    //     // Handle any errors that occurred during the createCart mutation
+    //     console.error("Failed to create cart:", error);
+    //     // Show an error message or perform any other necessary actions
+    //     // ...
+    //     return null;
+    //   }
+    // },
+
+    async addToCart(items) {
+      try {
+        // Call the updateProduct function before creating the cart
+        await this.updateProduct();
+        const updatedProduct = localStorage.getItem("updateProductId");
+        // Prepare the input data for the mutation
+        const input = {
+          items: [
+            {
+              product: updatedProduct,
+              quantity: this.quantity,
+            },
+          ],
+        };
+
+        const cartId = localStorage.getItem("cartId");
+
+        if (cartId) {
+          // Get the existing cart by ID
+          const existingCartResponse = await this.$store.dispatch("query", {
+            endpoint: "getCartById",
+            storeKey: "cartList",
+            payload: { cartId: cartId },
+          });
+
+          const existingCart = existingCartResponse || {};
+          console.log("looking444", existingCart);
+          // Initialize the items array if it doesn't exist
+          if (!existingCart.items) {
+            existingCart.items = [];
+          }
+
+          // Push the new cart item into the existing cart items array
+          existingCart.items.push(input.items[0]);
+
+          // Make the API call to update the cart
+          const updateCartResponse = await this.$store.dispatch("mutate", {
+            endpoint: "updateCart",
+            data: { input: { cartId, items: existingCart.items } },
+            variables: { input: { cartId, items: existingCart.items } },
+          });
+          console.log("existingCart.items", existingCart.items);
+
+          const cartItemIds = existingCart.items.map(
+            (item) => item.product._id
+          );
+          localStorage.setItem("cartItemIds", JSON.stringify(cartItemIds));
+
+          console.log("cartItemIds", cartItemIds);
+
+          console.log("youyou", cartItemIds);
+          // Handle the updateCart response and perform any necessary actions
+          if (updateCartResponse) {
+            // Show a success message or perform any other necessary actions
+            console.log("Cart updated successfully:", updateCartResponse);
+
+            // Reset the cart items or perform any other necessary actions
+            // ...
+            return updateCartResponse;
+          } else {
+            // Handle the case where the updateCart response is not as expected
+            console.error("Failed to update cart: Invalid response");
+            // Show an error message or perform any other necessary actions
+            // ...
+            return null;
+          }
+        } else {
+          // Create a new cart with the cart item
+          const createCartResponse = await this.$store.dispatch("mutate", {
+            endpoint: "createCart",
+            data: { input },
+          });
+          console.log("looking", createCartResponse);
+          if (createCartResponse) {
+            // Show a success message or perform any other necessary actions
+            console.log("Cart created successfully:", createCartResponse);
+
+            // Save the created cart ID to localStorage
+            localStorage.setItem("cartId", createCartResponse._id);
+
+            // Reset the cart items or perform any other necessary actions
+            // ...
+            return createCartResponse;
+          } else {
+            // Handle the case where the createCart response is not as expected
+            console.error("Failed to create cart: Invalid response");
+            // Show an error message or perform any other necessary actions
+            // ...
+            return null;
+          }
+        }
+      } catch (error) {
+        // Handle any errors that occurred during the createCart or updateCart mutation
+        console.error("Failed to create/update cart:", error);
+        // Show an error message or perform any other necessary actions
+        // ...
+        return null;
+      }
     },
 
-    async addToCart() {
-      // Set isLoading to true to display loader
-      this.isLoading = true;
-      let cartInput;
-      let checkCartId = window.localStorage.getItem("cartId");
-      if (checkCartId) {
-        cartInput = {
-          quantity: this.quantity,
-          productId: this.product._id,
-          cartId: checkCartId,
-        };
-      } else {
-        cartInput = {
-          quantity: this.quantity,
-          productId: this.product._id,
-        };
-      }
-      let response = await this.$store.dispatch("mutate", {
-        endpoint: "addCart",
-        data: { input: cartInput },
-      });
-      // Set isLoading to false to remove loader
-      this.isLoading = false;
-      if (response) {
-        const viewaddCartId = localStorage.getItem("cartId");
-        await this.$store.dispatch("query", {
-          endpoint: "viewaddCart",
-          storeKey: "cartList",
-          payload: { viewaddCartId: viewaddCartId },
-        });
-      }
-      window.localStorage.setItem("cartId", response._id);
-      console.log("res", response);
-      this.numberOfProductInCart = response.productId;
-      if (this.quantity || this.quantity < 1) {
-        this.quantity = 1;
-      }
-      const item = {
-        product: this.product,
-        quantity: this.quantity,
-      };
-      this.$store.commit("setCartItemLength", response.productId.length);
-      toast.success("Product added successfully", {
-        autoClose: 1000,
-      });
-    },
+    // async updateProduct() {
+    //   // Update the product with the selected colors and sizes
+    //   this.product.colors = this.selectedColor;
+    //   this.product.sizes = this.selectedSize;
+
+    //   try {
+    //     // Make the API call to update the product
+    //     console.log(this.product._id);
+    //     const response = await this.$store.dispatch("mutate", {
+    //       endpoint: "updateProduct",
+    //       data: {
+    //         input: {
+    //           productId: this.product._id,
+    //           colors: this.product.colors,
+    //           sizes: this.product.sizes,
+    //         },
+    //       },
+    //     });
+
+    //     // Handle the response and perform any necessary actions
+    //     if (response) {
+    //       console.log("Product updated successfully:", response);
+
+    //       // Show a success message or perform any other necessary actions
+    //       toast.success("Product updated successfully");
+
+    //       // Reset the selected color and size
+    //       this.selectedColor = "";
+    //       this.selectedSize = "";
+    //     } else {
+    //       // Handle the case where the response is not as expected
+    //       console.error("Failed to update product: Invalid response");
+    //       toast.error("Failed to update product");
+    //     }
+    //   } catch (error) {
+    //     // Handle any errors that occurred during the API call
+    //     console.error("Failed to update product:", error);
+    //     toast.error("Failed to update product");
+    //   }
+    // },
+    // async addToCart() {
+    //   // Set isLoading to true to display loader
+    //   this.isLoading = true;
+
+    //   // Check if a color and size have been selected
+    //   if (!this.selectedColor || !this.selectedSize) {
+    //     console.error("Please select a color and size");
+    //     toast.error("Please select a color and size");
+    //     this.isLoading = false;
+    //     return;
+    //   }
+
+    //   // Update the product with the selected color and size
+    //   this.product.colors = [this.selectedColor];
+    //   this.product.sizes = [this.selectedSize];
+
+    //   try {
+    //     // Update the product before adding to the cart
+    //     await this.updateProduct();
+
+    //     // Prepare the input for the API call to add the product to the cart
+    //     const input = {
+    //       product: this.updateProductId,
+    //       colors: this.product.colors,
+    //       sizes: this.product.sizes,
+    //     };
+    //     console.log("product", this.updateProductId);
+
+    //     const cartId = localStorage.getItem("cartId");
+
+    //     // Prepare the cart item input
+    //     const cartItemInput = {
+    //       product: this.updateProductId,
+    //       quantity: this.quantity,
+    //     };
+
+    //     if (cartId) {
+    //       // Get the existing cart by ID
+    //       const existingCartResponse = await this.$store.dispatch("query", {
+    //         endpoint: "getCartById",
+    //         storeKey: "cartList",
+    //         payload: { cartId: cartId },
+    //       });
+
+    //       const existingCart = existingCartResponse || {};
+
+    //       // Initialize the items array if it doesn't exist
+    //       if (!existingCart.items) {
+    //         existingCart.items = [];
+    //       }
+
+    //       // Push the new cart item into the existing cart items array
+    //       existingCart.items.push(cartItemInput);
+
+    //       // Make the API call to update the cart
+    //       const updateCartResponse = await this.$store.dispatch("mutate", {
+    //         endpoint: "updateCart",
+    //         data: { input: { cartId, items: existingCart.items } },
+    //         variables: { input: { cartId, items: existingCart.items } },
+    //       });
+
+    //       // Rest of the code...
+    //     } else {
+    //       // Create a new cart with the cart item
+    //       const cartInput = {
+    //         items: [cartItemInput],
+    //       };
+
+    //       const createCartResponse = await this.$store.dispatch("mutate", {
+    //         endpoint: "createCart",
+    //         data: { input: cartInput },
+    //         variables: { input: cartInput },
+    //       });
+
+    //       if (createCartResponse) {
+    //         const newCartId = createCartResponse._id;
+    //         window.localStorage.setItem("cartId", newCartId);
+    //         this.$store.commit("setCartItemLength", 1);
+    //         toast.success("Product added to cart successfully", {
+    //           autoClose: 1000,
+    //         });
+    //       } else {
+    //         toast.error("Failed to add product to cart");
+    //       }
+    //     }
+
+    //     // Reset the product and quantity after adding to cart
+    //     this.product = {
+    //       _id: "",
+    //       sizes: [],
+    //       colors: [],
+    //     };
+    //     this.quantity = 1;
+    //   } catch (error) {
+    //     console.error("Failed to add product to cart:", error);
+    //     toast.error("Failed to add product to cart");
+    //   }
+
+    //   // Set isLoading to false to remove loader
+    //   this.isLoading = false;
+    // },
+
+    // Assuming you have access to your Vuex store through `this.$store`
+
     decrementQuantity() {
       this.quantity -= 1;
       if (this.quantity === 0) {
@@ -339,18 +656,6 @@ export default {
       );
     },
 
-    // toggleAccordion(index) {
-    //   if (this.isExpanded(index)) {
-    //     // Collapse the accordion item
-    //     this.expandedIndexes = this.expandedIndexes.filter((i) => i !== index);
-    //   } else {
-    //     // Expand the accordion item
-    //     this.expandedIndexes.push(index);
-    //   }
-    // },
-    // isExpanded(index) {
-    //   return this.expandedIndexes.includes(index);
-    // },
     toggleAccordion(index) {
       if (this.isExpanded(index)) {
         // Collapse the accordion item
@@ -362,6 +667,10 @@ export default {
     },
     isExpanded(index) {
       return this.expandedIndex === index;
+    },
+
+    updateMainImage(image) {
+      this.mainImage = image;
     },
   },
   watch: {
@@ -410,3 +719,4 @@ export default {
   float: right;
 }
 </style>
+<style src="vue-multiselect/dist/vue-multiselect.css"></style>

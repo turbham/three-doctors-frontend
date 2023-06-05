@@ -1,0 +1,15 @@
+mutation UpdateProduct($input: UpdatedProductInput!) {
+  updateProduct(input: $input) {
+    sizes
+    colors
+    _id
+    images
+    name
+    price
+    quantity
+    inventory {
+      quantity
+    }
+     description
+  }
+}

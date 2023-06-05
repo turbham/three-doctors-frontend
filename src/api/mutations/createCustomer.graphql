@@ -1,0 +1,33 @@
+mutation Mutation($input: CreateCustomerInput!) {
+  createCustomer(input: $input) {
+    _id
+    firstname
+    lastname
+    city
+    state
+    postal
+    number
+    address
+    email
+    cart {
+      _id
+      items {
+        _id
+        product {
+          _id
+          name
+          images
+          inventory {
+            quantity
+          }
+          price
+          colors
+          sizes
+          description
+          quantity
+        }
+        quantity
+      }
+    }
+  }
+}

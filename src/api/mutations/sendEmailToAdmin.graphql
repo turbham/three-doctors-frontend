@@ -1,0 +1,5 @@
+mutation Mutation($input: SendEmailToAdminInput!) {
+  sendEmailToAdmin(input: $input) {
+    success
+  }
+}

@@ -1,4 +1,3 @@
-z
 <template>
   <div
     :style="navStyle"
@@ -7,26 +6,30 @@ z
     <div class="container mx-auto">
       <div class="flex flex-row items-center justify-between">
         <router-link to="/">
-          <img src="../assets/images/logg.svg" class="w-32 md:w-52" alt="" />
+          <img
+            src="../assets/images/3-Doktors-logo-yelloww.png"
+            class="w-40"
+            alt=""
+          />
         </router-link>
         <div>
           <div>
             <div
-              class="hidden md:flex items-center md:space-x-6 lg:space-x-16"
+              class="hidden md:flex items-center md:space-x-10 lg:space-x-16"
               v-if="activeProductsRoute"
             >
               <div class="navbar-right relative">
-                <button @click="open = !open">
+                <button @click="toggleDropdown('filters')">
                   <span>SMART FILTERS</span>
                 </button>
                 <button
-                  v-if="open"
-                  @click="open = false"
+                  v-if="openDropdown === 'filters'"
+                  @click="toggleDropdown('filters')"
                   tabindex="-1"
                   class="fixed top-0 inset-0 h-full w-full bg-black opacity-0 cursor-default"
                 ></button>
                 <div
-                  v-if="open"
+                  v-if="openDropdown === 'filters'"
                   class="absolute z-20 top-auto left-0 w-96 px-8 py-6 mt-2 bg-white"
                 >
                   <div class="flex flex-row items-start">
@@ -111,19 +114,18 @@ z
                   </div>
                 </div>
               </div>
-
               <div class="navbar-right relative">
-                <span @click="openRollingPaper = !openRollingPaper">
+                <button @click="toggleDropdown('rollingPapers')">
                   <span>ROLLING PAPERS</span>
-                </span>
+                </button>
                 <button
-                  v-if="openRollingPaper"
-                  @click="openRollingPaper = false"
+                  v-if="openDropdown === 'rollingPapers'"
+                  @click="toggleDropdown('rollingPapers')"
                   tabindex="-1"
                   class="fixed top-0 inset-0 h-full w-full bg-black opacity-0 cursor-default"
                 ></button>
                 <div
-                  v-if="openRollingPaper"
+                  v-if="openDropdown === 'rollingPapers'"
                   class="absolute z-20 top-auto left-0 w-96 px-8 py-6 mt-2 bg-white"
                 >
                   <div class="flex flex-row items-start">
@@ -217,7 +219,7 @@ z
                   </div>
                 </div>
               </div>
-              <router-link to="">BLOG</router-link>
+              <router-link to="/products">BLOG</router-link>
             </div>
             <div v-else></div>
           </div>
@@ -246,6 +248,8 @@ export default {
       scrolled: false,
       open: false,
       openRollingPaper: false,
+      openDropdown: null,
+
     };
   },
   // beforeCreate() {
@@ -256,12 +260,20 @@ export default {
   // },
 
   methods: {
+        toggleDropdown(dropdown) {
+      if (this.openDropdown === dropdown) {
+        this.openDropdown = null;
+      } else {
+        this.openDropdown = dropdown;
+      }
+    },
+
     async queryCart() {
-      const viewaddCartId = localStorage.getItem("cartId");
+      const cartId = localStorage.getItem("cartId");
       await this.$store.dispatch("query", {
-        endpoint: "viewaddCart",
+        endpoint: "getCartById",
         storeKey: "cartList",
-        payload: { viewaddCartId: viewaddCartId },
+        payload: { cartId: cartId },
       });
     },
 
@@ -276,7 +288,9 @@ export default {
   },
   computed: {
     getCartLength() {
-      const cartItems = this.$store.getters.getCartList?.productId;
+      // const cartItems = this.$store.getters.getCartList?.productId;
+      const cartItems = this.$store.state.data.cartList.items;
+      console.log("limao", cartItems);
       if (cartItems && cartItems.length) return cartItems.length;
     },
 

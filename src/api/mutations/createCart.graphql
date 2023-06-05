@@ -1,0 +1,23 @@
+mutation Mutation($input: CartInput!) {
+  createCart(input: $input) {
+    items {
+      quantity
+      product {
+        sizes   
+        colors
+        _id
+       
+        name
+        images
+        quantity
+        price
+        inventory {
+          quantity
+        }
+        description
+      }
+      _id
+    }
+    _id
+  }
+}

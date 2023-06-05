@@ -1,6 +1,6 @@
 <template>
   <div class="smokeFilterB bg-white">
-    <div class="container mx-auto py-8 sm:py-12 md:py-28">
+    <div class="container mx-auto py-12 md:py-28">
       <p
         class="text-DarkJungleGreen text-xl md:text-5xl mb-16 font-meduim font-windsor-pro-bold"
       >
@@ -18,9 +18,7 @@
             >
               <router-link to="">
                 <div
-
-                  class="bg-slate-400 w-full h-[350px] border-4 border-BalticSea overflow-hidden"
-
+                  class="bg-slate-400 w-full h-[300px] md:h-[430px] border-4 border-BalticSea overflow-hidden"
                 ></div>
               </router-link>
               <div class="flex flex-row items-center justify-between">
@@ -90,7 +88,7 @@ export default {
   methods: {
     async queryProduct() {
       await this.$store.dispatch("query", {
-        endpoint: "listcreateProduct",
+        endpoint: "getAllProducts",
         storeKey: "productList",
       });
       this.products = this.$store.state.data.productList.slice(0, 3);

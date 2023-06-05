@@ -4,7 +4,7 @@
     <div class="container mx-auto my-32">
       <p class="mb-10 font-rebond-grotesque-regular">HomePage / Filters</p>
       <p class="mb-16 font-windsor-pro-bold text-2xl text-BrownBramble">
-        Filters &amp; Accessories ({{ this.products.length }})
+        Filter &amp; Accessories ({{ this.products.length }})
       </p>
       <div class="w-full xl:w-10/12">
         <div v-if="loading">
@@ -49,7 +49,7 @@
           </div>
         </div>
       </div>
-      <div v-if="this.products.lenght > 9">
+      <div>
         <div class="flex items-center justify-center my-20">
           <button
             class="mr-4 px-4 py-2 bg-BalticSea text-white font-bold"
@@ -138,11 +138,11 @@ export default {
   methods: {
     async queryProduct() {
       await this.$store.dispatch("query", {
-        endpoint: "listcreateProduct",
+        endpoint: "getAllProducts",
         storeKey: "productList",
       });
       this.products = this.$store.state.data.productList;
-      console.log("totall pp", this.products.length);
+      // console.log("totall pp", this.products.length);
       this.loading = false;
     },
 

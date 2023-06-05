@@ -1,0 +1,15 @@
+query Query {
+  getAllProducts {
+    _id
+    name
+    images
+    inventory {
+      quantity
+    }
+    price
+    colors
+    sizes
+    description
+    quantity
+  }
+}

@@ -15,9 +15,7 @@
           <div class="bg-GreyCloud h-[10vh] md:h-[20vh]">
             <img
               src="../assets/images/ima-6.png"
-
               class="h-full w-full "
-
               alt=""
             />
           </div>
@@ -30,12 +28,10 @@
           >
             <h3>LIFESTYLE (COMING SOON)</h3>
           </div>
-
           <p class="text-center">
              Elevate your style with innovative,<br />
                 fashion-forward clothing accessories.
           </p>
-
           <div class="flex flex-row space-x-4">
             <div class="w-full bg-GreyCloud">
               <img

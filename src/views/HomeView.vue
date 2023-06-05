@@ -58,12 +58,11 @@
                 </div>
               </div>
             </div>
-
             <div
               class="relative w-full min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)]"
             >
               <img
-                src="../assets/images/lifestyle-img-2.jpg"
+                src="../assets/images/lifestyle-img-2.svg"
                 class="absolute h-full w-full py-4 object-cover"
                 alt=""
               />
@@ -79,21 +78,21 @@
                 Coming Soon
               </p>
               <div
-                class="w-[90%] h-44 flex flex-col justify-between items-center text-center absolute -bottom-16 left-[50%] -translate-y-2/4 -translate-x-2/4 bg-PaleOrange px-4 py-6 border border-DarkJungleGreen"
+                class="w-[90%] h-44 flex flex-col justify-between items-center text-center absolute -bottom-16 left-[50%] -translate-y-2/4 -translate-x-2/4 bg-ShamrockGreen px-4 py-6 border border-DarkJungleGreen"
               >
                 <h1
-                  class="text-DarkJungleGreen text-xl font-windsor-pro-bold text-center md:text-left"
+                  class="text-white text-xl font-windsor-pro-bold text-center md:text-left"
                 >
                   LIFESTYLE
                 </h1>
-                <p class="text-[10px] md:text-xs mb-6 max-w-xs">
+                <p class="text-white text-[10px] md:text-xs mb-6 max-w-xs">
                   Elevate your style with innovative,<br />
                   fashion-forward clothing accessories.
                 </p>
                 <div>
                   <button
                     disabled
-                    class="cursor-pointer bg-BrownBramble text-Sandrift px-5 py-3.5 text-xs md:text-base font-windsor-pro-bold"
+                    class="cursor-pointer text-OlsoGrey bg-DarkJungleGreen px-5 py-3.5 text-xs md:text-base font-windsor-pro-bold"
                   >
                     Shop Now
                   </button>
@@ -120,7 +119,7 @@
                 Coming Soon
               </p>
               <div
-                class="w-[90%] h-44 flex flex-col justify-between items-center text-center absolute -bottom-16 left-[50%] -translate-y-2/4 -translate-x-2/4 bg-PaleOrange px-4 py-6 border border-DarkJungleGreen"
+                class="w-[90%] h-44 flex flex-col justify-between items-center text-center absolute -bottom-16 left-[50%] -translate-y-2/4 -translate-x-2/4 bg-PaleRose px-4 py-6 border border-DarkJungleGreen"
               >
                 <h1
                   class="text-DarkJungleGreen text-xl font-windsor-pro-bold text-center md:text-left"
@@ -134,7 +133,7 @@
                 <div>
                   <button
                     disabled
-                    class="cursor-pointer bg-BrownBramble text-Sandrift px-5 py-3.5 text-xs md:text-base font-windsor-pro-bold"
+                    class="cursor-pointer text-RoseBud bg-BeanRed px-5 py-3.5 text-xs md:text-base font-windsor-pro-bold"
                   >
                     Shop Now
                   </button>

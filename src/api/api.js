@@ -67,7 +67,8 @@ function getService(link) {
 }
 
 var httplink = createHttpLink({
-  uri: `https://threedoctors.onrender.com/graphql`,
+  uri: `https://new3doctorserver.onrender.com/graphql`,
+  // uri: `https://threedoctors.onrender.com/graphql`,
   // uri: `http://localhost:4000/graphql`,
 });
 const serviceHttpLink = errorLink.concat(httplink);

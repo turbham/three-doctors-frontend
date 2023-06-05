@@ -13,7 +13,7 @@
     class="relative max-h-[50%] h-[60vh] sm:h-[65vh] md:h-[70vh] lg:h-[150vh]"
     overlay="linear-gradient(0deg,#2a4ae430,#1C1D22)"
   >
-    <div class=" py-12 md:py-20">
+    <div class="py-12 md:py-20">
       <div class="container mx-auto space-y-16">
         <p class="text-white text-xl md:text-5xl mb-6 font-windsor-pro-bold">
           Filter Guideline and Recommendations

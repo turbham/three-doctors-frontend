@@ -24,7 +24,7 @@
                     :key="cart"
                   >
                     <div class="flex flex-row items-start space-x-5">
-                      <div class="w-40 h-40 bg-GreyCloud relative">
+                      <div class="w-32 h-32 bg-GreyCloud relative">
                         <img
                           :src="cart.product.images[0]"
                           class="w-full h-full object-cover"
@@ -32,42 +32,63 @@
                         />
                       </div>
                       <div class="space-y-3">
-                        <p class="font-windsor-pro-bold">
+                        <p class="text-sm md:text-2xl font-windsor-pro-bold">
                           {{ cart.product.name }}
                         </p>
                         <div
                           class="text-GreyChateau text-xs lg:text-sm space-x-3"
                         >
                           <span
+                            class="font-windsor-pro-bold text-BrownBramble text-sm"
+                            >Size:</span
+                          >
+                          <span
                             v-for="size in cart.product.sizes"
                             :key="size"
                             >{{ size }}</span
                           >
                         </div>
+                        <div
+                          class="text-GreyChateau text-xs lg:text-sm space-x-3"
+                        >
+                          <span
+                            class="font-windsor-pro-bold text-BrownBramble text-sm"
+                            >Color:</span
+                          >
+                          <span
+                            class="text-DarkJungleGreen"
+                            v-for="color in cart.product.colors"
+                            :key="color"
+                            >{{ color }}</span
+                          >
+                        </div>
                         <div class="flex flex-row items-center space-x-4">
-                          <button class="flex bg-Platinum px-2 rounded-lg">
+                          <!-- <button class="flex bg-Platinum px-2 rounded-lg">
                             -
-                          </button>
-                          <span class="text-SpunPearl text-[12px]">{{
+                          </button> -->
+                          <span
+                            class="font-windsor-pro-bold text-BrownBramble text-sm"
+                            >Quatity:</span
+                          >
+                          <span class="text-SpunPearl text-xs">{{
                             cart.product.quantity
                           }}</span>
-                          <button class="flex bg-Platinum px-2 rounded-lg">
+                          <!-- <button class="flex bg-Platinum px-2 rounded-lg">
                             +
-                          </button>
+                          </button> -->
                         </div>
                       </div>
                     </div>
                     <div class="flex flex-col items-end space-y-11">
-                      <p
-                        class="text-sm lg:text-base font-semibold font-windsor-pro-bold"
-                      ></p>
                       <div class="flex flex-row items-center space-x-3">
                         <div class="">
-                          <img
-                            src="../assets/icons/delete.svg"
-                            class="w-5 cursor-pointer"
-                            alt=""
-                          />
+                          <button @click="removeItemFromCart(cart._id)">
+                            <img
+                              src="../assets/icons/delete.svg"
+                              class="w-5 cursor-pointer"
+                              alt=""
+                            />
+                          </button>
                         </div>
                       </div>
                     </div>
@@ -169,6 +190,7 @@ export default {
 
   data() {
     return {
+      itemIds: [],
       cart: [],
       cartsProduct: [],
       inputValue: "",
@@ -218,7 +240,11 @@ export default {
         this.cartsProduct = this.carts.items;
         console.log("bb cartsProduct", this.cartsProduct);
         console.log("this.cart in cart", this.carts);
-
+        const itemIds = this.carts.items.map((item) => item._id);
+        console.log(itemIds);
+        // Store the item IDs in local storage
+        localStorage.setItem("itemIds", itemIds);
+        this.itemIds = itemIds;
         // Check each product to set the product quantity
         this.carts.items.forEach((item) => {
           const product = item.product;
@@ -254,7 +280,43 @@ export default {
         },
       });
     },
+    //removeItemFromCart
+    async removeItemFromCart(_id) {
+      try {
+        const cartId = localStorage.getItem("cartId");
+        const itemId = _id;
+        console.log("cartId", cartId);
+        console.log("itemId", itemId);
 
+        // if (isNaN(cartId) || isNaN(itemId)) {
+        //   throw new Error("Invalid cart or item ID.");
+        // }
+
+        const confirmed = confirm(
+          "Are you sure you want to remove this item from your cart?"
+        );
+        if (!confirmed) {
+          return;
+        }
+
+        const response = await this.$store.dispatch("mutate", {
+          endpoint: "deleteCartItem",
+          data: {
+            cartId: cartId,
+            itemId: itemId,
+          },
+        });
+        console.log(response);
+        // Handle the response and update the UI if necessary
+        // For example, you can fetch the updated cart data after item deletion
+
+        // Refetch the updated cart data
+        await this.queryCart();
+      } catch (error) {
+        console.error("Failed to remove item from cart:", error);
+        // Handle the error and display an appropriate message to the user
+      }
+    },
     // check if the promo code is valid
     displayError() {
       if (this.inputValue !== "") {

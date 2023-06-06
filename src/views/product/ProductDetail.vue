@@ -148,9 +148,10 @@
                   <p class="text-base font-medium">Quantity</p>
                   <input
                     class="w-1/2 border px-3 py-2"
-                    type="text"
+                    type="number"
                     name=""
                     id=""
+                    v-model="quantity"
                     :placeholder="product.quantity"
                   />
                 </div>

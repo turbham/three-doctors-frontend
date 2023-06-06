@@ -1,0 +1,21 @@
+mutation DeleteCartItem($cartId: ID!, $itemId: ID!) {
+  deleteCartItem(cartId: $cartId, itemId: $itemId) {
+    items {
+      quantity
+      product {
+        _id
+        price
+        quantity
+        inventory {
+          quantity
+        }
+        name
+        images
+        colors
+        sizes
+        description
+      }
+      _id
+    }
+  }
+}

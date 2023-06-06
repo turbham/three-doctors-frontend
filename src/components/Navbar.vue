@@ -246,10 +246,7 @@ export default {
       // },
       cartItems: [],
       scrolled: false,
-      open: false,
-      openRollingPaper: false,
       openDropdown: null,
-
     };
   },
   // beforeCreate() {
@@ -260,7 +257,7 @@ export default {
   // },
 
   methods: {
-        toggleDropdown(dropdown) {
+    toggleDropdown(dropdown) {
       if (this.openDropdown === dropdown) {
         this.openDropdown = null;
       } else {

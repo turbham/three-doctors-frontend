@@ -125,7 +125,7 @@
                   <div v-if="sizes.length > 0">
                     <h4>Sizes:</h4>
                     <select
-                      class="w-full border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
+                      class="w-3/4 border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
                       v-model="selectedSize"
                     >
                       <option v-for="size in sizes" :key="size" :value="size">
@@ -137,7 +137,7 @@
                   <div v-if="colors.length > 0">
                     <h4>Colors:</h4>
                     <select
-                      class="w-full border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
+                      class="w-3/4 border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
                       v-model="selectedColor"
                     >
                       <option
@@ -154,19 +154,21 @@
                     <input
                       type="number"
                       v-model="quantity"
-                      class="w-full border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
+                      class="w-3/4 border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
                     />
                   </div>
                 </div>
                 <div class="space-y-4">
                   <div class="max-w-[22rem]">
-                    <p class="text-base font-medium mb-2">Description</p>
+                    <p class="text-base font-medium mb-2 font-windsor-pro-bold">
+                      Description
+                    </p>
                     {{ product.description }}
                   </div>
                   <div class="flex flex-row items-center space-x-5">
                     <button
                       @click="addToCart"
-                      class="w-full font-windsor-pro-bold bg-BalticSea p-3 text-white"
+                      class="w-3/4 font-windsor-pro-bold bg-BalticSea p-3 text-white"
                     >
                       <span v-if="isLoading">
                         <svg

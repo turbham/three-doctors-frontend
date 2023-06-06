@@ -2,7 +2,11 @@
   <div>
     <Navbar />
     <div class="container mx-auto my-24 md:my-32">
-      <p class="mb-8 md:mb-12">Homepage / Filter / Product Page</p>
+      <p class="mb-8 md:mb-12">
+        <router-link to="/health-and-style">HomePage</router-link>
+        <span> / Filter / </span>
+        <router-link to="/products">Product Page</router-link>
+      </p>
       <div>
         <div v-if="loading">
           <div
@@ -66,6 +70,35 @@
               <div
                 class="hidden lg:block md:w-1/12 w-full md:flex flex-row space-x-2.5 lg:space-x-0 lg:flex-col lg:space-y-2.5 mt-10 lg:mt-0"
               >
+                <div
+                  v-for="(image, index) in product.images.slice(0, 6)"
+                  :key="index"
+                  class="w-14 h-14 bg-BalticSea cursor-pointer"
+                  @click="showClickedImage(index)"
+                >
+                  <img
+                    class="h-full w-full object-cover"
+                    :src="image"
+                    :alt="product.name"
+                  />
+                </div>
+              </div>
+              <div
+                class="w-full lg:w-11/12 bg-LightGrey h-[350px] md:h-[550px] border-[3px] border-DarkJungleGreen"
+              >
+                <img
+                  class="h-full w-full object-cover"
+                  :src="clickedImage || product.images[0]"
+                  :alt="product.name"
+                />
+              </div>
+            </div>
+            <!-- <div
+              class="lg:w-7/12 flex flex-col-reverse lg:flex-row items-start lg:space-x-10"
+            >
+              <div
+                class="hidden lg:block md:w-1/12 w-full md:flex flex-row space-x-2.5 lg:space-x-0 lg:flex-col lg:space-y-2.5 mt-10 lg:mt-0"
+              >
                 <div class="w-14 h-14 bg-BalticSea">
                   <img
                     class="h-full w-full object-cover"
@@ -118,7 +151,7 @@
                   :alt="product.name"
                 />
               </div>
-            </div>
+            </div> -->
             <div class="w-full lg:w-5/12 flex flex-row">
               <div class="w-full h-full space-y-8">
                 <div class="space-y-2 font-windsor-pro-bold text-BalticSea">
@@ -149,7 +182,7 @@
                   <div v-if="sizes.length > 0">
                     <h4>Available Sizes:</h4>
                     <select
-                      class="w-1/2 border px-3 py-2"
+                      class="w-1/2 border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
                       v-model="selectedSize"
                     >
                       <option v-for="size in sizes" :key="size" :value="size">
@@ -161,7 +194,7 @@
                   <div v-if="colors.length > 0">
                     <h4>Available Colors:</h4>
                     <select
-                      class="w-1/2 border px-3 py-2"
+                      class="w-1/2 border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
                       v-model="selectedColor"
                     >
                       <option
@@ -178,7 +211,7 @@
                     <input
                       type="number"
                       v-model="quantity"
-                      class="w-1/2 border px-3 py-2"
+                      class="w-1/2 border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
                     />
                   </div>
                 </div>
@@ -266,10 +299,18 @@ export default {
       selectedSize: "",
       selectedColor: "",
       expandedIndex: null,
+
+      // click on image index
+      clickedImage: null,
     };
   },
 
   methods: {
+    // clicked function to show image
+    showClickedImage(index) {
+      this.clickedImage = this.product.images[index];
+    },
+
     async queryProduct() {
       await this.$store.dispatch("query", {
         endpoint: "getAllProducts",

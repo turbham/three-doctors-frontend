@@ -2,7 +2,10 @@
   <div>
     <Navbar />
     <div class="container mx-auto my-32">
-      <p class="mb-10 font-rebond-grotesque-regular">HomePage / Filters</p>
+      <p class="mb-10 font-rebond-grotesque-regular">
+        <router-link to="/health-and-style">HomePage</router-link>
+        <span> / Filters</span>
+      </p>
       <p class="mb-16 font-windsor-pro-bold text-2xl text-BrownBramble">
         Filter &amp; Accessories ({{ this.products.length }})
       </p>

@@ -6,11 +6,7 @@
     <div class="container mx-auto">
       <div class="flex flex-row items-center justify-between">
         <router-link to="/">
-          <img
-            src="../assets/images/3-Doktors-logo-yelloww.png"
-            class="w-40"
-            alt=""
-          />
+          <img src="../assets/images/logg.svg" alt="" class="w-24 md:w-48" />
         </router-link>
         <div>
           <div>
@@ -30,7 +26,7 @@
                 ></button>
                 <div
                   v-if="openDropdown === 'filters'"
-                  class="absolute z-20 top-auto left-0 w-96 px-8 py-6 mt-2 bg-white"
+                  class="absolute z-20 top-auto left-0 w-96 px-8 py-6 mt-2 bg-white border-4 border-PaleOrange"
                 >
                   <div class="flex flex-row items-start">
                     <div class="w-5/12 space-y-4">
@@ -126,7 +122,7 @@
                 ></button>
                 <div
                   v-if="openDropdown === 'rollingPapers'"
-                  class="absolute z-20 top-auto left-0 w-96 px-8 py-6 mt-2 bg-white"
+                  class="absolute z-20 top-auto left-0 w-96 px-8 py-6 mt-2 bg-white border-4 border-PaleOrange"
                 >
                   <div class="flex flex-row items-start">
                     <div class="w-5/12 space-y-4">

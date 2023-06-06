@@ -17,6 +17,7 @@
           <img src="../assets/images/logg.svg" class="w-64" alt="" />
         </router-link>
       </div>
+
       <div class="min-h-[calc(100vh-80px)] lg:h-[calc(100vh-80px)]">
         <div class="flex justify-center h-full">
           <div

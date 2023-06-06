@@ -102,7 +102,7 @@
                     {{ product.name }}
                   </p>
                   <p class="font-bold text-xl text-DebianRed">
-                    {{ product.price }}
+                    ${{ product.price }}
                   </p>
 
                   <!-- <div class="space-y-2">

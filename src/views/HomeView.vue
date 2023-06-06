@@ -45,7 +45,7 @@
                 </h1>
 
                 <p class="text-[10px] md:text-xs mb-6">
-                  Revolutionize Your Lifestyle: <br />
+                  Revolutionize Your Lifestyle:<br />
                   Smart Smoking for a Healthier You!
                 </p>
                 <div>

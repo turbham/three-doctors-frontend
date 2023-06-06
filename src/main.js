@@ -33,8 +33,9 @@ const additiveLink = from([
     }));
     return forward(operation); // Go to the next link in the chain. Similar to `next` in Express.js middleware.
   }),
+  // new HttpLink({ uri: "https://threedoctors.onrender.com/graphql" }),
   new HttpLink({ uri: "https://new3doctorserver.onrender.com/graphql" }),
-  //   new HttpLink({ uri: "http://localhost:4000/graphql" }),
+  // new HttpLink({ uri: "http://localhost:4000/graphql" }),
 ]);
 
 const apolloClient = new ApolloClient({

@@ -17,59 +17,81 @@
               class="flex flex-col space-y-4 items-start lg:space-y-0 lg:flex-row lg:space-x-12"
             >
               <div class="w-full lg:w-7/12">
-                <div>
+                <div class="space-y-6">
                   <div
-                    class="flex flex-row items-start justify-between w-full lg:w-10/12 mb-4"
+                    class="flex flex-row items-start space-x-3 justify-between w-full lg:w-10/12 mb-4"
                     v-for="cart in cartsProduct"
                     :key="cart"
                   >
                     <div class="flex flex-row items-start space-x-5">
-                      <div class="w-40 h-40 bg-GreyCloud relative">
+                      <div class="w-36 h-36 bg-GreyCloud relative">
                         <img
                           :src="cart.product.images[0]"
                           class="w-full h-full object-cover"
-                          alt=""
+                          :alt="cart.product.name"
                         />
                       </div>
-                      <div class="space-y-3">
-                        <p class="font-windsor-pro-bold">
-                          {{ cart.product.name }}
+                      <div class="h-36 flex flex-col justify-around">
+                        <p class="text-sm md:text-xl font-windsor-pro-bold">
+                       {{ cart.product.name }}
                         </p>
-                        <div
-                          class="text-GreyChateau text-xs lg:text-sm space-x-3"
-                        >
-                          <span
-                            v-for="size in cart.product.sizes"
-                            :key="size"
-                            >{{ size }}</span
+                        <div class="flex flex-col justify-end space-y-2">
+                          <div
+                            class="text-GreyChateau text-xs lg:text-sm space-x-3"
                           >
-                        </div>
-                        <div class="flex flex-row items-center space-x-4">
-                          <button class="flex bg-Platinum px-2 rounded-lg">
+                            <span
+                              class="font-windsor-pro-bold text-BrownBramble text-sm"
+                              >Size:</span
+                            >
+                            <span
+                              v-for="size in cart.product.sizes"
+                              :key="size"
+                              >{{ size }}</span
+                            >
+                          </div>
+                          <div
+                            class="text-GreyChateau text-xs lg:text-sm space-x-3"
+                          >
+                            <span
+                              class="font-windsor-pro-bold text-BrownBramble text-sm"
+                              >Color:</span
+                            >
+                            <span
+                              v-for="color in cart.product.colors"
+                              :key="color"
+                              >{{ color }}</span
+                            >
+                          </div>
+                          <div class="flex flex-row items-center space-x-4">
+                            <!-- <button class="flex bg-Platinum px-2 rounded-lg">
                             -
-                          </button>
-                          <span class="text-SpunPearl text-[12px]">{{
-                            cart.product.quantity
-                          }}</span>
-                          <button class="flex bg-Platinum px-2 rounded-lg">
+                          </button> -->
+                            <span
+                              class="font-windsor-pro-bold text-BrownBramble text-sm"
+                              >Quatity:</span
+                            >
+                            <span class="text-SpunPearl text-[12px]">{{
+                              cart.product.quantity
+                            }}</span>
+                            <!-- <button class="flex bg-Platinum px-2 rounded-lg">
                             +
-                          </button>
+                          </button> -->
+                          </div>
                         </div>
                       </div>
                     </div>
-                    <div class="flex flex-col items-end space-y-11">
-                      <p
-                        class="text-sm lg:text-base font-semibold font-windsor-pro-bold"
-                      ></p>
-                      <div class="flex flex-row items-center space-x-3">
-                        <div class="">
-                          <img
-                            src="../assets/icons/delete.svg"
-                            class="w-5 cursor-pointer"
-                            alt=""
-                          />
-                        </div>
-                      </div>
+                    <div class="h-36 flex flex-col items-end justify-around">
+                      <p class="text-sm md:text-xl font-windsor-pro-bold">${{cart.product.price}}</p>
+                      <button
+                        class="delete-button"
+                        @click="removeItemFromCart(cart._id)"
+                      >
+                        <img
+                          src="../assets/icons/delete_red_icon.svg"
+                          class="w-4 cursor-pointer flex items-end"
+                          alt=""
+                        />
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -126,7 +148,7 @@
                     </div>
                     <div class="flex flex-row items-center justify-between">
                       <p>Estimated Tax</p>
-                      <p></p>
+                      <p>$0.00</p>
                     </div>
                   </div>
                   <div
@@ -169,6 +191,7 @@ export default {
 
   data() {
     return {
+      itemIds: [],
       cart: [],
       cartsProduct: [],
       inputValue: "",
@@ -216,8 +239,15 @@ export default {
         this.carts = this.$store.state.data.cartList;
         console.log("this.cart", this.carts);
         this.cartsProduct = this.carts.items;
+        this.cartsProductss = this.carts.items.product;
         console.log("bb cartsProduct", this.cartsProduct);
+        console.log("bb cartsProduct cccc", this.cartsProductss);
         console.log("this.cart in cart", this.carts);
+        const itemIds = this.carts.items.map((item) => item._id);
+        console.log(itemIds);
+        // Store the item IDs in local storage
+        localStorage.setItem("itemIds", itemIds);
+        this.itemIds = itemIds;
 
         // Check each product to set the product quantity
         this.carts.items.forEach((item) => {
@@ -237,6 +267,73 @@ export default {
         console.log("this.cartsProduct", this.cartsProduct);
       } catch (error) {
         console.error("Failed to query cart:", error);
+      }
+    },
+
+    // async removeItemFromCart() {
+    //   try {
+    //     const cartId = localStorage.getItem("cartId");
+    //     const itemId = localStorage.getItem("itemIds");
+
+    //     if (!cartId || !itemId) {
+    //       throw new Error("Invalid cart or item ID.");
+    //     }
+
+    //     const confirmed = confirm(
+    //       "Are you sure you want to remove this item from your cart?"
+    //     );
+    //     if (!confirmed) {
+    //       return;
+    //     }
+
+    //     const response = await this.$store.dispatch("mutate", {
+    //       endpoint: "deleteCartItem",
+    //       input: {
+    //         cartId: cartId,
+    //         itemId: itemId,
+    //       },
+    //     });
+
+    //     // Handle the response and update the UI if necessary
+    //   } catch (error) {
+    //     console.error("Failed to remove item from cart:", error);
+    //     // Handle the error and display an appropriate message to the user
+    //   }
+    // },
+    async removeItemFromCart(_id) {
+      try {
+        const cartId = localStorage.getItem("cartId");
+        const itemId = _id;
+        console.log("cartId", cartId);
+        console.log("itemId", itemId);
+
+        // if (isNaN(cartId) || isNaN(itemId)) {
+        //   throw new Error("Invalid cart or item ID.");
+        // }
+
+        const confirmed = confirm(
+          "Are you sure you want to remove this item from your cart?"
+        );
+        if (!confirmed) {
+          return;
+        }
+
+        const response = await this.$store.dispatch("mutate", {
+          endpoint: "deleteCartItem",
+          data: {
+            cartId: cartId,
+            itemId: itemId,
+          },
+        });
+        console.log(response);
+        // Handle the response and update the UI if necessary
+        // For example, you can fetch the updated cart data after item deletion
+
+        // Refetch the updated cart data
+        await this.queryCart();
+      } catch (error) {
+        console.error("Failed to remove item from cart:", error);
+        // Handle the error and display an appropriate message to the user
       }
     },
 
@@ -272,10 +369,22 @@ export default {
 
   computed: {
     // get the total priice of products added to cart
+    // cartTotal() {
+    //   let total = 0;
+    //   for (let product of this.cartsProduct) {
+    //     total += parseFloat(product.product.price);
+    //   }
+    //   this.subtotal = total;
+    //   // console.log("the subtotal", total);
+    //   return total;
+    // },
     cartTotal() {
       let total = 0;
       for (let product of this.cartsProduct) {
-        total += parseFloat(product.product.price);
+        const quantity = product.quantity;
+        const price = parseFloat(product.product.price);
+        const productTotal = quantity * price;
+        total += productTotal;
       }
       this.subtotal = total;
       // console.log("the subtotal", total);

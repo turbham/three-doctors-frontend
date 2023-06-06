@@ -66,15 +66,45 @@
               <div
                 class="hidden lg:block md:w-1/12 w-full md:flex flex-row space-x-2.5 lg:space-x-0 lg:flex-col lg:space-y-2.5 mt-10 lg:mt-0"
               >
-                <div
-                  v-for="(image, index) in product.images.slice(0, 6)"
-                  :key="index"
-                  class="w-14 h-14 bg-BalticSea cursor-pointer"
-                  @click="showClickedImage(index)"
-                >
+                <div class="w-14 h-14 bg-BalticSea">
                   <img
                     class="h-full w-full object-cover"
-                    :src="image"
+                    :src="product.images[0]"
+                    :alt="product.name"
+                  />
+                </div>
+                <div v-show="product.images[1]" class="w-14 h-14 bg-BalticSea">
+                  <img
+                    class="h-full w-full object-cover"
+                    :src="product.images[1]"
+                    :alt="product.name"
+                  />
+                </div>
+                <div v-show="product.images[2]" class="w-14 h-14 bg-BalticSea">
+                  <img
+                    class="h-full w-full object-cover"
+                    :src="product.images[2]"
+                    :alt="product.name"
+                  />
+                </div>
+                <div v-show="product.images[3]" class="w-14 h-14 bg-BalticSea">
+                  <img
+                    class="h-full w-full object-cover"
+                    :src="product.images[3]"
+                    :alt="product.name"
+                  />
+                </div>
+                <div v-show="product.images[4]" class="w-14 h-14 bg-BalticSea">
+                  <img
+                    class="h-full w-full object-cover"
+                    :src="product.images[4]"
+                    :alt="product.name"
+                  />
+                </div>
+                <div v-show="product.images[5]" class="w-14 h-14 bg-BalticSea">
+                  <img
+                    class="h-full w-full object-cover"
+                    :src="product.images[5]"
                     :alt="product.name"
                   />
                 </div>
@@ -84,7 +114,7 @@
               >
                 <img
                   class="h-full w-full object-cover"
-                  :src="clickedImage || product.images[0]"
+                  :src="product.images[0]"
                   :alt="product.name"
                 />
               </div>
@@ -143,17 +173,16 @@
                       </option>
                     </select>
                   </div>
+                  <div class="space-y-1">
+                    <p class="text-base font-medium">Quantity</p>
+                    <input
+                      type="number"
+                      v-model="quantity"
+                      class="w-1/2 border px-3 py-2"
+                    />
+                  </div>
                 </div>
-                <div class="space-y-1">
-                  <p class="text-base font-medium">Quantity</p>
-                  <input
-                    class="w-1/2 border px-3 py-2"
-                    type="text"
-                    name=""
-                    id=""
-                    :placeholder="product.quantity"
-                  />
-                </div>
+
                 <div class="max-w-[22rem]">
                   <p class="text-base font-medium mb-2">Description</p>
                   {{ product.description }}
@@ -184,32 +213,6 @@
                     </span>
                     <span v-else>Add to Cart</span>
                   </button>
-                  <!-- <button class="border border-black p-4">
-                    <img src="../../assets/icons/fi_small_heart.svg" alt="" />
-                  </button> -->
-                </div>
-                <div>
-                  <div
-                    v-for="(item, index) in items"
-                    :key="index"
-                    class="border-b-[0.1px] border-black"
-                  >
-                    <div
-                      class="cursor-pointer pr-3 py-2 text-sm font-medium"
-                      @click="toggleAccordion(index)"
-                    >
-                      {{ item.title }}
-                      <span class="accordion-icon">{{
-                        isExpanded(index) ? "-" : "+"
-                      }}</span>
-                    </div>
-                    <div
-                      v-if="isExpanded(index)"
-                      class="py-2 text-sm font-thin"
-                    >
-                      {{ item.content }}
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -262,18 +265,11 @@ export default {
       colors: [],
       selectedSize: "",
       selectedColor: "",
-
-      // click on image index
-      clickedImage: null,
+      expandedIndex: null,
     };
   },
 
   methods: {
-    // clicked function to show image
-    showClickedImage(index) {
-      this.clickedImage = this.product.images[index];
-    },
-
     async queryProduct() {
       await this.$store.dispatch("query", {
         endpoint: "getAllProducts",
@@ -434,6 +430,10 @@ export default {
             data: { input: { cartId, items: existingCart.items } },
             variables: { input: { cartId, items: existingCart.items } },
           });
+          const updatedQuantities = updateCartResponse.items.map(
+            (item) => item.quantity
+          );
+          console.log("updatedQuantities", updatedQuantities);
           console.log("existingCart.items", existingCart.items);
 
           const cartItemIds = existingCart.items.map(
@@ -654,19 +654,6 @@ export default {
         "helloo",
         localStorage.setItem("cart", JSON.stringify(this.$store.state.cart))
       );
-    },
-
-    toggleAccordion(index) {
-      if (this.isExpanded(index)) {
-        // Collapse the accordion item
-        this.expandedIndex = null;
-      } else {
-        // Expand the accordion item
-        this.expandedIndex = index;
-      }
-    },
-    isExpanded(index) {
-      return this.expandedIndex === index;
     },
 
     updateMainImage(image) {

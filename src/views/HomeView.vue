@@ -10,6 +10,7 @@
       />
     </div>
   </div>
+
   <div v-else>
     <div class="bg-[url('../assets/images/Are-you_18_bg.png')]">
       <div class="flex items-center justify-center h-[80px] sticky top-0 z-50">

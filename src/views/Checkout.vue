@@ -267,7 +267,7 @@
                         />
                       </svg>
                     </span>
-                    <span v-else class="w-32"> Place Order </span>
+                    <span v-else class="w-32">Place Order</span>
                   </button>
                 </div>
               </div>

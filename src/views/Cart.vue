@@ -1,7 +1,7 @@
 <template>
   <div>
     <Navbar />
-    <div class="container mx-auto my-10 md:my-24">
+    <div class="container mx-auto my-24 md:my-32">
       <div class="space-y-12 mb-12">
         <p>Homepage / Cart</p>
         <p
@@ -43,10 +43,8 @@
                               class="font-windsor-pro-bold text-BrownBramble text-sm"
                               >Size:</span
                             >
-                            <span
-                              v-for="size in cart.product.sizes"
-                              :key="size"
-                              >{{ size }}</span
+                            <span v-for="size in cart.product.sizes" :key="size"
+                              >{{ SizeEnum[size] }}mm</span
                             >
                           </div>
                           <div

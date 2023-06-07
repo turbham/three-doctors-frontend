@@ -409,6 +409,7 @@ export default {
       const customerId = localStorage.getItem("customerId");
       const input = { customerId };
       await this.$store.dispatch("mutate", {
+        endpoint: "sendEmailToAdmin",
         data: { input },
       });
       this.isPlaceOrderLoading = true;

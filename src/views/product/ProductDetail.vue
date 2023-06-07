@@ -93,7 +93,7 @@
                 />
               </div>
             </div>
-            <div class="w-full lg:w-5/12">
+            <div class="px-5 md:px-0 w-full lg:w-5/12">
               <div
                 class="w-full space-y-8 flex flex-col justify-between lg:h-[550px]"
               >
@@ -104,40 +104,77 @@
                   <p class="font-bold text-xl text-DebianRed">
                     ${{ product.price }}
                   </p>
-
-                  <!-- <div class="space-y-2">
-                    <p>Colors:</p>
-                    <VueMultiselect
-                      v-model="product.colors"
-                      :options="colors"
-                      :close-on-select="true"
-                    ></VueMultiselect>
+                  <div>
+                    <h4>Sizes:</h4>
+                    <div class="relative w-3/4 border-none">
+                      <select
+                        v-model="selectedSize"
+                        class="w-full text-[#ABAFB1] cursor-pointer appearance-none border inline-block px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
+                      >
+                        <option selected class="pt-6">Select size</option>
+                        <option
+                          v-for="size in sizes"
+                          :key="size"
+                          :value="size"
+                          class="pt-6"
+                        >
+                          {{ SizeEnum[size] }}mm
+                        </option>
+                      </select>
+                      <div
+                        class="pointer-events-none absolute right-0 inset-y-0 flex items-center px-4"
+                      >
+                        <img
+                          src="../../assets/icons/arrow_down.svg"
+                          class="w-3"
+                          alt=""
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <div class="space-y-2">
-                    <p>Size:</p>
-
-                    <VueMultiselect
-                      v-model="product.sizes"
-                      :options="sizes"
-                      :close-on-select="true"
-                    ></VueMultiselect>
-                  </div> -->
-                  <div v-if="sizes.length > 0">
+                  <!-- <div>
                     <h4>Sizes:</h4>
                     <select
-                      class="w-3/4 border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
+                      class="w-full md:w-3/4 border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
                       v-model="selectedSize"
                     >
                       <option v-for="size in sizes" :key="size" :value="size">
                         {{ SizeEnum[size] }}mm
                       </option>
                     </select>
+                  </div> -->
+                  <div>
+                    <h4>Colors:</h4>
+                    <div class="relative w-3/4 border-none">
+                      <select
+                        v-model="selectedColor"
+                        class="w-full text-[#ABAFB1] cursor-pointer appearance-none border inline-block px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
+                      >
+                        <option selected class="pt-6">Select color</option>
+                        <option
+                          v-for="color in colors"
+                          :key="color"
+                          :value="color"
+                          class="pt-6"
+                        >
+                          {{ color }}
+                        </option>
+                      </select>
+                      <div
+                        class="pointer-events-none absolute right-0 inset-y-0 flex items-center px-4"
+                      >
+                        <img
+                          src="../../assets/icons/arrow_down.svg"
+                          class="w-3"
+                          alt=""
+                        />
+                      </div>
+                    </div>
                   </div>
-
-                  <div v-if="colors.length > 0">
+                  <!-- <div>
                     <h4>Colors:</h4>
                     <select
-                      class="w-3/4 border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
+                      class="w-full md:w-3/4 border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
                       v-model="selectedColor"
                     >
                       <option
@@ -148,13 +185,13 @@
                         {{ color }}
                       </option>
                     </select>
-                  </div>
+                  </div> -->
                   <div class="space-y-1">
                     <p class="text-base font-medium">Quantity</p>
                     <input
                       type="number"
                       v-model="quantity"
-                      class="w-3/4 border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
+                      class="w-full md:w-3/4 border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
                     />
                   </div>
                 </div>
@@ -168,7 +205,7 @@
                   <div class="flex flex-row items-center space-x-5">
                     <button
                       @click="addToCart"
-                      class="w-3/4 font-windsor-pro-bold bg-BalticSea p-3 text-white"
+                      class="w-full md:w-3/4 font-windsor-pro-bold bg-BalticSea p-3 text-white"
                     >
                       <span v-if="isLoading">
                         <svg
@@ -670,23 +707,26 @@ export default {
 </script>
 
 <style scoped>
-/* .accordion-item {
-  margin-bottom: 10px;
+.custom-select {
+  position: relative;
+  /* Add styles for the custom select container */
 }
 
-.accordion-header {
+.selected {
+  /* Add styles for the selected option display */
   cursor: pointer;
-  background-color: #eee;
-  padding: 10px;
 }
 
-.accordion-content {
-  background-color: #f9f9f9;
-  padding: 10px;
-} */
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  /* Add styles for the dropdown container */
+}
 
-.accordion-icon {
-  float: right;
+.dropdown > div {
+  /* Add styles for individual dropdown options */
+  cursor: pointer;
 }
 </style>
-<style src="vue-multiselect/dist/vue-multiselect.css"></style>

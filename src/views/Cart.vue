@@ -107,7 +107,7 @@
                       type="text"
                       name=""
                       id="inputField"
-                      class="w-full bg-VeryLightPink border-[0.1px] border-GreyChateau p-1.5 h-10"
+                      class="w-full border-[0.1px] border-GreyChateau p-1.5 h-10 focus:outline-none focus:border-BrownBramble focus:ring-0"
                     />
                     <button
                       @click="displayError"
@@ -495,3 +495,4 @@ export default {
   },
 };
 </script>
+

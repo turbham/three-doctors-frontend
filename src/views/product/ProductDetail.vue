@@ -345,7 +345,7 @@ export default {
           );
 
           // Show a success message or perform any other necessary actions
-          toast.success("Product updated successfully");
+          toast.success("Product added to cart successfully");
 
           // Update localStorage with the updateProductId
           localStorage.setItem("updateProductId", updateProductId);

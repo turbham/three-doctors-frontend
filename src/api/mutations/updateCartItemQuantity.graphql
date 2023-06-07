@@ -1,0 +1,26 @@
+mutation UpdateCartItemQuantity($cartId: ID!, $itemId: ID!, $quantity: Int!) {
+  updateCartItemQuantity(
+    cartId: $cartId
+    itemId: $itemId
+    quantity: $quantity
+  ) {
+    items {
+      _id
+      product {
+        _id
+        price
+        quantity
+        inventory {
+          quantity
+        }
+        name
+        images
+        colors
+        sizes
+        description
+      }
+      quantity
+    }
+    _id
+  }
+}

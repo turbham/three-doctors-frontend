@@ -129,7 +129,7 @@
                       v-model="selectedSize"
                     >
                       <option v-for="size in sizes" :key="size" :value="size">
-                        {{ size }}
+                        {{ SizeEnum[size] }}mm
                       </option>
                     </select>
                   </div>
@@ -245,7 +245,7 @@ export default {
       selectedSize: "",
       selectedColor: "",
       expandedIndex: null,
-
+      SizeEnum: { one: 5.6, two: 6, three: 7, four: 8 },
       // click on image index
       clickedImage: null,
     };
@@ -624,27 +624,23 @@ export default {
 
     // Assuming you have access to your Vuex store through `this.$store`
 
-    decrementQuantity() {
-      this.quantity -= 1;
-      if (this.quantity === 0) {
-        this.$emit("removeFromCart", product);
-      }
-      this.updateCart();
-    },
-    incrementQuantity() {
-      this.quantity += 1;
-      this.updateCart();
-    },
+    // decrementQuantity() {
+    //   this.quantity -= 1;
+    //   if (this.quantity === 0) {
+    //     this.$emit("removeFromCart", product);
+    //   }
+    //   this.updateCart();
+    // },
+    // incrementQuantity() {
+    //   this.quantity += 1;
+    //   this.updateCart();
+    // },
     updateCart() {
       localStorage.setItem("cart", JSON.stringify(this.$store.state.cart));
       console.log(
         "helloo",
         localStorage.setItem("cart", JSON.stringify(this.$store.state.cart))
       );
-    },
-
-    updateMainImage(image) {
-      this.mainImage = image;
     },
   },
   watch: {

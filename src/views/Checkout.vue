@@ -409,18 +409,21 @@ export default {
       const customerId = localStorage.getItem("customerId");
       const input = { customerId };
       await this.$store.dispatch("mutate", {
-        endpoint: "sendEmailToAdmin",
         data: { input },
       });
       this.isPlaceOrderLoading = true;
       setTimeout(() => {
         this.isOrderPlaced = true;
         this.isPlaceOrderLoading = false;
-        // window.localStorage.removeItem("cartId");
-        // window.localStorage.removeItem("detailId");
-        // window.localStorage.removeItem("itemIds");
+        window.localStorage.removeItem("cartId");
+        window.localStorage.removeItem("detailId");
+        window.localStorage.removeItem("itemIds"); // itemIds
+        window.localStorage.removeItem("updateProductId");
+        window.localStorage.removeItem("cartItemIds");
+        window.localStorage.removeItem("customerId");
       }, 2000); // Hide the toast after 5 seconds
     },
+
     // Example usage:
     async exampleUsage() {
       await this.createCustomer();

@@ -33,7 +33,7 @@
                       </div>
                       <div class="h-36 flex flex-col justify-around">
                         <p class="text-sm md:text-xl font-windsor-pro-bold">
-                       {{ cart.product.name }}
+                          {{ cart.product.name }}
                         </p>
                         <div class="flex flex-col justify-end space-y-2">
                           <div
@@ -63,25 +63,29 @@
                             >
                           </div>
                           <div class="flex flex-row items-center space-x-4">
-                            <!-- <button class="flex bg-Platinum px-2 rounded-lg">
-                            -
-                          </button> -->
-                            <span
-                              class="font-windsor-pro-bold text-BrownBramble text-sm"
-                              >Quatity:</span
+                            <button
+                              @click="decrementQuantity(cart._id)"
+                              class="flex bg-Platinum px-2 rounded-lg"
                             >
+                              -
+                            </button>
                             <span class="text-SpunPearl text-[12px]">{{
                               cart.product.quantity
                             }}</span>
-                            <!-- <button class="flex bg-Platinum px-2 rounded-lg">
-                            +
-                          </button> -->
+                            <button
+                              @click="incrementQuantity(cart._id)"
+                              class="flex bg-Platinum px-2 rounded-lg"
+                            >
+                              +
+                            </button>
                           </div>
                         </div>
                       </div>
                     </div>
                     <div class="h-36 flex flex-col items-end justify-around">
-                      <p class="text-sm md:text-xl font-windsor-pro-bold">${{cart.product.price}}</p>
+                      <p class="text-sm md:text-xl font-windsor-pro-bold">
+                        ${{ cart.product.price }}
+                      </p>
                       <button
                         class="delete-button"
                         @click="removeItemFromCart(cart._id)"
@@ -96,7 +100,6 @@
                   </div>
                 </div>
               </div>
-
               <div class="w-full lg:w-3/12">
                 <p class="mb-2">Do you have a promo code?</p>
                 <div class="space-y-10">
@@ -148,7 +151,7 @@
                     </div>
                     <div class="flex flex-row items-center justify-between">
                       <p>Estimated Tax</p>
-                      <p>$0.00</p>
+                      <p></p>
                     </div>
                   </div>
                   <div
@@ -191,41 +194,22 @@ export default {
 
   data() {
     return {
+      cart: {
+        product: {
+          quantity: 0, // Provide a default or initial value for the quantity
+        },
+      },
+      inquantity: [],
       itemIds: [],
       cart: [],
       cartsProduct: [],
       inputValue: "",
       isLoading: false,
+      SizeEnum: { one: 5.6, two: 6, three: 7, four: 8 },
     };
   },
 
   methods: {
-    // async queryCart() {
-    //   // this.loading = true;
-    //   const cartId = localStorage.getItem("cartId");
-    //   await this.$store.dispatch("query", {
-    //     endpoint: "getCartById",
-    //     storeKey: "cartList",
-    //     payload: { cartId: cartId },
-    //   });
-    //   this.carts = this.$store.state.data.cartList;
-    //   console.log("this.cart", this.carts);
-    //   this.cartsProduct = this.carts.productId;
-    //   console.log("bb cartsProduct", this.cartsProduct);
-    //   console.log("this.cart in cart", this.carts);
-
-    //   // check each product to set the product quantity
-    //   this.carts.productId.forEach((product) => {
-    //     const index = this.cartsProduct.indexOf(product._id);
-    //     if (index !== -1) {
-    //       product.quantity = this.carts[index].quantity;
-    //     } else {
-    //       product.quantity = 1;
-    //     }
-    //   });
-    //   // this.loading = false;
-    // },
-
     async queryCart() {
       const cartId = localStorage.getItem("cartId");
 
@@ -252,6 +236,10 @@ export default {
         // Check each product to set the product quantity
         this.carts.items.forEach((item) => {
           const product = item.product;
+          const itemm = item.quantity;
+          this.inquantity = itemm;
+
+          console.log("what i need", itemm);
           const index = this.cartsProduct.findIndex(
             (p) => p.product._id === product._id
           );
@@ -270,36 +258,157 @@ export default {
       }
     },
 
-    // async removeItemFromCart() {
-    //   try {
-    //     const cartId = localStorage.getItem("cartId");
-    //     const itemId = localStorage.getItem("itemIds");
+    // async updatecartItemquant(itemId) {
+    //   const cartId = localStorage.getItem("cartId");
+    //   const itemId = this.itemIds[0]; // Assuming you only have one item in the cart
 
-    //     if (!cartId || !itemId) {
-    //       throw new Error("Invalid cart or item ID.");
-    //     }
+    //   const response = await this.$store.dispatch("mutate", {
+    //     endpoint: "updateCartItemQuantity",
+    //     data: {
+    //       cartId: cartId,
+    //       itemId: itemId,
+    //       quantity: this.inquantity, // Use the updated quantity
+    //     },
+    //   });
+    //   console.log(response);
+    // },
 
-    //     const confirmed = confirm(
-    //       "Are you sure you want to remove this item from your cart?"
+    // incrementQuantity() {
+    //   this.inquantity++;
+    //   this.updatecartItemquant();
+    // },
+
+    // decrementQuantity() {
+    //   if (this.inquantity > 1) {
+    //     this.inquantity--;
+    //     this.updatecartItemquant();
+    //   }
+    // },
+
+    // async incrementQuantity(itemId) {
+    //   const cartId = localStorage.getItem("cartId");
+    //   const cartItem = this.cartsProduct.find((item) => item._id === itemId);
+
+    //   if (cartItem) {
+    //     cartItem.product.quantity++;
+    //     await this.updateCartItemQuantity(
+    //       cartId,
+    //       itemId,
+    //       cartItem.product.quantity
     //     );
-    //     if (!confirmed) {
-    //       return;
-    //     }
+    //   }
+    // },
 
+    // async decrementQuantity(itemId) {
+    //   const cartId = localStorage.getItem("cartId");
+    //   const cartItem = this.cartsProduct.find((item) => item._id === itemId);
+
+    //   if (cartItem && cartItem.product.quantity > 1) {
+    //     cartItem.product.quantity--;
+    //     await this.updateCartItemQuantity(
+    //       cartId,
+    //       itemId,
+    //       cartItem.product.quantity
+    //     );
+    //   }
+    // },
+
+    // async updateCartItemQuantity(cartId, itemId, quantity) {
+    //   try {
     //     const response = await this.$store.dispatch("mutate", {
-    //       endpoint: "deleteCartItem",
-    //       input: {
+    //       endpoint: "updateCartItemQuantity",
+    //       data: {
     //         cartId: cartId,
     //         itemId: itemId,
+    //         quantity: quantity,
     //       },
     //     });
-
-    //     // Handle the response and update the UI if necessary
+    //     console.log(response);
     //   } catch (error) {
-    //     console.error("Failed to remove item from cart:", error);
+    //     console.error("Failed to update item quantity:", error);
     //     // Handle the error and display an appropriate message to the user
     //   }
     // },
+    async incrementQuantity(itemId) {
+      try {
+        // Find the cart item index in the cartsProduct array
+        const itemIndex = this.cartsProduct.findIndex(
+          (item) => item._id === itemId
+        );
+
+        if (itemIndex !== -1) {
+          // Increment the quantity of the cart item
+          this.cartsProduct[itemIndex].product.quantity++;
+
+          // Get the updated quantity
+          const quantity = this.cartsProduct[itemIndex].product.quantity;
+
+          // Get the cart ID
+          const cartId = localStorage.getItem("cartId");
+
+          // Call the updateCartItemQuantity method or mutation
+          await this.updateCartItemQuantity(cartId, itemId, quantity);
+        }
+      } catch (error) {
+        console.error("Failed to increment item quantity:", error);
+        // Handle the error and display an appropriate message to the user
+      }
+    },
+
+    async decrementQuantity(itemId) {
+      try {
+        // Find the cart item index in the cartsProduct array
+        const itemIndex = this.cartsProduct.findIndex(
+          (item) => item._id === itemId
+        );
+
+        if (
+          itemIndex !== -1 &&
+          this.cartsProduct[itemIndex].product.quantity > 1
+        ) {
+          // Decrement the quantity of the cart item
+          this.cartsProduct[itemIndex].product.quantity--;
+
+          // Get the updated quantity
+          const quantity = this.cartsProduct[itemIndex].product.quantity;
+
+          // Get the cart ID
+          const cartId = localStorage.getItem("cartId");
+
+          // Call the updateCartItemQuantity method or mutation
+          await this.updateCartItemQuantity(cartId, itemId, quantity);
+        }
+      } catch (error) {
+        console.error("Failed to decrement item quantity:", error);
+        // Handle the error and display an appropriate message to the user
+      }
+    },
+
+    async updateCartItemQuantity(cartId, itemId, quantity) {
+      // const cartId = localStorage.getItem("cartId");
+      try {
+        const response = await this.$store.dispatch("mutate", {
+          endpoint: "updateCartItemQuantity",
+          data: {
+            cartId: cartId,
+            itemId: itemId,
+            quantity: quantity,
+          },
+        });
+
+        // Update the quantity in the frontend
+        const cartItem = this.cartsProduct.find((item) => item._id === itemId);
+        if (cartItem) {
+          cartItem.product.quantity = quantity;
+        }
+
+        console.log(response);
+      } catch (error) {
+        console.error("Failed to update item quantity:", error);
+        // Handle the error and display an appropriate message to the user
+      }
+    },
+
     async removeItemFromCart(_id) {
       try {
         const cartId = localStorage.getItem("cartId");
@@ -368,16 +477,6 @@ export default {
   },
 
   computed: {
-    // get the total priice of products added to cart
-    // cartTotal() {
-    //   let total = 0;
-    //   for (let product of this.cartsProduct) {
-    //     total += parseFloat(product.product.price);
-    //   }
-    //   this.subtotal = total;
-    //   // console.log("the subtotal", total);
-    //   return total;
-    // },
     cartTotal() {
       let total = 0;
       for (let product of this.cartsProduct) {

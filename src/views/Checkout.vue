@@ -24,7 +24,6 @@
             </div>
           </div>
           <router-link
-            @click="clearLocalStorage"
             to="/"
             class="bg-ShamrockGreen text-white rounded-lg p-4"
           >
@@ -417,12 +416,6 @@ export default {
       setTimeout(() => {
         this.isOrderPlaced = true;
         this.isPlaceOrderLoading = false;
-        // window.localStorage.removeItem("cartId");
-        // window.localStorage.removeItem("detailId");
-        // window.localStorage.removeItem("itemIds");
-        // window.localStorage.removeItem("updateProductId");
-        // window.localStorage.removeItem("cartItemIds");
-        // window.localStorage.removeItem("customerId");
       }, 2000); // Hide the toast after 5 seconds
     },
 
@@ -432,15 +425,6 @@ export default {
     },
 
     // Other methods and lifecycle hooks...
-
-    clearLocalStorage() {
-      localStorage.removeItem("itemIds");
-      localStorage.removeItem("cartId");
-      localStorage.removeItem("detailId");
-      localStorage.removeItem("updateProductId");
-      localStorage.removeItem("cartItemIds");
-      localStorage.removeItem("customerId");
-    },
   },
   async created() {
     this.args.cartId = localStorage.getItem("cartId");

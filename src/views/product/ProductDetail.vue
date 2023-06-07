@@ -60,6 +60,7 @@
             </div>
           </div>
         </div>
+        
         <div v-else>
           <div
             class="xl:px-40 flex flex-col space-y-10 lg:space-y-0 lg:flex-row lg:space-x-16 lg:h-[550px]"

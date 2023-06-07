@@ -137,6 +137,7 @@
                           />
                         </svg>
                       </span>
+
                       <span v-else>Apply</span>
                     </button>
                   </div>

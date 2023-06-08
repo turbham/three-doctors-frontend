@@ -6,7 +6,7 @@
     <div class="container mx-auto">
       <div class="flex flex-row items-center justify-between">
         <router-link to="/">
-          <img src="../assets/images/logg.svg" alt="" class="w-24 md:w-48" />
+          <img src="../assets/images/logg.png" alt="" class="w-24 md:w-40" />
         </router-link>
         <div>
           <div>

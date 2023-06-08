@@ -54,13 +54,13 @@
                 class="flex flex-row items-center space-x-4 mb-8"
               >
                 <button
-                  class="w-1/2 flex flex-row items-center justify-center space-x-2 border-2 border-black p-4 bg-VeryLightPink"
+                  class="w-1/2 flex flex-row items-center justify-center space-x-2 border-2 border-black p-4"
                 >
                   <img src="../assets/icons/local_shipping.svg" alt="" />
                   <span>Ship</span>
                 </button>
                 <button
-                  class="w-1/2 flex flex-row items-center justify-center space-x-2 border-2 border-black p-4 bg-VeryLightPink"
+                  class="w-1/2 flex flex-row items-center justify-center space-x-2 border-2 border-black p-4"
                 >
                   <img src="../assets/icons/location_pin.svg" alt="" />
                   <span>Pickup</span>
@@ -72,7 +72,7 @@
                     type="text"
                     name=""
                     id=""
-                    class="w-full border border-black bg-VeryLightPink p-3 placeholder-MistBlue"
+                    class="w-full border border-black p-3 placeholder-MistBlue focus:outline-none focus:border-PaleOrange focus:ring-0"
                     placeholder="First name*"
                     v-model="args.firstname"
                   />
@@ -81,7 +81,7 @@
                     type="text"
                     name=""
                     id=""
-                    class="w-full border border-black bg-VeryLightPink p-3 placeholder-MistBlue"
+                    class="w-full border border-black p-3 placeholder-MistBlue focus:outline-none focus:border-PaleOrange focus:ring-0"
                     placeholder="Last name*"
                     v-model="args.lastname"
                   />
@@ -89,7 +89,7 @@
                     type="text"
                     name=""
                     id=""
-                    class="col-span-2 w-full border border-black bg-VeryLightPink p-3 placeholder-MistBlue"
+                    class="col-span-2 w-full border border-black p-3 placeholder-MistBlue focus:outline-none focus:border-PaleOrange focus:ring-0"
                     placeholder="Address"
                     v-model="args.address"
                   />
@@ -97,7 +97,7 @@
                     type="text"
                     name=""
                     id=""
-                    class="col-span-2 w-full border border-black bg-VeryLightPink p-3 placeholder-MistBlue"
+                    class="col-span-2 w-full border border-black p-3 placeholder-MistBlue focus:outline-none focus:border-PaleOrange focus:ring-0"
                     placeholder="email "
                     v-model="args.email"
                   />
@@ -107,7 +107,7 @@
                     type="text"
                     name=""
                     id=""
-                    class="col-span-1 w-full border border-black bg-VeryLightPink p-3 placeholder-MistBlue"
+                    class="col-span-1 w-full border border-black p-3 placeholder-MistBlue focus:outline-none focus:border-PaleOrange focus:ring-0"
                     placeholder="City*"
                     v-model="args.city"
                   />
@@ -115,7 +115,7 @@
                     type="text"
                     name=""
                     id=""
-                    class="col-span-1 w-full border border-black bg-VeryLightPink p-3 placeholder-MistBlue"
+                    class="col-span-1 w-full border border-black p-3 placeholder-MistBlue focus:outline-none focus:border-PaleOrange focus:ring-0"
                     placeholder="State"
                     v-model="args.state"
                   />
@@ -123,7 +123,7 @@
                     type="text"
                     name=""
                     id=""
-                    class="col-span-1 w-full border border-black bg-VeryLightPink p-3 placeholder-MistBlue"
+                    class="col-span-1 w-full border border-black p-3 placeholder-MistBlue focus:outline-none focus:border-PaleOrange focus:ring-0"
                     placeholder="Postal Code*"
                     v-model="args.postal"
                   />
@@ -133,7 +133,7 @@
                     type="text"
                     name=""
                     id=""
-                    class="col-span-1 w-full border border-black bg-VeryLightPink p-3 placeholder-MistBlue"
+                    class="col-span-1 w-full border border-black p-3 placeholder-MistBlue focus:outline-none focus:border-PaleOrange focus:ring-0"
                     placeholder="Phone Number*"
                     v-model="args.number"
                   />
@@ -334,7 +334,11 @@
               step++;
               createCustomer();
             "
-            class="font-windsor-pro-bold bg-Platinum text-DavyGrey px-4 py-3 w-fit"
+            :class="[
+              'font-windsor-pro-bold bg-Platinum text-DavyGrey px-4 py-3 w-fit transition-all duration-1000',
+              { 'bg-ShamrockGreen text-white': !isButtonDisabled },
+            ]"
+            :disabled="isButtonDisabled"
           >
             Save and continue
           </button>
@@ -406,13 +410,13 @@ export default {
     },
 
     async sendEmail() {
+      this.isPlaceOrderLoading = true;
       const customerId = localStorage.getItem("customerId");
       const input = { customerId };
       await this.$store.dispatch("mutate", {
         endpoint: "sendEmailToAdmin",
         data: { input },
       });
-      this.isPlaceOrderLoading = true;
       setTimeout(() => {
         this.isOrderPlaced = true;
         this.isPlaceOrderLoading = false;
@@ -456,6 +460,29 @@ export default {
       // console.log("the subtotal", total);
       return total;
     },
+
+    isButtonDisabled() {
+      const {
+        firstname,
+        lastname,
+        address,
+        city,
+        email,
+        state,
+        postal,
+        number,
+      } = this.args;
+      return !(
+        firstname &&
+        lastname &&
+        address &&
+        city &&
+        email &&
+        state &&
+        postal &&
+        number
+      );
+    },
   },
 };
 </script>
@@ -472,5 +499,12 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.save-button {
+  background-color: green;
+}
+.save-button:disabled {
+  background-color: red;
 }
 </style>

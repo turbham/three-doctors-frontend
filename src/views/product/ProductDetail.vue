@@ -102,15 +102,15 @@
                   <p class="font-medium text-2xl md:text-5xl">
                     {{ product.name }}
                   </p>
-                  <p class="font-bold text-xl text-DebianRed">
+                  <p class="font-bold text-xl text-PaleOrange">
                     ${{ product.price }}
                   </p>
                   <div>
                     <h4>Sizes:</h4>
-                    <div class="relative w-3/4 border-none">
+                    <div class="relative w-full md:w-3/4 border-none">
                       <select
                         v-model="selectedSize"
-                        class="w-full text-[#ABAFB1] cursor-pointer appearance-none border inline-block px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
+                        class="w-full cursor-pointer appearance-none border inline-block px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
                       >
                         <option selected class="pt-6">Select size</option>
                         <option
@@ -133,23 +133,12 @@
                       </div>
                     </div>
                   </div>
-                  <!-- <div>
-                    <h4>Sizes:</h4>
-                    <select
-                      class="w-full md:w-3/4 border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
-                      v-model="selectedSize"
-                    >
-                      <option v-for="size in sizes" :key="size" :value="size">
-                        {{ SizeEnum[size] }}mm
-                      </option>
-                    </select>
-                  </div> -->
                   <div>
                     <h4>Colors:</h4>
-                    <div class="relative w-3/4 border-none">
+                    <div class="relative w-full md:w-3/4 border-none">
                       <select
                         v-model="selectedColor"
-                        class="w-full text-[#ABAFB1] cursor-pointer appearance-none border inline-block px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
+                        class="w-full cursor-pointer appearance-none border inline-block px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
                       >
                         <option selected class="pt-6">Select color</option>
                         <option
@@ -172,21 +161,6 @@
                       </div>
                     </div>
                   </div>
-                  <!-- <div>
-                    <h4>Colors:</h4>
-                    <select
-                      class="w-full md:w-3/4 border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
-                      v-model="selectedColor"
-                    >
-                      <option
-                        v-for="color in colors"
-                        :key="color"
-                        :value="color"
-                      >
-                        {{ color }}
-                      </option>
-                    </select>
-                  </div> -->
                   <div class="space-y-1">
                     <p class="text-base font-medium">Quantity</p>
                     <input
@@ -320,6 +294,7 @@ export default {
       // Update the product with the selected colors and sizes
       this.product.colors = this.selectedColor;
       this.product.sizes = this.selectedSize;
+      this.isLoading = true;
 
       try {
         // Make the API call to update the product
@@ -344,6 +319,7 @@ export default {
             "Product updated successfully. Update Product ID:",
             updateProductId
           );
+          this.isLoading = false;
 
           // Show a success message or perform any other necessary actions
           toast.success("Product added to cart successfully");
@@ -415,6 +391,7 @@ export default {
     // },
 
     async addToCart(items) {
+      this.isLoading = true;
       try {
         // Call the updateProduct function before creating the cart
         await this.updateProduct();

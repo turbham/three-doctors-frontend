@@ -1,7 +1,7 @@
 <template>
   <div v-if="isLoading">
     <div
-      class="bg-[url('../assets/images/Are-you_18_bg.png')] flex flex-row justify-center items-center h-screen"
+      class="bg-[url('../assets/images/Are-you_18_bg.png')] bg-cover bg-no-repeat flex flex-row justify-center items-center h-screen"
     >
       <img
         src="../assets/images/logg.svg"
@@ -11,7 +11,9 @@
     </div>
   </div>
   <div v-else>
-    <div class="bg-[url('../assets/images/Are-you_18_bg.png')]">
+    <div
+      class="bg-[url('../assets/images/Are-you_18_bg.png')] bg-cover bg-no-repeat"
+    >
       <div class="flex items-center justify-center h-[80px] sticky top-0 z-50">
         <router-link to="/">
           <img src="../assets/images/logg.svg" class="w-64" alt="" />

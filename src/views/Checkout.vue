@@ -86,7 +86,7 @@
                   <span>Pickup</span>
                 </button>
               </div> -->
-              <div class="space-y-6" v-show="step === 4">
+              <div class="space-y-6" v-show="step === 1">
                 <div class="grid grid-cols-2 gap-6">
                   <input
                     type="text"
@@ -234,7 +234,7 @@
                   </button>
                 </div>
               </div>
-              <div class="font-light space-y-10" v-show="step === 1">
+              <div class="font-light space-y-10" v-show="step === 4">
                 <div>
                   <p class="text-DarkJungleGreen">Shipping Address</p>
                   <div class="text-OlsoGrey space-y-1">

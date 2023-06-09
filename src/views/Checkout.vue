@@ -34,22 +34,36 @@
     </div>
     <div>
       <Navbar />
-      <div class="container mx-auto my-12 md:my-28">
+      <div class="container mx-auto my-24 md:my-32">
         <p class="text-center text-lg md:text-2xl mb-8">Checkout</p>
         <div
           class="flex flex-col space-y-4 lg:space-y-0 lg:flex-row items-start lg:space-x-28 mb-10"
         >
           <div class="w-full lg:w-[55%] space-y-10">
-            <div class="flex items-center space-x-3 mb-2">
-              <p class="font-windsor-pro-bold text-lg md:text-2xl">
-                Delivery Options
-              </p>
-              <div v-show="step === 3 || step === 4">
-                <img src="../assets/icons/check_circle.svg" alt="" />
+            <div class="flex items-center justify-between space-x-3 mb-2">
+              <div class="flex items-center space-x-3">
+                <p class="font-windsor-pro-bold text-lg md:text-2xl">
+                  Shippings
+                  <span>
+                    <span v-if="step === 1">Informations </span>
+                    <span v-if="step === 2">Confirmation </span>
+                  </span>
+                </p>
+                <div v-show="step === 3 || step === 4">
+                  <img src="../assets/icons/check_circle.svg" alt="" />
+                </div>
+              </div>
+              <div v-show="step === 4">
+                <button
+                  @click="jumpToStepOne"
+                  class="text-xs underline font-medium"
+                >
+                  Edit
+                </button>
               </div>
             </div>
             <div class="space-y-6">
-              <div
+              <!-- <div
                 v-show="step === 1 || step === 2"
                 class="flex flex-row items-center space-x-4 mb-8"
               >
@@ -65,7 +79,7 @@
                   <img src="../assets/icons/location_pin.svg" alt="" />
                   <span>Pickup</span>
                 </button>
-              </div>
+              </div> -->
               <div class="space-y-6" v-show="step === 1">
                 <div class="grid grid-cols-2 gap-6">
                   <input
@@ -163,10 +177,10 @@
                 </div>
                 <div class="flex justify-end">
                   <button
-                    @click="step++"
+                    @click="jumpToPlaceOrder"
                     class="font-windsor-pro-bold bg-ShamrockGreen text-white px-4 py-3 w-fit"
                   >
-                    Continue to Order Review
+                    Continue
                   </button>
                 </div>
               </div>
@@ -235,7 +249,7 @@
                 <hr class="border-[0.1px] border-GreyChateau" />
                 <div>
                   <p class="font-windsor-pro-bold text-lg md:text-2xl">
-                    Order Review
+                    Disclosure
                   </p>
                   <p class="text-OlsoGrey">
                     By clicking the "Place Order" button, you confirm that you
@@ -276,7 +290,9 @@
           <div class="w-full lg:w-[28%] space-y-10">
             <div class="flex flex-row items-center justify-between">
               <p class="ext-lg md:text-2xl mb-2">In your cart</p>
-              <!-- <p class="text-xs font-semibold underline">edit</p> -->
+              <router-link to="/cart" class="text-xs font-semibold underline"
+                >edit</router-link
+              >
             </div>
             <div class="space-y-10">
               <div class="text-base font-light space-y-1.5">
@@ -428,6 +444,13 @@ export default {
       await this.createCustomer();
     },
 
+    jumpToPlaceOrder() {
+      this.step = 4;
+    },
+    jumpToStepOne() {
+      this.step = 1;
+    },
+
     // Other methods and lifecycle hooks...
   },
   async created() {
@@ -499,12 +522,5 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.save-button {
-  background-color: green;
-}
-.save-button:disabled {
-  background-color: red;
 }
 </style>

@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div v-if="TermsAndConditionModal">
+      <TermsAndConditionOfUse
+        :TermsAndConditionModal="TermsAndConditionModal"
+        @closeModal="TermsAndConditionModal = false"
+      />
+    </div>
     <div v-if="isOrderPlaced" class="overlay">
       <div class="toast">
         <div class="flex flex-col items-center justify-center space-y-4">
@@ -80,7 +86,7 @@
                   <span>Pickup</span>
                 </button>
               </div> -->
-              <div class="space-y-6" v-show="step === 1">
+              <div class="space-y-6" v-show="step === 4">
                 <div class="grid grid-cols-2 gap-6">
                   <input
                     type="text"
@@ -228,7 +234,7 @@
                   </button>
                 </div>
               </div>
-              <div class="font-light space-y-10" v-show="step === 4">
+              <div class="font-light space-y-10" v-show="step === 1">
                 <div>
                   <p class="text-DarkJungleGreen">Shipping Address</p>
                   <div class="text-OlsoGrey space-y-1">
@@ -251,10 +257,15 @@
                   <p class="font-windsor-pro-bold text-lg md:text-2xl">
                     Disclosure
                   </p>
-                  <p class="text-OlsoGrey">
+                  <p class="text-OlsoGrey max-w-xl">
                     By clicking the "Place Order" button, you confirm that you
-                    have read, understand, and accept our Terms of Use, Terms of
-                    Sale, Privacy Policy, and Return Policy.
+                    have read, understand, and accept our
+                    <button
+                      @click="openTermsAndConditionModal"
+                      class="hover:underline text-blue-400"
+                    >
+                      Terms and Condition of Use</button
+                    >.
                   </p>
                 </div>
                 <div class="flex justify-end">
@@ -315,31 +326,6 @@
                 <p>Total</p>
                 <p>${{ (cartTotal + 5).toFixed(2) }}</p>
               </div>
-              <!-- <p class="font-semibold mb-4">Arrives by Thu,Apr 20</p> -->
-              <!-- <div class="flex flex-row items-start space-x-10">
-              <div class="w-28 h-28 bg-GreyCloud relative">
-                <img
-                  src="https://lawal-akande.netlify.app/images/profilepic.jpeg"
-                  class="h-full object-cover"
-                  alt=""
-                />
-                <div class="absolute top-4 right-4">
-                  <img src="../assets/icons/fi_small_heart.svg" alt="" />
-                </div>
-              </div>
-              <div class="space-y-3">
-                <p class="font-windsor-pro-bold">3 Doctors Package</p>
-                <div class="text-GreyChateau text-xs lg:text-sm space-x-3">
-                  <span>Size</span>
-                  <span>8mm</span>
-                </div>
-                 <div class="flex flex-row items-center space-x-4">
-                  <button class="flex bg-Platinum px-2 rounded-lg">-</button>
-                  <span class="text-SpunPearl text-[12px]">0</span>
-                  <button class="flex bg-Platinum px-2 rounded-lg">+</button>
-                </div>
-              </div>
-            </div> -->
             </div>
           </div>
         </div>
@@ -368,6 +354,7 @@
 <script>
 import Navbar from "@/components/Navbar.vue";
 import Footer from "@/components/Footer.vue";
+import TermsAndConditionOfUse from "@/views/TermsAndConditionOfUse.vue";
 
 export default {
   name: "Checkout",
@@ -375,6 +362,7 @@ export default {
   components: {
     Navbar,
     Footer,
+    TermsAndConditionOfUse,
   },
   data() {
     return {
@@ -395,6 +383,7 @@ export default {
       isOrderPlaced: false,
       isPlaceOrderLoading: false,
       cartsProduct: [],
+      TermsAndConditionModal: false,
     };
   },
 
@@ -437,6 +426,10 @@ export default {
         this.isOrderPlaced = true;
         this.isPlaceOrderLoading = false;
       }, 2000); // Hide the toast after 5 seconds
+    },
+
+    openTermsAndConditionModal() {
+      this.TermsAndConditionModal = true;
     },
 
     // Example usage:

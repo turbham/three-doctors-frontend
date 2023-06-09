@@ -29,6 +29,7 @@ module.exports = {
         BeanRed: "#F2634C",
         RoseBud: "#F9B1A5",
         OlsoGrey: "#8D8E90",
+        PaleTeal: "#80CFAB",
         
         Grey: "#909090",
         Platinum: "#E4E4E4",

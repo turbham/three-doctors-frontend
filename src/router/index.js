@@ -6,6 +6,7 @@ import LifeStyle from "../views/LifeStyle.vue";
 import Products from "../views/product/Products.vue";
 import ProductDetail from "../views/product/ProductDetail.vue";
 import Cart from "../views/Cart.vue";
+import AreYouHeighteen from "../views/AreYouHeighteen.vue";
 import Checkout from "../views/Checkout.vue";
 
 const routes = [
@@ -13,6 +14,12 @@ const routes = [
     path: "/",
     name: "home",
     component: HomeView,
+    meta: { toTop: true, smoothScroll: true },
+  },
+  {
+    path: "/verification",
+    name: "verification",
+    component: AreYouHeighteen,
     meta: { toTop: true, smoothScroll: true },
   },
   {

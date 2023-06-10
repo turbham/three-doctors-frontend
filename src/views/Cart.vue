@@ -3,7 +3,7 @@
     <Navbar />
     <div class="container mx-auto my-24 md:my-32">
       <div class="space-y-12 mb-12">
-        <p>Homepage / Cart</p>
+        <p><router-link to="/health-and-style">Homepage</router-link> / Cart</p>
         <p
           class="text-lg md:text-2xl font-medium font-windsor-pro-bold text-BrownBramble"
         >

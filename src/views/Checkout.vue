@@ -49,9 +49,9 @@
             <div class="flex items-center justify-between space-x-3 mb-2">
               <div class="flex items-center space-x-3">
                 <p class="font-windsor-pro-bold text-lg md:text-2xl">
-                  Shippings
+                  Shipping
                   <span>
-                    <span v-if="step === 1">Informations </span>
+                    <span v-if="step === 1">Information </span>
                     <span v-if="step === 2">Confirmation </span>
                   </span>
                 </p>

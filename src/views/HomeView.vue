@@ -52,7 +52,7 @@
                 </p>
                 <div>
                   <router-link
-                    to="/health-and-style"
+                    to="/verification"
                     class="bg-BrownBramble text-white px-5 py-3.5 text-xs md:text-base font-windsor-pro-bold"
                   >
                     Shop Now

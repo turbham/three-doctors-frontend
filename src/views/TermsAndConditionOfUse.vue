@@ -8,9 +8,14 @@
         class="modal overflow-y-auto max-h-[90%] border-2 border-PaleOrange px-24"
         role="dialog"
       >
-        <h2 class="text-3xl font-windsor-pro-bold text mb-5">
-          Terms and Conditions of Use
-        </h2>
+        <div class="flex flex-row items-center justify-between">
+          <h2 class="text-3xl font-windsor-pro-bold text mb-5">
+            Terms and Conditions of Use
+          </h2>
+          <button @click="$emit('closeModal')" class="text-2xl text-[#ff0000]">
+            x
+          </button>
+        </div>
         <div class="px-8 mb-10">
           <div class="space-y-5 mb-8">
             <div>
@@ -151,93 +156,232 @@
               </p>
             </div>
           </div>
-          <h2 class="text-3xl font-windsor-pro-bold text mb-5">
-            Legal Notice &amp; Privacy Statement
-          </h2>
+          <div class="space-y-5">
+            <div>
+              <h2 class="text-3xl font-windsor-pro-bold text mb-5">
+                Legal Notice &amp; Privacy Statement
+              </h2>
+              <p class="text-sm text-OlsoGrey">
+                Website Terms and Conditions of Use
+              </p>
+              <p class="text-sm text-OlsoGrey">Effective Date: [Insert Date]</p>
+              <p class="text-sm text-OlsoGrey">
+                Website Terms and Conditions of Use
+              </p>
+              <p class="text-sm text-OlsoGrey">
+                This Legal Notice & Privacy Statement ("Statement") sets forth
+                the terms and conditions for the use of the website accessible
+                at www.3Doktors.com ("Website"). By accessing or using the
+                Website, you agree to be bound by these terms and conditions. If
+                you do not agree with any part of this Statement, you must not
+                access or use the Website.
+              </p>
+            </div>
+            <div>
+              <h2 class="text-3xl font-windsor-pro-bold text mb-5">
+                Terms of Use
+              </h2>
+              <h3
+                class="text-2xl text-OlsoGrey font-sf-pro-display-medium mb-4"
+              >
+                1.1 Acceptance of Terms
+              </h3>
+              <p class="text-sm text-OlsoGrey">
+                By accessing this Website, you acknowledge that you have read,
+                understood, and agree to be bound by these Website Terms and
+                Conditions of Use ("Terms"), as well as any applicable laws and
+                regulations. If you do not agree with any of these Terms, you
+                are prohibited from accessing this site.
+              </p>
+            </div>
+            <div>
+              <h3
+                class="text-2xl text-OlsoGrey font-sf-pro-display-medium mb-4"
+              >
+                1.2 Intellectual Property
+              </h3>
+              <p class="text-sm text-OlsoGrey">
+                The materials contained on this Website, including but not
+                limited to text, graphics, logos, images, audio clips, video
+                clips, and software, are protected by copyright and trademark
+                laws. You may only use the materials for personal,
+                non-commercial transitory viewing. Modification, copying,
+                distribution, or any other use of the materials for commercial
+                purposes or public display is strictly prohibited without prior
+                written consent from 3Doktors.
+              </p>
+            </div>
+            <div>
+              <h3
+                class="text-2xl text-OlsoGrey font-sf-pro-display-medium mb-4"
+              >
+                1.3 License Restrictions
+              </h3>
+              <p class="text-sm text-OlsoGrey">
+                Under the granted license, you are prohibited from:
+              </p>
+              <p class="text-sm text-OlsoGrey">
+                Modifying or copying the materials; Using the materials for any
+                commercial purpose or public display; Attempting to reverse
+                engineer any software contained on the Website; Removing any
+                copyright or other proprietary notations from the materials;
+                Transferring the materials to another person or "mirroring" the
+                materials on any other server. Violation of these license
+                restrictions may result in termination of your access to the
+                Website.
+              </p>
+            </div>
+            <div>
+              <h3
+                class="text-2xl text-OlsoGrey font-sf-pro-display-medium mb-4"
+              >
+                1.4 Termination
+              </h3>
+              <p class="text-sm text-OlsoGrey">
+                3Doktors reserves the right to terminate your access to the
+                Website at any time, without prior notice, in the event of a
+                violation of these Terms. Upon termination, you must destroy any
+                downloaded or printed materials in your possession.
+              </p>
+            </div>
+            <div>
+              <h2 class="text-3xl font-windsor-pro-bold text mb-5">
+                Disclaimer
+              </h2>
+              <h3
+                class="text-2xl text-OlsoGrey font-sf-pro-display-medium mb-4"
+              >
+                2.1 Use at Your Own Risk
+              </h3>
+              <p class="text-sm text-OlsoGrey">
+                The materials on this Website are provided "as is" without any
+                warranties, whether expressed or implied. 3Doktors does not make
+                any representations or warranties regarding the accuracy or
+                reliability of the use of the materials on the Website or any
+                sites linked to it. Any reliance you place on such materials is
+                strictly at your own risk.
+              </p>
+            </div>
+            <div>
+              <h3
+                class="text-2xl text-OlsoGrey font-sf-pro-display-medium mb-4"
+              >
+                2.2 Limitation of Liability
+              </h3>
+              <p class="text-sm text-OlsoGrey">
+                In no event shall 3Doctors or its suppliers be liable for any
+                damages arising out of the use or inability to use the materials
+                on the Website, even if 3Doktors or an authorized representative
+                has been notified, orally or in writing, of the possibility of
+                such damage. Some jurisdictions do not allow limitations on
+                implied warranties or limitations of liability for incidental
+                damages, so these limitations may not apply to you.
+              </p>
+            </div>
+            <div>
+              <h2 class="text-3xl font-windsor-pro-bold text mb-5">
+                Revisions and Errata
+              </h2>
+              <h3
+                class="text-2xl text-OlsoGrey font-sf-pro-display-medium mb-4"
+              >
+                3.1 Accuracy of Information
+              </h3>
+              <p class="text-sm text-OlsoGrey">
+                The materials appearing on the Website may include technical,
+                typographical, or photographic errors. While 3Doktors strives to
+                ensure the accuracy, completeness, and currency of the
+                materials, it does not guarantee that any errors or inaccuracies
+                will be corrected.
+              </p>
+            </div>
+            <div>
+              <h3
+                class="text-2xl text-OlsoGrey font-sf-pro-display-medium mb-4"
+              >
+                3.2 Changes to Materials
+              </h3>
+              <p class="text-sm text-OlsoGrey">
+                3Doktors may make changes to the materials contained on the
+                Website at any time without prior notice. However, 3Doktors does
+                not commit to updating the materials.
+              </p>
+            </div>
+            <div>
+              <h2 class="text-3xl font-windsor-pro-bold text mb-5">Links</h2>
+              <h3
+                class="text-2xl text-OlsoGrey font-sf-pro-display-medium mb-4"
+              >
+                4.1 Third-Party Websites
+              </h3>
+              <p class="text-sm text-OlsoGrey">
+                The Website may contain links to third-party websites for your
+                convenience and reference. 3Doktors does not endorse the content
+                of these linked websites and is not responsible for their
+                availability, accuracy, or any damages incurred from their use.
+                Accessing linked websites is at your own risk.
+              </p>
+            </div>
+            <div>
+              <h2 class="text-3xl font-windsor-pro-bold text mb-5">
+                Site Terms of Use Modifications
+              </h2>
+              <h3
+                class="text-2xl text-OlsoGrey font-sf-pro-display-medium mb-4"
+              >
+                5.1 Amendments to Terms
+              </h3>
+              <p class="text-sm text-OlsoGrey">
+                3Doktors reserves the right to modify or revise these Terms of
+                Use at any time without prior notice. By continuing to access or
+                use the Website after any revisions, you agree to be bound by
+                the updated Terms.
+              </p>
+            </div>
+            <div>
+              <h2 class="text-3xl font-windsor-pro-bold text mb-5">
+                Your Privacy
+              </h2>
+              <h3
+                class="text-2xl text-OlsoGrey font-sf-pro-display-medium mb-4"
+              >
+                6.1 Privacy Policy
+              </h3>
+              <p class="text-sm text-OlsoGrey">
+                To understand how we collect, use, and protect your personal
+                information, please review our Privacy Policy, which is
+                incorporated by reference into this Statement. Governing Law
+              </p>
+            </div>
+            <div>
+              <h2 class="text-3xl font-windsor-pro-bold text mb-5">
+                Governing Law
+              </h2>
+              <h3
+                class="text-2xl text-OlsoGrey font-sf-pro-display-medium mb-4"
+              >
+                7.1 Jurisdiction
+              </h3>
+              <p class="text-sm text-OlsoGrey">
+                Any claim or dispute arising from or related to the use of the
+                3Doktors Website shall be governed by the laws of NG without
+                regard to its conflict of law provisions.
+              </p>
+              <p class="text-sm text-OlsoGrey">
+                By accessing or using the Website, you acknowledge that you have
+                read, understood, and agree to comply with this Legal Notice
+                &amp; Privacy Statement.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="flex flex-row items-center justify-center space-x-4">
-          <button
-            class="bg-PaleTeal text-white px-6 py-3"
-            @click="$emit('closeModal')"
-          >
-            Decline
-          </button>
-          <button
-            class="bg-ShamrockGreen text-white px-6 py-3"
-            @click="$emit('closeModal')"
-          >
-            Accept
-          </button>
-        </div>
-        <!--  Website Terms and Conditions of Use Effective
-            Date: [Insert Date] This Legal Notice & Privacy Statement
-            ("Statement") sets forth the terms and conditions for the use of the
-            website accessible at www.3Doktors.com ("Website"). By accessing or
-            using the Website, you agree to be bound by these terms and
-            conditions. If you do not agree with any part of this Statement, you
-            must not access or use the Website. Terms of Use 1.1 Acceptance of
-            Terms By accessing this Website, you acknowledge that you have read,
-            understood, and agree to be bound by these Website Terms and
-            Conditions of Use ("Terms"), as well as any applicable laws and
-            regulations. If you do not agree with any of these Terms, you are
-            prohibited from accessing this site. 1.2 Intellectual Property The
-            materials contained on this Website, including but not limited to
-            text, graphics, logos, images, audio clips, video clips, and
-            software, are protected by copyright and trademark laws. You may
-            only use the materials for personal, non-commercial transitory
-            viewing. Modification, copying, distribution, or any other use of
-            the materials for commercial purposes or public display is strictly
-            prohibited without prior written consent from 3Doktors. 1.3 License
-            Restrictions Under the granted license, you are prohibited from:
-            Modifying or copying the materials; Using the materials for any
-            commercial purpose or public display; Attempting to reverse engineer
-            any software contained on the Website; Removing any copyright or
-            other proprietary notations from the materials; Transferring the
-            materials to another person or "mirroring" the materials on any
-            other server. Violation of these license restrictions may result in
-            termination of your access to the Website. 1.4 Termination 3Doktors
-            reserves the right to terminate your access to the Website at any
-            time, without prior notice, in the event of a violation of these
-            Terms. Upon termination, you must destroy any downloaded or printed
-            materials in your possession. Disclaimer 2.1 Use at Your Own Risk
-            The materials on this Website are provided "as is" without any
-            warranties, whether expressed or implied. 3Doktors does not make any
-            representations or warranties regarding the accuracy or reliability
-            of the use of the materials on the Website or any sites linked to
-            it. Any reliance you place on such materials is strictly at your own
-            risk. 2.2 Limitation of Liability In no event shall 3Doktors or its
-            suppliers be liable for any damages arising out of the use or
-            inability to use the materials on the Website, even if 3Doktors or
-            an authorized representative has been notified, orally or in
-            writing, of the possibility of such damage. Some jurisdictions do
-            not allow limitations on implied warranties or limitations of
-            liability for incidental damages, so these limitations may not apply
-            to you. Revisions and Errata 3.1 Accuracy of Information The
-            materials appearing on the Website may include technical,
-            typographical, or photographic errors. While 3Doktors strives to
-            ensure the accuracy, completeness, and currency of the materials, it
-            does not guarantee that any errors or inaccuracies will be
-            corrected. 3.2 Changes to Materials 3Doktors may make changes to the
-            materials contained on the Website at any time without prior notice.
-            However, 3Doktors does not commit to updating the materials. Links
-            4.1 Third-Party Websites The Website may contain links to
-            third-party websites for your convenience and reference. 3Doktors
-            does not endorse the content of these linked websites and is not
-            responsible for their availability, accuracy, or any damages
-            incurred from their use. Accessing linked websites is at your own
-            risk. Site Terms of Use Modifications 5.1 Amendments to Terms
-            3Doktors reserves the right to modify or revise these Terms of Use
-            at any time without prior notice. By continuing to access or use the
-            Website after any revisions, you agree to be bound by the updated
-            Terms. Your Privacy 6.1 Privacy Policy To understand how we collect,
-            use, and protect your personal information, please review our
-            Privacy Policy, which is incorporated by reference into this
-            Statement. Governing Law 7.1 Jurisdiction Any claim or dispute
-            arising from or related to the use of the 3Doktors Website shall be
-            governed by the laws of NG without regard to its conflict of law
-            provisions. By accessing or using the Website, you acknowledge that
-            you have read, understood, and agree to comply with this Legal
-            Notice & Privacy Statement. -->
+        <!--  
+          
+            
+         
+            
+     
+           -->
       </div>
     </transition>
   </div>

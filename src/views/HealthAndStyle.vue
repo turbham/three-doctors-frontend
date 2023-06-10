@@ -1,7 +1,6 @@
 <template>
   <div>
-
-    <div v-if="isModalOpen">
+    <!-- <div v-if="isModalOpen">
       <div
         class="h-screen bg-[url('../assets/images/Are-you_18_bg.png')] text-PaleOrange px-1 flex flex-col items-center justify-center"
       >
@@ -41,15 +40,14 @@
           </p>
         </div>
       </div>
-    </div>
+    </div> -->
 
-    <div v-if="isWebsiteAccessible">
+    <!-- v-if="isWebsiteAccessible" -->
+    <div>
       <HomeHeader />
       <SmokeFilter />
       <GuidlineAndRecommendationSlide />
-      <!-- <Footer /> -->
     </div>
-
   </div>
 </template>
 
@@ -58,7 +56,6 @@ import Navbar from "@/components/Navbar.vue";
 import HomeHeader from "@/components/HomeHeader.vue";
 import SmokeFilter from "@/components/SmokeFilter.vue";
 import GuidlineAndRecommendationSlide from "@/components/GuidlineAndRecommendationSlide.vue";
-// import Footer from "@/components/Footer.vue";
 export default {
   name: "HealthAndStyle",
   components: {
@@ -66,41 +63,37 @@ export default {
     HomeHeader,
     SmokeFilter,
     GuidlineAndRecommendationSlide,
-    // Footer,
   },
 
   data() {
     return {
-      isModalOpen: false,
-      isWebsiteAccessible: false,
+      // isModalOpen: false,
+      // isWebsiteAccessible: false,
     };
   },
-  mounted() {
-    const userIsAnAdult = localStorage.getItem("userIsAnAdult");
-    const userIsNotAnAdult = localStorage.getItem("userIsNotAnAdult");
-    if (!userIsAnAdult || !userIsNotAnAdult) {
-      this.isModalOpen = true;
-    } else if (userIsAnAdult || userIsNotAnAdult) {
-      this.isModalOpen = true;
-    } else {
-      this.isWebsiteAccessible = true;
-    }
-  },
-
+  // mounted() {
+  //   const userIsAnAdult = localStorage.getItem("userIsAnAdult");
+  //   const userIsNotAnAdult = localStorage.getItem("userIsNotAnAdult");
+  //   if (!userIsAnAdult || !userIsNotAnAdult) {
+  //     this.isModalOpen = true;
+  //   } else if (userIsAnAdult || userIsNotAnAdult) {
+  //     this.isModalOpen = true;
+  //   } else {
+  //     this.isWebsiteAccessible = true;
+  //   }
+  // },
 
   methods: {
-    confirmAge() {
-      localStorage.setItem("userIsAnAdult", true);
-      this.isModalOpen = false;
-      this.isWebsiteAccessible = true;
-    },
-    rejectAge() {
-      localStorage.setItem("userIsNotAnAdult", true);
-      this.isModalOpen = false;
-      window.location.href = "/";
-    },
-
+    // confirmAge() {
+    //   localStorage.setItem("userIsAnAdult", true);
+    //   this.isModalOpen = false;
+    //   this.isWebsiteAccessible = true;
+    // },
+    // rejectAge() {
+    //   localStorage.setItem("userIsNotAnAdult", true);
+    //   this.isModalOpen = false;
+    //   window.location.href = "/";
+    // },
   },
 };
 </script>
-

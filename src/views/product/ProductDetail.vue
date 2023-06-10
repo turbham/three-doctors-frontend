@@ -3,9 +3,15 @@
     <Navbar />
     <div class="container mx-auto my-24 md:my-32">
       <p class="mb-8 md:mb-12">
-        <router-link to="/health-and-style">HomePage</router-link>
-        <span> / Filter / </span>
-        <router-link to="/products">Product Page</router-link>
+        <router-link class="hover:underline" to="/health-and-style"
+          >Homepage</router-link
+        >
+        /
+        <router-link class="hover:underline" to="/products">
+          Filters
+        </router-link>
+        /
+        <router-link to="">Product Page</router-link>
       </p>
       <div>
         <div v-if="loading">

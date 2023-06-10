@@ -164,7 +164,7 @@
               <p class="text-sm text-OlsoGrey">
                 Website Terms and Conditions of Use
               </p>
-              <p class="text-sm text-OlsoGrey">Effective Date: [Insert Date]</p>
+              <p class="text-sm text-OlsoGrey">Effective Date: January 2023</p>
               <p class="text-sm text-OlsoGrey">
                 Website Terms and Conditions of Use
               </p>

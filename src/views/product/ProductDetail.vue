@@ -298,11 +298,73 @@ export default {
       this.sizes = Array.from(sizesSet);
       this.colors = Array.from(colorsSet);
     },
+    // async updateProduct() {
+    //   // Update the product with the selected colors and sizes
+    //   this.product.colors = this.selectedColor;
+    //   this.product.sizes = this.selectedSize;
+    //   this.isLoading = true;
+
+    //   try {
+    //     // Make the API call to update the product
+    //     console.log(this.product._id);
+    //     const response = await this.$store.dispatch("mutate", {
+    //       endpoint: "updateProduct",
+    //       data: {
+    //         input: {
+    //           productId: this.product._id,
+    //           colors: this.product.colors,
+    //           sizes: this.product.sizes,
+    //         },
+    //       },
+    //     });
+    //     console.log("response", response);
+    //     console.log("responseData", response._id);
+
+    //     // Handle the response and perform any necessary actions
+    //     if (response) {
+    //       const updateProductId = response._id;
+    //       console.log(
+    //         "Product updated successfully. Update Product ID:",
+    //         updateProductId
+    //       );
+    //       this.isLoading = false;
+
+    //       // Show a success message or perform any other necessary actions
+    //       toast.success("Product added to cart successfully 00p00");
+
+    //       // Update localStorage with the updateProductId
+    //       localStorage.setItem("updateProductId", updateProductId);
+
+    //       // Reset the selected color and size
+    //       this.selectedColor = "";
+    //       this.selectedSize = "";
+    //     } else {
+    //       // Handle the case where the response is not as expected
+    //       console.error("Failed to update product: Invalid response");
+    //       toast.error("Failed to update product");
+    //     }
+    //   } catch (error) {
+    //     // Handle any errors that occurred during the API call
+    //     console.error("Failed to update product:", error);
+    //     toast.error("Failed to update product");
+    //   }
+    // },
+
     async updateProduct() {
+      // Check if sizes or colors are not selected
+      if (!this.selectedSize || !this.selectedColor) {
+        // Show an alert message or perform any other necessary actions
+        toast.error("Please select both size and color before adding to cart");
+
+        return;
+      }
+
       // Update the product with the selected colors and sizes
       this.product.colors = this.selectedColor;
       this.product.sizes = this.selectedSize;
-      this.isLoading = true;
+      console.log("this.product.colors", this.product.colors);
+      console.log("this.product.sizes", this.product.sizes);
+      // this.isLoading = true;
 
       try {
         // Make the API call to update the product
@@ -327,7 +389,7 @@ export default {
             "Product updated successfully. Update Product ID:",
             updateProductId
           );
-          this.isLoading = false;
+          // this.isLoading = false;
 
           // Show a success message or perform any other necessary actions
           toast.success("Product added to cart successfully");
@@ -399,7 +461,7 @@ export default {
     // },
 
     async addToCart(items) {
-      this.isLoading = true;
+      // this.isLoading = true;
       try {
         // Call the updateProduct function before creating the cart
         await this.updateProduct();

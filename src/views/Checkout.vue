@@ -477,6 +477,28 @@ export default {
       return total;
     },
 
+    // isButtonDisabled() {
+    //   const {
+    //     firstname,
+    //     lastname,
+    //     address,
+    //     city,
+    //     email,
+    //     state,
+    //     postal,
+    //     number,
+    //   } = this.args;
+    //   return !(
+    //     firstname &&
+    //     lastname &&
+    //     address &&
+    //     city &&
+    //     email &&
+    //     state &&
+    //     postal &&
+    //     number
+    //   );
+    // },
     isButtonDisabled() {
       const {
         firstname,
@@ -488,16 +510,28 @@ export default {
         postal,
         number,
       } = this.args;
+      const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      const isValidPhoneNumber = /^0\d{10}$/.test(number);
       return !(
         firstname &&
         lastname &&
         address &&
         city &&
-        email &&
+        isValidEmail &&
         state &&
         postal &&
-        number
+        isValidPhoneNumber
       );
+    },
+    validateEmail() {
+      const { email } = this.args;
+      const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      // You can add further validation feedback if needed
+    },
+    validatePhoneNumber() {
+      const { number } = this.args;
+      const isValidPhoneNumber = /^0\d{10}$/.test(number);
+      // You can add further validation feedback if needed
     },
   },
 };

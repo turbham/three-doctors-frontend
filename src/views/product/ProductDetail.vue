@@ -102,7 +102,7 @@
             </div>
             <div class="px-5 md:px-0 w-full lg:w-5/12">
               <div
-                class="w-full space-y-8 flex flex-col justify-between lg:h-[550px]"
+                class="w-full space-y-2 flex flex-col justify-between lg:h-[550px]"
               >
                 <div class="space-y-2 font-windsor-pro-bold text-BalticSea">
                   <p class="font-medium text-2xl md:text-5xl">
@@ -112,7 +112,7 @@
                     ${{ product.price }}
                   </p>
                   <div>
-                    <h4>Sizes:</h4>
+                    <h4>Size:</h4>
                     <div class="relative w-full md:w-3/4 border-none">
                       <select
                         v-model="selectedSize"
@@ -140,7 +140,7 @@
                     </div>
                   </div>
                   <div>
-                    <h4>Colors:</h4>
+                    <h4>Color:</h4>
                     <div class="relative w-full md:w-3/4 border-none">
                       <select
                         v-model="selectedColor"
@@ -168,11 +168,12 @@
                     </div>
                   </div>
                   <div class="space-y-1">
-                    <p class="text-base font-medium">Quantity</p>
+                    <p class="text-base font-medium">Quantity:</p>
                     <input
                       type="number"
                       v-model="quantity"
                       class="w-full md:w-3/4 border px-3 py-2 focus:outline-none focus:border-BrownBramble focus:ring-0"
+                      min="1"
                     />
                   </div>
                 </div>
@@ -238,6 +239,7 @@ export default {
   },
   data() {
     return {
+      value: 1,
       loading: true,
       // cartItems: [],
       // product: {},
@@ -686,6 +688,7 @@ export default {
     console.log(this.product, "happy");
     console.log("this is what I am looking", this.product);
     console.log(this.products, "okay");
+    this.queryCart();
   },
 };
 </script>

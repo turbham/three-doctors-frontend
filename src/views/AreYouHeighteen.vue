@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      class="h-screen bg-[url('../assets/images/Are-you_18_bg.png')] text-PaleOrange px-1 flex flex-col items-center justify-center"
+      class="h-[100vh] bg-[url('../assets/images/Are-you_18_bg.png')] text-PaleOrange px-1 flex flex-col items-center justify-center"
     >
       <div class="">
         <img src="../assets/images/logg.svg" alt="" class="w-64" />

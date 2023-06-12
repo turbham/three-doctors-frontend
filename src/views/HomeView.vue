@@ -1,7 +1,7 @@
 <template>
   <div v-if="isLoading">
     <div
-      class="bg-[url('../assets/images/Are-you_18_bg.png')] bg-cover bg-no-repeat flex flex-row justify-center items-center h-screen"
+      class="bg-[url('../assets/images/Are-you_18_bg.png')] bg-cover bg-no-repeat flex flex-row justify-center items-center h-[100vh]"
     >
       <img
         src="../assets/images/logg.svg"

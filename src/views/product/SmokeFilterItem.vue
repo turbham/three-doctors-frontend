@@ -18,6 +18,7 @@
       <div class="text-DarkJungleGreen">
         <p class="text-sm md:text-lg font-windsor-pro-bold">
           {{ ReduceText(product.name) }}
+          Lawal
         </p>
         <p class="font-sf-pro-display-medium text-2xl font-windsor-pro-bold">
           ${{ product.price }}

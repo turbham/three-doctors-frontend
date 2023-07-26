@@ -215,7 +215,7 @@
                   </div>
                 </div>
               </div>
-              <router-link to="/products">BLOG</router-link>
+              <router-link to="">BLOG</router-link>
             </div>
             <div v-else></div>
           </div>

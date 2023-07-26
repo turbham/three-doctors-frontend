@@ -10,20 +10,27 @@
         autoplay: true,
       },
     ]"
-    class="relative max-h-[50%] h-[60vh] sm:h-[65vh] md:h-[65vh] lg:h-[135vh]"
+    class="relative w-[100%] max-h-[50%] h-[60vh] sm:h-[65vh] md:h-[270vh] lg:h-[160vh]"
     overlay="linear-gradient(0deg,#2a4ae430,#1C1D22)"
   >
-    <div class="pt-12 md:pt-20">
-      <div class="container mx-auto space-y-16">
+    <!-- max-h-[50%] h-[60vh] sm:h-[65vh] md:h-[65vh] lg:h-[135vh] -->
+    <div
+      class="flex flex-col justify-center items-center space-y-24 absolute bottom-0 w-full"
+    >
+      <div class="container mx-auto space-y-8">
         <p class="text-white text-xl md:text-5xl mb-6 font-windsor-pro-bold">
           Filter Guideline and Recommendations
         </p>
 
         <div
-          class="border-[3px] border-DarkJungleGreen slider w-full h-[200px] lg:h-[500px]"
+          class="border-[3px] border-DarkJungleGreen slider w-full h-[300px] lg:h-[500px]"
         >
+          <!-- <img
+              src="https://lawal-akande.netlify.app/images/profilepic.jpeg"
+              alt=""
+            /> -->
           <div
-            class="flex slide"
+            class="flex slide w-full"
             v-for="(slide, index) in slides"
             :key="index"
             :class="{ active: activeIndex === index }"
@@ -45,13 +52,13 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="">
-      <img
-        src="../assets/images/3Doctors-yellow-footer-logo.svg"
-        class="w-full absolute bottom-0"
-        alt=""
-      />
+      <div class="w-full">
+        <img
+          src="../assets/images/3Doctors-yellow-footer-logo.svg"
+          class="w-full"
+          alt=""
+        />
+      </div>
     </div>
   </VideoBackground>
 </template>
